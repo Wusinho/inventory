@@ -1,0 +1,6 @@
+<div id="<%= dom_id product %>">
+  <%= turbo_frame_tag 'edit_product' do %>
+    <%= product.name %>
+    <%= link_to 'edit', edit_product_path(product.id) %>
+  <% end %>
+</div>

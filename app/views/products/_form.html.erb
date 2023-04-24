@@ -1,0 +1,9 @@
+<%= form_with model: product, id: "product_form" do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+ <%= provider_select_field(current_admin) %>
+
+  <%= f.submit class: blue_btn %>
+<% end %>
