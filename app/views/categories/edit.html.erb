@@ -1,3 +1,4 @@
-<%= turbo_frame_tag 'edit_category' do %>
+<%= turbo_frame_tag "cat_edit_#{@category.id}" do %>
   <%= render 'form', category: @category %>
+  <%= link_to 'back', categories_path %>
 <% end %>

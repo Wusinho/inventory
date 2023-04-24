@@ -9,7 +9,9 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(products_params)
-      redirect_to products_path
+      render turbo_stream: turbo_stream.replace("product_#{@product.id}", partial: 'products/product', locals: { product: @product })
+    else
+      turbo_error_message(@product)
     end
   end
 
@@ -17,7 +19,12 @@ class ProductsController < ApplicationController
     @product = Product.new(products_params)
 
     if @product.save
-
+      streams = []
+      streams << turbo_stream.append('products', partial: 'products/product', locals: { product: @product })
+      streams << turbo_stream.replace('product_form', partial: 'products/form', locals: { product: Product.new })
+      render turbo_stream: streams
+    else
+      turbo_error_message(@product)
     end
 
   end

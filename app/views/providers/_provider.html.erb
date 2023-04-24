@@ -1,5 +1,5 @@
 <div id="<%= dom_id provider %>">
-  <%= turbo_frame_tag 'edit_provider' do %>
+  <%= turbo_frame_tag "prov_edit_#{provider.id}" do %>
     <%= provider.name %>
     <%= provider.phone %>
     <%= link_to 'edit', edit_provider_path(provider.id) %>

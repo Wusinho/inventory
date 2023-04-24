@@ -9,7 +9,9 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(categories_params)
-      redirect_to categories_path
+      render turbo_stream: turbo_stream.replace("category_#{@category.id}", partial: 'categories/category', locals: { category: @category })
+    else
+      turbo_error_message(@category)
     end
   end
 
@@ -17,7 +19,12 @@ class CategoriesController < ApplicationController
     @category = Category.new(categories_params)
 
     if @category.save
-
+      streams = []
+      streams << turbo_stream.append('categories', partial: 'categories/category', locals: { category: @category })
+      streams << turbo_stream.replace('category_form', partial: 'categories/form', locals: { category: Category.new })
+      render turbo_stream: streams
+    else
+      turbo_error_message(@category)
     end
 
   end

@@ -10,6 +10,8 @@ class ProvidersController < ApplicationController
   def update
     if @provider.update(providers_params)
       render turbo_stream: turbo_stream.replace("provider_#{@provider.id}", partial: 'providers/provider', locals: { provider: @provider })
+    else
+      turbo_error_message(@provider)
     end
   end
 

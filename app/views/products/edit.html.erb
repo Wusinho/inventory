@@ -1,3 +1,4 @@
 <%= turbo_frame_tag 'edit_product' do %>
   <%= render 'form', product: @product %>
+  <%= link_to 'Back', products_path %>
 <% end %>
