@@ -12,4 +12,10 @@ if Rails.env.development?
                password: '123456',
                password_confirmation: '123456',
                name: 'user', last_name: 'last_user')
+  provider = Provider.create(name: 'Proveedor A',
+                  phone: '980687288'
+                  )
+  product = Product.create(name: 'Kit Limpiador PC', provider_id: provider.id)
+  Price.create(product_id: product.id, price: 5.40, quantity: 5)
+
 end
