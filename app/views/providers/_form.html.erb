@@ -1,0 +1,13 @@
+<%= form_with model: provider, id: "provider_form" do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </div>
+
+  <%= f.submit class: blue_btn %>
+<% end %>
