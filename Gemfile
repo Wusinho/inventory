@@ -78,3 +78,4 @@ end
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'bootstrap', '~> 5.1.3'
+gem "font-awesome-sass", "~> 6.3.0"

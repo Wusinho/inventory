@@ -1,0 +1,6 @@
+<div>
+  <%= turbo_frame_tag 'edit_category' do %>
+    <%= category.name %>
+    <%= link_to 'edit', edit_category_path(category.id) %>
+  <% end %>
+</div>
