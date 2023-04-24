@@ -9,15 +9,20 @@ class ProvidersController < ApplicationController
 
   def update
     if @provider.update(providers_params)
-      redirect_to providers_path
+      render turbo_stream: turbo_stream.replace("provider_#{@provider.id}", partial: 'providers/provider', locals: { provider: @provider })
     end
   end
 
   def create
-    @provider = provider.new(providers_params)
+    @provider = Provider.new(providers_params)
 
     if @provider.save
-
+      streams = []
+      streams << turbo_stream.append('providers', partial: 'providers/provider', locals: { provider: @provider })
+      streams << turbo_stream.replace('provider_form', partial: 'providers/form', locals: { provider: Provider.new })
+      render turbo_stream: streams
+    else
+      turbo_error_message(@provider)
     end
 
   end
@@ -29,6 +34,6 @@ class ProvidersController < ApplicationController
   end
 
   def providers_params
-    params.require(:provider).permit(:name)
+    params.require(:provider).permit(:name, :phone)
   end
 end
