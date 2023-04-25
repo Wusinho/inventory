@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_213831) do
     t.uuid "product_id", null: false
     t.float "price", null: false
     t.integer "quantity", null: false
+    t.boolean "sold_out", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_prices_on_product_id"
