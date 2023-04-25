@@ -1,9 +1,13 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:edit, :update]
+  before_action :set_product, only: [:edit, :update, :show]
   def index
     @product = Product.new
     @product.prices.build
     @products = Product.all
+  end
+
+  def show
+    @prices = @product.prices
   end
 
   def edit;end
@@ -22,10 +26,7 @@ class ProductsController < ApplicationController
     if @product.save
       @new_product =  Product.new
       @new_product.prices.build
-      streams = []
-      streams << turbo_stream.append('products', partial: 'products/product', locals: { product: @product })
-      streams << turbo_stream.replace('product_form', partial: 'products/form', locals: { product: @new_product })
-      render turbo_stream: streams
+      render turbo_stream: turbo_stream.replace('product_form', partial: 'products/form', locals: { product: @new_product })
     else
       turbo_error_message(@product)
     end
