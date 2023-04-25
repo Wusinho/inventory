@@ -12,13 +12,21 @@ if Rails.env.development?
                password: '123456',
                password_confirmation: '123456',
                name: Faker::Name.first_name , last_name: Faker::Name.middle_name  )
-  provider = Provider.create(name: Faker::Company.name,
-                             phone: Faker::PhoneNumber.cell_phone,
-                             address: Faker::Address.full_address,
-                             contact: Faker::Name.name,
+  5.times do
+    Provider.create(name: Faker::Company.name,
+                    phone: Faker::PhoneNumber.cell_phone,
+                    address: Faker::Address.full_address,
+                    contact: Faker::Name.name,
+                    )
+  end
+  Provider.all.each do |provider|
+    [2,3,5].sample.times do
+      product =Product.create(name: Faker::Commerce.product_name, provider_id: provider.id, description: Faker::Lorem.paragraph)
+      [1,3,5].sample.times {  Price.create(product_id: product.id, price: Faker::Commerce.price, quantity: [2,4,5].sample) }
+    end
+  end
 
-                             )
-  product = Product.create(name: 'Kit Limpiador PC', provider_id: provider.id, description: Faker::Lorem.paragraph)
-  Price.create(product_id: product.id, price: [2,4,6].sample + rand, quantity: [2,4,5].sample)
+
+
 
 end

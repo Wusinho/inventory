@@ -1,7 +1,10 @@
-<div class="providers_container">
-  <%= render 'providers/form', provider: @provider %>
-
-  <div id="providers">
-    <%= render @providers %>
+<div class="providers_container px-2">
+  <div class="row">
+    <div class="col-4">
+      <%= render 'providers/form', provider: @provider %>
+    </div>
+    <div id="providers" class="col-8" >
+      <%= render @providers %>
+    </div>
   </div>
 </div>
