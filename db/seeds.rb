@@ -11,11 +11,14 @@ if Rails.env.development?
   Admin.create(email: 'user_0@gmail.com',
                password: '123456',
                password_confirmation: '123456',
-               name: 'user', last_name: 'last_user')
-  provider = Provider.create(name: 'Proveedor A',
-                  phone: '980687288'
-                  )
-  product = Product.create(name: 'Kit Limpiador PC', provider_id: provider.id)
-  Price.create(product_id: product.id, price: 5.40, quantity: 5)
+               name: Faker::Name.first_name , last_name: Faker::Name.middle_name  )
+  provider = Provider.create(name: Faker::Company.name,
+                             phone: Faker::PhoneNumber.cell_phone,
+                             address: Faker::Address.full_address,
+                             contact: Faker::Name.name,
+
+                             )
+  product = Product.create(name: 'Kit Limpiador PC', provider_id: provider.id, description: Faker::Lorem.paragraph)
+  Price.create(product_id: product.id, price: [2,4,6].sample + rand, quantity: [2,4,5].sample)
 
 end
