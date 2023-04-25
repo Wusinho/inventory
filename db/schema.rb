@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_24_213831) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_25_050810) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -64,6 +64,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_213831) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "selling_prices", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "price_id", null: false
+    t.float "price", null: false
+    t.integer "quantity", null: false
+    t.float "special_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["price_id"], name: "index_selling_prices_on_price_id"
+  end
+
   add_foreign_key "prices", "products"
   add_foreign_key "products", "providers"
+  add_foreign_key "selling_prices", "prices"
 end
