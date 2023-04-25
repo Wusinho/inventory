@@ -5,7 +5,8 @@ class CostsController < ApplicationController
   def edit;end
 
   def update
-    if @cost.update(selling_costs_params)
+    if @cost.update(costs_params)
+      redirect_to products_path
       # render turbo_stream: turbo_stream.replace("selling_costs_#{@costs.id}", partial: 'selling_costs/sell_cost', locals: { provider: @costs })
     else
       turbo_error_message(@cost)
@@ -19,7 +20,7 @@ class CostsController < ApplicationController
   end
 
   def selling_costs_params
-    params.require(:cost).permit(selling_costs_attributes: [:id, :cost, :quantity, :special_cost, :_destroy])
+    params.require(:cost).permit(selling_prices_attributes: [:id, :cost, :quantity, :special_cost, :_destroy])
   end
 
   def costs_params
