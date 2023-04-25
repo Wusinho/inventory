@@ -1,0 +1,13 @@
+<%= f.fields_for :prices do |prices_form| %>
+  <h4>Price</h4>
+
+  <div>
+    <%= prices_form.label :price %>
+    <%= prices_form.number_field :price, min: 0 %>
+  </div>
+
+  <div>
+    <%= prices_form.label :quantity %>
+    <%= prices_form.number_field :quantity, min: 1 %>
+  </div>
+<% end %>

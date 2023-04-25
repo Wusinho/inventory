@@ -11,5 +11,6 @@
  <div>
   <%= select("product", "provider_id", current_admin.providers_select, selected: product.provider_id || '') %>
  </div>
+  <%= add_nested_price(product, f) %>
   <%= f.submit class: blue_btn %>
 <% end %>

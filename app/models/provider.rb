@@ -1,4 +1,5 @@
 class Provider < ApplicationRecord
-  validates_presence_of :phone, :name
   has_many :products
+
+  validates_presence_of :phone, :name
 end
