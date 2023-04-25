@@ -1,4 +1,5 @@
 class ProvidersController < ApplicationController
+  before_action :authenticate_admin!
   before_action :set_provider, only: [:edit, :update]
   def index
     @provider = Provider.new
