@@ -1,27 +1,27 @@
 <%= form_with model: provider, id: "provider_form" do |f| %>
   <div class="mb-3">
-    <%= f.label :name, class: "form-label" %>
-    <%= f.text_field :name, class:"form-control" %>
+    <%= f.label :name, class: form_label %>
+    <%= f.text_field :name, class:form_control %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :address, class: "form-label" %>
-    <%= f.text_area :address, class:"form-control" %>
+    <%= f.label :address, class: form_label %>
+    <%= f.text_area :address, class:form_control %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :contact, class: "form-label" %>
-    <%= f.text_field :contact, class:"form-control" %>
+    <%= f.label :contact, class: form_label %>
+    <%= f.text_field :contact, class:form_control %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :bank_number, class: "form-label" %>
-    <%= f.text_field :bank_number, class:"form-control" %>
+    <%= f.label :bank_number, class: form_label %>
+    <%= f.text_field :bank_number, class:form_control %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :phone, class: "form-label" %>
-    <%= f.text_field :phone, class:"form-control" %>
+    <%= f.label :phone, class: form_label %>
+    <%= f.text_field :phone, class:form_control %>
   </div>
 
   <%= f.submit class: blue_btn %>

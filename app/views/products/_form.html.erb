@@ -1,15 +1,16 @@
 <%= form_with model: product, id: "product_form" do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="mb-3">
+    <%= f.label :name, class: form_label %>
+    <%= f.text_field :name, class: form_control %>
   </div>
 
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+  <div class="mb-3">
+    <%= f.label :description, class: form_label %>
+    <%= f.text_area :description, class: form_control %>
   </div>
- <div>
-  <%= select("product", "provider_id", current_admin.providers_select, selected: product.provider_id || '') %>
+
+ <div class="mb-3">
+   <%= f.select :provider_id, options_for_select(current_admin.providers_select, selected: product.provider_id), { include_blank: false }, { class: 'form-select' } %>
  </div>
   <%= add_nested_price(product, f) %>
   <%= f.submit class: blue_btn %>

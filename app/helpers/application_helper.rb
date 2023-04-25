@@ -34,4 +34,13 @@ module ApplicationHelper
   def f_control
     'form-control'
   end
+
+  def form_label
+    "form-label"
+  end
+
+  def form_control
+    'form-control'
+  end
+
 end
