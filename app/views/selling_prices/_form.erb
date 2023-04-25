@@ -1,0 +1,14 @@
+<div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
+  <div>
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div>
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity %>
+  </div>
+  <button type="button" data-action="nested-form#remove" class="btn btn-danger">Remove todo</button>
+
+  <%= f.hidden_field :_destroy %>
+</div>

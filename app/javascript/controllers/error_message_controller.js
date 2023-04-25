@@ -3,7 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="error-message"
 export default class extends Controller {
   connect() {
-    console.log('hello error')
   }
 
   close_error_message(e){

@@ -1,0 +1,18 @@
+<%= form_with model: cost, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
+  <template data-nested-form-target="template">
+    <%= f.fields_for :selling_prices, SellingPrice.new, child_index: 'NEW_RECORD' do |selling_fields| %>
+      <%= render "selling_prices/form", f: selling_fields %>
+    <% end %>
+  </template>
+
+  <%#= f.fields_for :selling_prices do |todo_fields| %>
+    <%#= render "selling_prices/form", f: todo_fields %>
+  <%# end %>
+
+  <!-- Inserted elements will be injected before that target. -->
+  <div data-nested-form-target="target"></div>
+
+  <button type="button" data-action="nested-form#add" class="btn btn-primary">Add SellingPrice</button>
+
+  <%= f.submit 'Save', class: green_btn %>
+<% end %>

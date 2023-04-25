@@ -10,5 +10,12 @@
     <% end %>
   </div>
 <div class="mt-4">
-  <%= render @prices %>
+  <% @costs.each do |cost| %>
+    <div>
+      <%= render 'costs/cost', cost: cost %>
+    </div>
+    <div>
+      <%= render 'form_selling_prices', cost: cost %>
+    </div>
+  <% end %>
 </div>

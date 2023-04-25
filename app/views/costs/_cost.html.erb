@@ -1,0 +1,13 @@
+<div class="d-inline-block">
+  <div class="card" id="<%= dom_id cost %>" style="width: 18rem;">
+    <%= turbo_frame_tag "cost_edit_#{cost.id}" do %>
+      <div class="card-body">
+        <p class="card-text"><%= format_date(cost.created_at) %></p>
+        <p class="card-text"><%= cost.price %></p>
+        <p class="card-text"><%= cost.quantity %></p>
+<!--        <p class="card-text"><%#= provider.bank_number %></p>-->
+        <%#= link_to 'edit', edit_provider_path(provider.id), class: 'card-link' %>
+      </div>
+    <% end %>
+  </div>
+</div>

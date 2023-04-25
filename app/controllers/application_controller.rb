@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
                                               locals: { message: instance.errors.full_messages.to_sentence })
   end
 
+  def active_record_error_message(message)
+    render turbo_stream: turbo_stream.replace('error_message', partial: 'shared/error_message',
+                                              locals: { message: message})
+  end
+
   protected
 
   def configure_permitted_parameters

@@ -3,12 +3,12 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :show]
   def index
     @product = Product.new
-    @product.prices.build
+    @product.costs.build
     @products = Product.all
   end
 
   def show
-    @prices = @product.prices
+    @costs = @product.costs
   end
 
   def edit;end
@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
 
     if @product.save
       @new_product =  Product.new
-      @new_product.prices.build
+      @new_product.costs.build
       render turbo_stream: turbo_stream.replace('product_form', partial: 'products/form', locals: { product: @new_product })
     else
       turbo_error_message(@product)

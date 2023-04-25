@@ -1,3 +1,3 @@
 class SellingPrice < ApplicationRecord
-  belongs_to :price
+  belongs_to :cost
 end
