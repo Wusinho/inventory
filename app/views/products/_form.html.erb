@@ -3,7 +3,13 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
- <%= provider_select_field(current_admin) %>
 
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+ <div>
+  <%= select("product", "provider_id", current_admin.providers_select, selected: product.provider_id || '') %>
+ </div>
   <%= f.submit class: blue_btn %>
 <% end %>

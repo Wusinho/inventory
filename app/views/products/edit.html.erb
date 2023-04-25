@@ -1,4 +1,4 @@
-<%= turbo_frame_tag 'edit_product' do %>
+<%= turbo_frame_tag "edit_product_#{@product.id}" do %>
   <%= render 'form', product: @product %>
   <%= link_to 'Back', products_path %>
 <% end %>
