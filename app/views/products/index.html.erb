@@ -1,7 +1,11 @@
-<div class="products_container">
-  <%= render 'products/form', product: @product %>
-<div id="products">
-  <%= render @products %>
-</div>
+<div class="products_container px-2">
+  <div class="row">
+    <div class="col-4">
+      <%= render 'products/form', product: @product %>
+    </div>
+    <div id="products" class="col-8">
+      <%= render @products %>
+    </div>
+  </div>
 </div>
 
