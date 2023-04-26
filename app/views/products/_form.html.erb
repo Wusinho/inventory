@@ -12,6 +12,6 @@
  <div class="mb-3">
    <%= f.select :provider_id, options_for_select(current_admin.providers_select, selected: product.provider_id), { include_blank: false }, { class: 'form-select' } %>
  </div>
-  <%= add_nested_price(product, f) %>
+  <%= nested_inventory_purchases(product, f) %>
   <%= f.submit class: blue_btn %>
 <% end %>

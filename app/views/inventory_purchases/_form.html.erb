@@ -1,16 +1,16 @@
-<%= f.fields_for :costs do |prices_form| %>
+<%= f.fields_for :inventory_purchases do |prices_form| %>
 
   <div class="mb-3">
-    <%= prices_form.label :price, class: form_label %>
-    <%= prices_form.number_field :price, min: 0, class: form_control %>
+    <%= prices_form.label :purchase_price, class: form_label %>
+    <%= prices_form.number_field :purchase_price, min: 0, step: 0.5, class: form_control %>
   </div>
 
-  <div>
-    <%= prices_form.label :quantity, class: form_label %>
-    <%= prices_form.number_field :quantity, min: 1, class: form_control %>
+  <div class="mb-3">
+    <%= prices_form.label :stock_quantity, class: form_label %>
+    <%= prices_form.number_field :stock_quantity, min: 1, class: form_control %>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= prices_form.label :selling_price, class: form_label %>
     <%= prices_form.number_field :selling_price, min: 1, step: 0.5, class: form_control %>
   </div>

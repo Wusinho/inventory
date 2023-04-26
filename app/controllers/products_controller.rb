@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
 
     if @product.save
       @new_product =  Product.new
-      @new_product.costs.build
+      @new_product.inventory_purchases.build
       render turbo_stream: turbo_stream.replace('product_form', partial: 'products/form', locals: { product: @new_product })
     else
       turbo_error_message(@product)

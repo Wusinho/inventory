@@ -1,6 +1,6 @@
 module ProductsHelper
 
-  def add_nested_price(product, f)
+  def nested_inventory_purchases(product, f)
     return if product.persisted?
 
     render 'inventory_purchases/form', f: f
