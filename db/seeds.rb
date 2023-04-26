@@ -20,7 +20,7 @@ if Rails.env.development?
                     )
   end
   Provider.all.each do |provider|
-    [2,3,5].sample.times do
+    2.times do
       product =Product.create(name: Faker::Commerce.product_name,
                               provider_id: provider.id,
                               description: Faker::Lorem.paragraph,)
