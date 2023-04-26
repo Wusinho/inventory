@@ -8,6 +8,9 @@
     <%= f.label :description, class: form_label %>
     <%= f.text_area :description, class: form_control %>
   </div>
+  <div class="mb-3">
+    <%= f.collection_select(:tag_list, Category.all, :name, :name, { include_blank: true }, { multiple: true, class: 'form-select', id: 'validationTagsThreshold', data: { allow_clear: true, suggestions_threshold: 0 } }) %>
+  </div>
 
  <div class="mb-3">
    <%= f.select :provider_id, options_for_select(current_admin.providers_select, selected: product.provider_id), { include_blank: false }, { class: 'form-select' } %>
