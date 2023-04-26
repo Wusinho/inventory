@@ -25,10 +25,10 @@ if Rails.env.development?
                               provider_id: provider.id,
                               description: Faker::Lorem.paragraph,)
       price = Faker::Commerce.price
-      Cost.create(product_id: product.id,
-                  price: price,
-                  quantity: [2,4,5].sample,
-                  selling_price: price + 5)
+      InventoryPurchase.create(product_id: product.id,
+                               purchase_price: price,
+                               stock_quantity: [2,4,5].sample,
+                               selling_price: price + 5)
     end
   end
 

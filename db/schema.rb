@@ -35,15 +35,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_050810) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "costs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.integer "quantity", null: false
-    t.float "price", null: false
+  create_table "inventory_purchases", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "stock_quantity", null: false
+    t.float "purchase_price", null: false
+    t.string "sold_out", default: "f"
     t.float "selling_price", null: false
-    t.boolean "sold_out", default: false
     t.uuid "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_costs_on_product_id"
+    t.index ["product_id"], name: "index_inventory_purchases_on_product_id"
   end
 
   create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -66,16 +66,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_050810) do
   end
 
   create_table "selling_prices", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "cost_id", null: false
+    t.uuid "inventory_purchase_id", null: false
     t.float "price", null: false
     t.integer "quantity", null: false
     t.boolean "special_price", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cost_id"], name: "index_selling_prices_on_cost_id"
+    t.index ["inventory_purchase_id"], name: "index_selling_prices_on_inventory_purchase_id"
   end
 
-  add_foreign_key "costs", "products"
+  add_foreign_key "inventory_purchases", "products"
   add_foreign_key "products", "providers"
-  add_foreign_key "selling_prices", "costs"
+  add_foreign_key "selling_prices", "inventory_purchases"
 end

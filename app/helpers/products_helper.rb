@@ -3,6 +3,6 @@ module ProductsHelper
   def add_nested_price(product, f)
     return if product.persisted?
 
-    render 'costs/form', f: f
+    render 'inventory_purchases/form', f: f
   end
 end

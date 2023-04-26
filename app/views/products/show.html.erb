@@ -10,12 +10,12 @@
       <% end %>
     </div>
   <div class="mt-4 row ">
-    <% @costs.each do |cost| %>
+    <% @inventory_purchases.each do |inventory_purchase| %>
       <div class="col-2">
-        <%= render 'costs/cost', cost: cost %>
+        <%= render 'inventory_purchases/inventory_purchase', inventory_purchase: inventory_purchase %>
       </div>
       <div class="col-10 overflow-auto">
-        <%= render 'form_selling_prices', cost: cost %>
+        <%= render 'form_selling_prices', inventory_purchase: inventory_purchase %>
       </div>
     <% end %>
   </div>

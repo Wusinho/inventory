@@ -3,12 +3,12 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :show]
   def index
     @product = Product.new
-    @product.costs.build
+    @product.inventory_purchases.build
     @products = Product.all
   end
 
   def show
-    @costs = @product.costs
+    @inventory_purchases = @product.inventory_purchases
   end
 
   def edit;end

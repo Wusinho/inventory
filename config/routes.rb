@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :costs
+  resources :inventory_purchases
   resources :providers
   resources :products
   resources :categories
