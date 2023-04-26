@@ -1,5 +1,7 @@
 class SellingPrice < ApplicationRecord
   belongs_to :inventory_purchase
+  validates :price, presence: true, numericality: { greater_than: 0 }
+  validates :quantity, presence: true, numericality: { greater_than: 0 }
   validate :stock_quantity
   after_create :reduce_existences
 
