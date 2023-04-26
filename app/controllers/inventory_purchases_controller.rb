@@ -6,8 +6,7 @@ class InventoryPurchasesController < ApplicationController
 
   def update
     if @inventory_purchase.update(inventory_purchases_params)
-      redirect_to products_path
-      # render turbo_stream: turbo_stream.replace("selling_inventory_purchases_#{@inventory_purchases.id}", partial: 'selling_inventory_purchases/sell_cost', locals: { provider: @inventory_purchases })
+      redirect_to product_path(@inventory_purchase.product_id)
     else
       turbo_error_message(@inventory_purchase)
     end
