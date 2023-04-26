@@ -1,5 +1,5 @@
 <div class="d-inline-block">
-  <div class="card" id="<%= dom_id inventory_purchase %>" >
+  <div class="<%= stock_sold_out?(inventory_purchase.sold_out) %>" id="<%= dom_id inventory_purchase %>" >
     <%= turbo_frame_tag "inventory_purchase_edit_#{inventory_purchase.id}" do %>
       <div class="card-body">
         <p class="card-text">Buying date: <%= format_date(inventory_purchase.created_at) %></p>

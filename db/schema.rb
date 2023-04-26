@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_050810) do
   create_table "inventory_purchases", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "stock_quantity", null: false
     t.float "purchase_price", null: false
-    t.string "sold_out", default: "f"
+    t.boolean "sold_out", default: false
     t.float "selling_price", null: false
     t.uuid "product_id", null: false
     t.datetime "created_at", null: false
