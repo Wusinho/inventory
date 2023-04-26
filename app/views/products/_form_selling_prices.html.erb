@@ -6,7 +6,7 @@
   </template>
 
   <%= f.fields_for :selling_prices do |selling_fields| %>
-    <%= render "selling_prices/form", f: selling_fields %>
+    <%= render "selling_prices/card", f: selling_fields %>
   <% end %>
 
   <!-- Inserted elements will be injected before that target. -->

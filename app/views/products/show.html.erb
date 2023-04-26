@@ -1,21 +1,21 @@
-  <div class="card" id="<%= dom_id @product %>" style="width: 18rem;">
-    <div class="card-body">
+    <div class="card" id="<%= dom_id @product %>" style="width: 18rem;">
+      <div class="card-body">
+      </div>
+      <%= turbo_frame_tag "edit_product_#{@product.id}" do %>
+      <div class="card-body">
+        <h5 class="card-title"><%= @product.name %></h5>
+        <p class="card-text"><%= @product.description %></p>
+        <%= link_to 'edit', edit_product_path(@product.id), class: 'card-link' %>
+      </div>
+      <% end %>
     </div>
-    <%= turbo_frame_tag "edit_product_#{@product.id}" do %>
-    <div class="card-body">
-      <h5 class="card-title"><%= @product.name %></h5>
-      <p class="card-text"><%= @product.description %></p>
-      <%= link_to 'edit', edit_product_path(@product.id), class: 'card-link' %>
-    </div>
+  <div class="mt-4 row ">
+    <% @costs.each do |cost| %>
+      <div class="col-2">
+        <%= render 'costs/cost', cost: cost %>
+      </div>
+      <div class="col-10 overflow-auto">
+        <%= render 'form_selling_prices', cost: cost %>
+      </div>
     <% end %>
   </div>
-<div class="mt-4">
-  <% @costs.each do |cost| %>
-    <div>
-      <%= render 'costs/cost', cost: cost %>
-    </div>
-    <div>
-      <%= render 'form_selling_prices', cost: cost %>
-    </div>
-  <% end %>
-</div>
