@@ -3,6 +3,8 @@
     <%= f.fields_for :selling_prices, SellingPrice.new, child_index: 'NEW_RECORD' do |selling_fields| %>
       <%= render "selling_prices/form", f: selling_fields %>
     <% end %>
+    <%= f.submit 'Save', class: green_btn %>
+
   </template>
 
   <%= f.fields_for :selling_prices do |selling_fields| %>
@@ -13,6 +15,4 @@
   <div data-nested-form-target="target"></div>
 
   <button type="button" data-action="nested-form#add" class="btn btn-primary">Add SellingPrice</button>
-
-  <%= f.submit 'Save', class: green_btn %>
 <% end %>

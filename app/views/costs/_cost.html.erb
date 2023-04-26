@@ -6,6 +6,9 @@
         <p class="card-text">Product Cost:
           <%= number_to_currency( cost.price, unit: "S/.", separator: ".", delimiter: ",")%>
           </p>
+        <p class="card-text">Selling Price:
+          <%= number_to_currency( cost.selling_price, unit: "S/.", separator: ".", delimiter: ",")%>
+        </p>
         <p class="card-text">Quantity: <%= cost.quantity %></p>
       </div>
     <% end %>

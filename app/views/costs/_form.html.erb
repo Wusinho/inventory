@@ -9,4 +9,9 @@
     <%= prices_form.label :quantity, class: form_label %>
     <%= prices_form.number_field :quantity, min: 1, class: form_control %>
   </div>
+
+  <div>
+    <%= prices_form.label :selling_price, class: form_label %>
+    <%= prices_form.number_field :selling_price, min: 1, step: 0.5, class: form_control %>
+  </div>
 <% end %>

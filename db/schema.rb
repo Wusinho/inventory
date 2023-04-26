@@ -38,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_050810) do
   create_table "costs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "quantity", null: false
     t.float "price", null: false
+    t.float "selling_price", null: false
     t.boolean "sold_out", default: false
     t.uuid "product_id", null: false
     t.datetime "created_at", null: false
@@ -66,9 +67,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_050810) do
 
   create_table "selling_prices", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "cost_id", null: false
-    t.decimal "price", null: false
+    t.float "price", null: false
     t.integer "quantity", null: false
-    t.string "special_price"
+    t.boolean "special_price", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cost_id"], name: "index_selling_prices_on_cost_id"

@@ -21,8 +21,14 @@ if Rails.env.development?
   end
   Provider.all.each do |provider|
     [2,3,5].sample.times do
-      product =Product.create(name: Faker::Commerce.product_name, provider_id: provider.id, description: Faker::Lorem.paragraph)
-      Cost.create(product_id: product.id, price: Faker::Commerce.price, quantity: [2,4,5].sample)
+      product =Product.create(name: Faker::Commerce.product_name,
+                              provider_id: provider.id,
+                              description: Faker::Lorem.paragraph,)
+      price = Faker::Commerce.price
+      Cost.create(product_id: product.id,
+                  price: price,
+                  quantity: [2,4,5].sample,
+                  selling_price: price + 5)
     end
   end
 
