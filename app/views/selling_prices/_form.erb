@@ -9,7 +9,8 @@
       <%= f.label :quantity %>
       <%= f.number_field :quantity, min: 1, class: "form-control" %>
     </div>
-      <button type="button" data-action="nested-form#remove" class="btn btn-danger">Remove todo</button>
+      <button type="button" data-action="nested-form#remove" class="btn btn-danger">Remove Selling Price</button>
       <%= f.hidden_field :_destroy %>
   </div>
+  <%= f_parent.submit 'Save', class: green_btn %>
 </div>

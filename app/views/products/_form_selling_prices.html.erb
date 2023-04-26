@@ -1,9 +1,8 @@
 <%= form_with model: cost, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
   <template data-nested-form-target="template">
     <%= f.fields_for :selling_prices, SellingPrice.new, child_index: 'NEW_RECORD' do |selling_fields| %>
-      <%= render "selling_prices/form", f: selling_fields %>
+      <%= render "selling_prices/form", f: selling_fields, f_parent: f %>
     <% end %>
-    <%= f.submit 'Save', class: green_btn %>
 
   </template>
 
