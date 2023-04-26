@@ -24,6 +24,6 @@ class CostsController < ApplicationController
   end
 
   def costs_params
-    params.require(:cost).permit(:product_id, :quantity, :price, :sold_out, selling_prices_attributes: [:cost_id, :price, :quantity, :special_price, :_destroy])
+    params.require(:cost).permit(:product_id, :quantity, :price, :sold_out, selling_prices_attributes: [:id, :price, :quantity, :special_price, :_destroy])
   end
 end
