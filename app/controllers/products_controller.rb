@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   def index
     @product = Product.new
     @product.inventory_purchases.build
-    @products = Product.all
+    @products = Product.preload(:tags)
   end
 
   def show
@@ -41,6 +41,7 @@ class ProductsController < ApplicationController
   end
 
   def products_params
-    params.require(:product).permit(:name, :description, :provider_id, tag_list: [], prices_attributes: [:price, :quantity])
+    params.require(:product).permit(:name, :description, :provider_id, tag_list: [],
+                                    inventory_purchases_attributes: [:purchase_price, :stock_quantity, :selling_price])
   end
 end
