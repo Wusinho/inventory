@@ -1,7 +1,7 @@
 <%= form_with model: category, id: "category_form" do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="mb-3">
+    <%= f.label :name, class: form_label %>
+    <%= f.text_field :name, class: form_control %>
   </div>
 
   <%= f.submit class: blue_btn %>
