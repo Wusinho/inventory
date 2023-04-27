@@ -5,8 +5,8 @@
     </div>
       <div class="card-body">
         <p class="card-text"><%= product.description %></p>
-        <% product.tags.each do |tag| %>
-          <span class="badge rounded-pill bg-info text-dark"><%= tag.name %></span>
+        <% product.tag_list.each do |tag| %>
+          <span class="badge rounded-pill bg-info text-dark"><%= tag %></span>
         <% end %>
       </div>
   </div>
