@@ -9,7 +9,8 @@
     <%= f.text_area :description, class: form_control %>
   </div>
   <div class="mb-3">
-    <%= f.collection_select(:tag_list, Category.all, :name, :name, { include_blank: true }, { multiple: true, class: 'form-select', id: 'validationTagsThreshold', data: { allow_clear: true, suggestions_threshold: 0 } }) %>
+    <%= f.label :select_category %>
+    <%= f.collection_select(:tag_list, Category.all, :name, :name, { include_blank: true }, { multiple: true, class: 'form-select', id: 'validationTagsThreshold', data: { controller: 'tag-select', allow_clear: true, suggestions_threshold: 0 } }) %>
   </div>
 
  <div class="mb-3">
