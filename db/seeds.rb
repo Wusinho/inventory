@@ -5,7 +5,62 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
+product_categories = [
+  "ropa",
+  "calzado",
+  "tecnología",
+  "hogar",
+  "jardín",
+  "belleza",
+  "cuidado personal",
+  "alimentos",
+  "bebidas",
+  "deportes",
+  "fitness",
+  "juguetes",
+  "entretenimiento",
+  "viajes",
+  "turismo",
+  "automóviles",
+  "motocicletas",
+  "mascotas",
+  "salud",
+  "oficina",
+  "manualidades",
+  "bebés",
+  "niños",
+  "libros",
+  "revistas",
+  "cuidado del hogar",
+  "muebles",
+  "decoración",
+  "joyería",
+  "relojes",
+  "equipamiento deportivo",
+  "instrumentos musicales",
+  "oroductos exteriores",
+  "camping",
+  "herramientas",
+  "mejoras hogar",
+  "fiestas",
+  "eventos",
+  "limpieza",
+  "equipamiento",
+  "viajes",
+  "vacaciones",
+  "cocina",
+  "papelería",
+  "construcción",
+  "barba",
+  "cuidado facial",
+  "cabello",
+  "dental",
+  "piel",
+  "maquillaje",
+  "suplementos",
+  "aromaterapia"
+]
+product_categories.each { |cat_name| Category.create(name: cat_name)}
 
 if Rails.env.development?
   Admin.create(email: 'user_0@gmail.com',
@@ -21,9 +76,12 @@ if Rails.env.development?
   end
   Provider.all.each do |provider|
     2.times do
+      random_sample = [1,2,3].sample
       product =Product.create(name: Faker::Commerce.product_name,
                               provider_id: provider.id,
-                              description: Faker::Lorem.paragraph,)
+                              description: Faker::Lorem.paragraph,
+                              tag_list: product_categories.sample(random_sample)
+                              )
       price = Faker::Commerce.price
       InventoryPurchase.create(product_id: product.id,
                                purchase_price: price,
