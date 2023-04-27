@@ -1,9 +1,9 @@
 <div class="products_container">
   <div class="row">
-    <div class="col-4">
+    <div class="col-3">
       <%= render 'products/form', product: @product %>
     </div>
-    <div id="products" class="col-8">
+    <div id="products" class="col-9">
       <%= turbo_stream_from 'products' %>
       <%= render @products %>
     </div>
