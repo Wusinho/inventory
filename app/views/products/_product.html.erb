@@ -3,14 +3,11 @@
     <div class="card-body">
       <h5 class="card-title"><%= link_to product.name, product_path(product.id) %></h5>
     </div>
-    <%#= turbo_frame_tag "edit_product_#{product.id}" do %>
       <div class="card-body">
         <p class="card-text"><%= product.description %></p>
         <% product.tags.each do |tag| %>
           <span class="badge rounded-pill bg-info text-dark"><%= tag.name %></span>
         <% end %>
-        <%#= link_to 'edit', edit_product_path(product.id), class: 'card-link' %>
       </div>
-    <%# end %>
   </div>
 </div>

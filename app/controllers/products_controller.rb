@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   def index
     @product = Product.new
     @product.inventory_purchases.build
-    @products = Product.preload(:tags)
+    @products = Product.all
   end
 
   def show
