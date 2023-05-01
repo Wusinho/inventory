@@ -8,7 +8,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @inventory_purchases = @product.inventory_purchases
+    @inventory_purchases = @product.inventory_purchases.where.not(id: nil)
+    @inventory_purchase = @product.inventory_purchases.build
   end
 
   def edit;end
