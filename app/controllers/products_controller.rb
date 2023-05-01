@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(products_params)
-      render turbo_stream: turbo_stream.replace("product_#{@product.id}", partial: 'products/product', locals: { product: @product })
+      render turbo_stream: turbo_stream.replace("product_#{@product.id}", partial: 'products/simple_product', locals: { product: @product })
     else
       turbo_error_message(@product)
     end
