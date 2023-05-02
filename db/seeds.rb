@@ -77,16 +77,19 @@ if Rails.env.development?
   Provider.all.each do |provider|
     2.times do
       random_sample = [1,2,3].sample
-      product =Product.create(name: Faker::Commerce.product_name,
+      tag = product_categories.sample(random_sample)
+      product = Product.new(name: Faker::Commerce.product_name,
                               provider_id: provider.id,
                               description: Faker::Lorem.paragraph,
-                              tag_list: product_categories.sample(random_sample)
+                              tag_list: tag
                               )
+      if product.tag_list.present? && product.save
       price = Faker::Commerce.price
       InventoryPurchase.create(product_id: product.id,
                                purchase_price: price,
                                stock_quantity: [2,4,5].sample,
                                selling_price: price + 5)
+      end
     end
   end
 
