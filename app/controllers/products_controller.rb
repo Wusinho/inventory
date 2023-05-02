@@ -26,15 +26,23 @@ class ProductsController < ApplicationController
     @product = Product.new(products_params)
 
     if @product.save
-      @new_product =  Product.new
-      @new_product.inventory_purchases.build
-      render turbo_stream: turbo_stream.replace('product_form', partial: 'products/form', locals: { product: @new_product })
+      streams = []
+      create_new_product
+      streams << turbo_stream.replace('product_form', partial: 'products/form', locals: { product: @new_product })
+      streams << turbo_stream.prepend('products', partial: 'products/product', locals: { product: @product })
+      render turbo_stream: streams
     else
       turbo_error_message(@product)
     end
 
   end
 
+  private
+
+  def create_new_product
+    @new_product =  Product.new
+    @new_product.inventory_purchases.build
+  end
 
 
   def set_product
