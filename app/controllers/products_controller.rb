@@ -27,8 +27,10 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(products_params)
-
+    tags_string = params[:product][:tag_list].reject(&:empty?).join(', ')
+    @product.tag_list.add(tags_string, parse: true)
     if @product.save
+
       streams = []
       create_new_product
       streams << turbo_stream.replace('product_form', partial: 'products/form', locals: { product: @new_product })
