@@ -1,13 +1,13 @@
 <%= form_with model: inventory_purchase, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
   <template data-nested-form-target="template">
-    <%= f.fields_for :selling_prices, SellingPrice.new, child_index: 'NEW_RECORD' do |selling_fields| %>
-      <%= render "selling_prices/form", f: selling_fields, f_parent: f %>
+    <%= f.fields_for :selling_orders, SellingPrice.new, child_index: 'NEW_RECORD' do |selling_fields| %>
+      <%= render "selling_orders/form", f: selling_fields, f_parent: f %>
     <% end %>
 
   </template>
 
-  <%= f.fields_for :selling_prices do |selling_fields| %>
-    <%= render "selling_prices/card", f: selling_fields %>
+  <%= f.fields_for :selling_orders do |selling_fields| %>
+    <%= render "selling_orders/card", f: selling_fields %>
   <% end %>
 
   <!-- Inserted elements will be injected before that target. -->

@@ -33,6 +33,6 @@ class InventoryPurchasesController < ApplicationController
   end
 
   def inventory_purchases_params
-    params.require(:inventory_purchase).permit(:product_id, :stock_quantity, :purchase_price, :sold_out, :selling_price)
+    params.require(:inventory_purchase).permit(:product_id, :stock_quantity, :purchase_price, :sold_out, selling_orders_attributes: [:id, :price, :quantity, :special_cost, :_destroy])
   end
 end
