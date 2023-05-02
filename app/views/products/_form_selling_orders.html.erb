@@ -1,6 +1,6 @@
 <%= form_with model: inventory_purchase, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
   <template data-nested-form-target="template">
-    <%= f.fields_for :selling_orders, SellingPrice.new, child_index: 'NEW_RECORD' do |selling_fields| %>
+    <%= f.fields_for :selling_orders, SellingOrder.new, child_index: 'NEW_RECORD' do |selling_fields| %>
       <%= render "selling_orders/form", f: selling_fields, f_parent: f %>
     <% end %>
 
