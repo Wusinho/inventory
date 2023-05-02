@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_26_224019) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_02_011659) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -65,14 +65,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_224019) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "selling_prices", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "selling_orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "inventory_purchase_id", null: false
     t.float "price", null: false
     t.integer "quantity", null: false
     t.boolean "special_price", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["inventory_purchase_id"], name: "index_selling_prices_on_inventory_purchase_id"
+    t.index ["inventory_purchase_id"], name: "index_selling_orders_on_inventory_purchase_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -108,6 +108,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_224019) do
 
   add_foreign_key "inventory_purchases", "products"
   add_foreign_key "products", "providers"
-  add_foreign_key "selling_prices", "inventory_purchases"
+  add_foreign_key "selling_orders", "inventory_purchases"
   add_foreign_key "taggings", "tags"
 end

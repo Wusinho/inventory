@@ -4,7 +4,6 @@
       <%= render 'products/form', product: @product %>
     </div>
     <div id="products" class="col-9">
-      <%= turbo_stream_from 'products' %>
       <%= render @products %>
     </div>
   </div>

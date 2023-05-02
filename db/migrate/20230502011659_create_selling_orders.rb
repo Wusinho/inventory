@@ -1,6 +1,6 @@
-class CreateSellingPrices < ActiveRecord::Migration[7.0]
+class CreateSellingOrders < ActiveRecord::Migration[7.0]
   def change
-    create_table :selling_prices, id: :uuid do |t|
+    create_table :selling_orders, id: :uuid do |t|
       t.references :inventory_purchase, null: false, foreign_key: true, type: :uuid
       t.float :price, null: false
       t.integer :quantity, null: false
@@ -10,5 +10,3 @@ class CreateSellingPrices < ActiveRecord::Migration[7.0]
     end
   end
 end
-
-

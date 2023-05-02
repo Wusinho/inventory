@@ -5,7 +5,6 @@ class Product < ApplicationRecord
   validates_presence_of :name
   validate :tag_list_empty
   acts_as_taggable_on :tags
-  after_create_commit { broadcast_prepend_to "products" }
 
   def tag_list_empty
     return unless tag_list.blank?

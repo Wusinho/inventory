@@ -1,4 +1,4 @@
-class SellingPrice < ApplicationRecord
+class SellingOrder < ApplicationRecord
   belongs_to :inventory_purchase
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :quantity, presence: true, numericality: { greater_than: 0 }
@@ -19,5 +19,4 @@ class SellingPrice < ApplicationRecord
   def zero_stock?
     inventory_purchase.stock_quantity.zero?
   end
-
 end
