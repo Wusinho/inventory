@@ -10,10 +10,14 @@
   </div>
   <div class="mb-3">
     <%= f.label :select_category %>
-    <%= f.collection_select(:tag_list, Category.all, :name, :name, { include_blank: true }, { multiple: true, class: 'form-select', id: 'validationTagsThreshold', data: { controller: 'tag-select', allow_clear: true, suggestions_threshold: 0 } }) %>
+    <% if product.persisted? %>
+      <%= f.collection_select(:product_categories_attributes, product.all_categories, :id, :name, { include_blank: true, selected: product.product_categories.pluck(:category_id) }, { multiple: true, class: 'form-select', id: 'validationTagsThreshold', data: { controller: 'tag-select', allow_clear: true, suggestions_threshold: 0 } }) %>
+    <% else %>
+      <%= f.collection_select(:product_categories_attributes, product.all_categories, :id, :name, { include_blank: true }, { multiple: true, class: 'form-select', id: 'validationTagsThreshold', data: { controller: 'tag-select', allow_clear: true, suggestions_threshold: 0 } }) %>
+    <% end %>
   </div>
 
- <div class="mb-3">
+  <div class="mb-3">
    <%= f.select :provider_id, options_for_select(current_admin.providers_select, selected: product.provider_id), { include_blank: false }, { class: 'form-select' } %>
  </div>
   <%= nested_inventory_purchases(product, f) %>

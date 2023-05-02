@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Products', type: :request do
   let(:admin) { create(:admin) }
   let(:provider) { create(:provider)}
+  let(:categories) { create_list(:category, 10) }
 
   context 'when admin is logged in' do
     let(:product_params) do
@@ -11,7 +12,7 @@ RSpec.describe 'Products', type: :request do
           name: 'New Product',
           description: 'A new product',
           provider_id: provider.id,
-          tag_list: ['home'],
+          product_categories_attributes: categories.sample([1,2,3].sample),
           inventory_purchases_attributes: {
             '0': {
               purchase_price: 100,
