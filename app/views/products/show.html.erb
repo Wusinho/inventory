@@ -2,13 +2,6 @@
 <div id="new_purchase">
   <%= render 'inventory_purchases/simple_form', inventory_purchase: @inventory_purchase %>
 </div>
-  <div class="mt-4 row ">
-    <% @inventory_purchases.each do |inventory_purchase| %>
-      <div class="col-2" id="inventory_purchases">
-        <%= render 'inventory_purchases/inventory_purchase', inventory_purchase: inventory_purchase %>
-      </div>
-      <div class="col-10 overflow-auto">
-        <%= render 'form_selling_prices', inventory_purchase: inventory_purchase %>
-      </div>
-    <% end %>
-  </div>
+<div class="mt-4" id="inventory_purchases">
+  <%= render @inventory_purchases %>
+</div>

@@ -13,7 +13,7 @@
   <!-- Inserted elements will be injected before that target. -->
   <div data-nested-form-target="target"></div>
 
-  <% if inventory_purchase.stock? %>
+  <% if inventory_purchase.stock_left? %>
     <button type="button" data-action="nested-form#add" class="btn btn-primary">Add Sale</button>
   <% end %>
 <% end %>
