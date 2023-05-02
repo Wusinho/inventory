@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
   def edit;end
 
   def update
-    if @product.update(products_params)
+    if @product.update(products_params.merge(product_categories_params(params, true)))
       render turbo_stream: turbo_stream.replace("product_#{@product.id}", partial: 'products/simple_product', locals: { product: @product })
     else
       turbo_error_message(@product)
@@ -46,8 +46,9 @@ class ProductsController < ApplicationController
     @new_product.inventory_purchases.build
   end
 
-  def product_categories_params(params)
+  def product_categories_params(params, update = false)
     category_ids = params[:product][:product_categories_attributes].reject(&:blank?)
+    category_ids = category_ids - @product.category_ids if update
     product_categories_params = category_ids.map { |id| { category_id: id } }
     { product_categories_attributes: product_categories_params }
   end
