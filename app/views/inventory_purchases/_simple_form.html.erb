@@ -1,20 +1,24 @@
-<%= form_with model: inventory_purchase  do |f| %>
-  <div class="mb-3">
-    <%= f.label :purchase_price, class: form_label %>
-    <%= f.number_field :purchase_price, min: 0, step: 0.5, class: form_control %>
-  </div>
+<div id="inventory__purchase__container" >
+  <%= form_with model: inventory_purchase  do |f| %>
+    <div class="mb-3">
+      <%= f.label :purchase_price, class: form_label %>
+      <%= f.number_field :purchase_price, min: 0, step: 0.5, class: form_control %>
+    </div>
 
-  <div class="mb-3">
-    <%= f.label :stock_quantity, class: form_label %>
-    <%= f.number_field :stock_quantity, min: 1, class: form_control %>
-  </div>
+    <div class="mb-3">
+      <%= f.label :stock_quantity, class: form_label %>
+      <%= f.number_field :stock_quantity, min: 1, class: form_control %>
+    </div>
 
-  <div class="mb-3">
-    <%= f.label :selling_price, class: form_label %>
-    <%= f.number_field :selling_price, min: 1, step: 0.5, class: form_control %>
-  </div>
-  <%= f.hidden_field :product_id, value: f.object.product_id %>
-  <div class="mb-3">
-    <%= f.submit 'New Purchase' %>
-  </div>
-<% end %>
+    <div class="mb-3">
+      <%= f.label :selling_price, class: form_label %>
+      <%= f.number_field :selling_price, min: 1, step: 0.5, class: form_control %>
+    </div>
+    <%= f.hidden_field :product_id, value: f.object.product_id %>
+    <div class="mb-3">
+      <%= f.submit 'New Purchase', class: green_btn %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Cancel', product_path(inventory_purchase.product_id) %>

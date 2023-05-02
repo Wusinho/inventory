@@ -1,15 +1,18 @@
 class ProductsController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_product, only: [:edit, :update, :show]
+  before_action :set_product, only: [:edit, :update, :show, :new]
   def index
     @product = Product.new
     @product.inventory_purchases.build
     @products = Product.all
   end
 
-  def show
-    @inventory_purchases = @product.inventory_purchases.where.not(id: nil)
+  def new
     @inventory_purchase = @product.inventory_purchases.build
+  end
+
+  def show
+    @inventory_purchases = @product.inventory_purchases
   end
 
   def edit;end

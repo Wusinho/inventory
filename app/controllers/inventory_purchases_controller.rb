@@ -7,10 +7,9 @@ class InventoryPurchasesController < ApplicationController
   def create
     @inventory_purchase = InventoryPurchase.new(inventory_purchases_params)
     if @inventory_purchase.save
-      product_builder
       streams = []
       streams <<  turbo_stream.prepend("inventory_purchases", partial: 'inventory_purchases/inventory_purchase', locals: { inventory_purchase: @inventory_purchase })
-      streams <<  turbo_stream.replace("new_purchase", partial: 'inventory_purchases/simple_form', locals: { inventory_purchase: @new_inventory_purchase })
+      streams <<  turbo_stream.replace("new_purchase", partial: 'products/new_purchase', locals: { product: @inventory_purchase.product })
       render turbo_stream: streams
     else
       turbo_error_message(@inventory_purchase)
@@ -28,13 +27,9 @@ class InventoryPurchasesController < ApplicationController
   end
 
   private
+
   def set_inventory_purchases
     @inventory_purchase = InventoryPurchase.find(params[:id])
-  end
-
-  def product_builder
-    product = Product.find(params[:inventory_purchase][:product_id])
-    @new_inventory_purchase = product.inventory_purchases.build
   end
 
   def inventory_purchases_params

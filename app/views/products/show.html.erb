@@ -1,7 +1,5 @@
 <%= render 'simple_product', product: @product %>
-<div id="new_purchase">
-  <%= render 'inventory_purchases/simple_form', inventory_purchase: @inventory_purchase %>
-</div>
+<%= render 'products/new_purchase', product: @product %>
 <div class="mt-4" id="inventory_purchases">
   <%= render @inventory_purchases %>
 </div>
