@@ -78,23 +78,30 @@ if Rails.env.development?
     [1,2].sample.times do
       cat_ids = Category.all.sample([1,2,3].sample)
 
-      product = Product.new(name: Faker::Commerce.product_name,
+      product = Product.create(name: Faker::Commerce.product_name,
                               provider_id: provider.id,
                               description: Faker::Lorem.paragraph,
                               )
 
-      if product.save
       cat_ids.each { |cat| ProductCategory.create(product_id: product.id, category_id: cat.id ) }
-      price = Faker::Commerce.price
-      InventoryPurchase.create(product_id: product.id,
-                               purchase_price: price,
-                               stock_quantity: [2,4,5].sample,
-                               selling_price: price + 5)
-      end
+
     end
   end
 
-
-
+  Product.all.each do |product|
+    [4,6,8].sample.times {
+      price = Faker::Commerce.price
+      i = InventoryPurchase.create(product_id: product.id,
+                                   purchase_price: price,
+                                   stock_quantity: [4,5].sample,
+                                   selling_price: price * 1.2)
+      lock = [true, false].sample
+      if lock
+        SellingOrder.create(price: i.selling_price, quantity: i.stock_quantity, inventory_purchase_id: i.id )
+      else
+        2.times { SellingOrder.create(price: i.selling_price, quantity: [1,2].sample, inventory_purchase_id: i.id) }
+      end
+    }
+  end
 
 end
