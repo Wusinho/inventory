@@ -17,5 +17,6 @@
    <%= f.select :provider_id, options_for_select(current_admin.providers_select, selected: product.provider_id), { include_blank: false }, { class: 'form-select' } %>
  </div>
   <%= nested_inventory_purchases(product, f) %>
+  <%= faulty_checkbox(f, product) %>
   <%= f.submit class: blue_btn %>
 <% end %>

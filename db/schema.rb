@@ -58,6 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_175448) do
   create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "provider_id", null: false
     t.string "name", null: false
+    t.boolean "faulty", default: false
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

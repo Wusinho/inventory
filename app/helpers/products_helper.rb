@@ -15,4 +15,14 @@ module ProductsHelper
 
     end
 
+  def faulty_checkbox(f, product)
+    return unless product.persisted?
+
+    content_tag :div, class: 'mb-3' do
+      concat f.label :faulty, class: 'mx-3'
+      concat f.check_box :faulty, { checked: product.faulty }, true, false
+    end
+  end
+
+
 end
