@@ -4,6 +4,7 @@ class SellingOrder < ApplicationRecord
   validates :quantity, presence: true, numericality: { greater_than: 0 }
   validate :stock_quantity
   after_create :reduce_existences
+  before_create :round_nums
 
   def stock_quantity
     return unless self.quantity > self.inventory_purchase.stock_quantity
@@ -18,5 +19,8 @@ class SellingOrder < ApplicationRecord
 
   def zero_stock?
     inventory_purchase.stock_quantity.zero?
+  end
+  def round_nums
+    self.price = self.price.round(2)
   end
 end
