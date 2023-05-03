@@ -10,11 +10,7 @@
   </div>
   <div class="mb-3">
     <%= f.label :select_category %>
-    <% if product.persisted? %>
-      <%= f.collection_select(:product_categories_attributes, product.all_categories, :id, :name, { include_blank: true, selected: product.product_categories.pluck(:category_id) }, { multiple: true, class: 'form-select', id: 'validationTagsThreshold', data: { controller: 'tag-select', allow_clear: true, suggestions_threshold: 0 } }) %>
-    <% else %>
-      <%= f.collection_select(:product_categories_attributes, product.all_categories, :id, :name, { include_blank: true }, { multiple: true, class: 'form-select', id: 'validationTagsThreshold', data: { controller: 'tag-select', allow_clear: true, suggestions_threshold: 0 } }) %>
-    <% end %>
+    <%= product_categories_select(product, f) %>
   </div>
 
   <div class="mb-3">
