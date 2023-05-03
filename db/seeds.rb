@@ -74,24 +74,25 @@ if Rails.env.development?
                     contact: Faker::Name.name,
                     )
   end
-  # Provider.all.each do |provider|
-  #   2.times do
-  #     random_sample = [1,2,3].sample
-  #     tag = product_categories.sample(random_sample)
-  #     product = Product.new(name: Faker::Commerce.product_name,
-  #                             provider_id: provider.id,
-  #                             description: Faker::Lorem.paragraph,
-  #                             tag_list: tag
-  #                             )
-  #     if product.tag_list.present? && product.save
-  #     price = Faker::Commerce.price
-  #     InventoryPurchase.create(product_id: product.id,
-  #                              purchase_price: price,
-  #                              stock_quantity: [2,4,5].sample,
-  #                              selling_price: price + 5)
-  #     end
-  #   end
-  # end
+  Provider.all.each do |provider|
+    [1,2].sample.times do
+      cat_ids = Category.all.sample([1,2,3].sample)
+
+      product = Product.new(name: Faker::Commerce.product_name,
+                              provider_id: provider.id,
+                              description: Faker::Lorem.paragraph,
+                              )
+
+      if product.save
+      cat_ids.each { |cat| ProductCategory.create(product_id: product.id, category_id: cat.id ) }
+      price = Faker::Commerce.price
+      InventoryPurchase.create(product_id: product.id,
+                               purchase_price: price,
+                               stock_quantity: [2,4,5].sample,
+                               selling_price: price + 5)
+      end
+    end
+  end
 
 
 
