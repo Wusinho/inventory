@@ -24,5 +24,11 @@ module ProductsHelper
     end
   end
 
+  def faulty_prod_card(faulty)
+    css = 'card'
+    css += ' border-danger' if faulty
+    css
+  end
+
 
 end

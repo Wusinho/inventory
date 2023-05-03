@@ -1,5 +1,5 @@
 <div class="d-inline-block">
-  <div class="card" id="<%= dom_id product %>" style="width: 15rem;">
+  <div class="<%= faulty_prod_card(product.faulty) %>" id="<%= dom_id product %>" style="width: 15rem;">
     <div class="card-body">
       <h5 class="card-title"><%= link_to product.name, product_path(product.id) %></h5>
     </div>
