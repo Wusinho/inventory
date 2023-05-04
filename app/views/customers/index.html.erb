@@ -1,7 +1,7 @@
 <div class="d-flex">
 <%= render 'form', customer: @customer %>
   <div>
-    <div>
+    <div class="customers_unpaid_orders">
       <% @customers_unpaid_orders.each do |customer| %>
         <%= render 'customers/pending_customer_order', customer: customer %>
       <% end %>
