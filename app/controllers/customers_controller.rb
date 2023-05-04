@@ -8,7 +8,8 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @selling_orders = @customer.selling_orders
+    @selling_orders = @customer.selling_orders.where(paid: true)
+    @unpaid_selling_orders = @customer.selling_orders.where(paid: false)
   end
 
   def update
