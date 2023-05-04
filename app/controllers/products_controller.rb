@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_product, only: [:edit, :update, :show, :new]
+
   def index
     @product = Product.new
     @product.inventory_purchases.build
@@ -18,7 +19,7 @@ class ProductsController < ApplicationController
   def edit;end
 
   def update
-    if @product.update(products_params)
+    if @product.update(products_params.merge(product_categories_params(params, true)))
       render turbo_stream: turbo_stream.replace("product_#{@product.id}", partial: 'products/simple_product', locals: { product: @product })
     else
       turbo_error_message(@product)
@@ -26,18 +27,16 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(products_params)
-
+    @product = Product.new(products_params.merge(product_categories_params(params)))
     if @product.save
-      streams = []
       create_new_product
+      streams = []
       streams << turbo_stream.replace('product_form', partial: 'products/form', locals: { product: @new_product })
       streams << turbo_stream.prepend('products', partial: 'products/product', locals: { product: @product })
       render turbo_stream: streams
     else
       turbo_error_message(@product)
     end
-
   end
 
   private
@@ -47,13 +46,22 @@ class ProductsController < ApplicationController
     @new_product.inventory_purchases.build
   end
 
+  def product_categories_params(params, update = false)
+    category_ids = params[:product][:product_categories_attributes].reject(&:blank?)
+    category_ids = category_ids - @product.category_ids if update
+    product_categories_params = category_ids.map { |id| { category_id: id } }
+    { product_categories_attributes: product_categories_params }
+  end
 
   def set_product
     @product = Product.find(params[:id])
   end
 
   def products_params
-    params.require(:product).permit(:name, :description, :provider_id, tag_list: [],
-                                    inventory_purchases_attributes: [:purchase_price, :stock_quantity, :selling_price])
+    params.require(:product).permit(:name, :description, :provider_id, :faulty,
+                                    inventory_purchases_attributes: [:purchase_price, :stock_quantity, :selling_price],
+                                    product_categories_attributes: [:category_id]
+                                    )
+
   end
 end

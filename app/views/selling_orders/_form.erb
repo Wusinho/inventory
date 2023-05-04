@@ -1,16 +1,19 @@
 <div class="nested-form-wrapper form-inline" data-new-record="<%= f.object.new_record? %>">
   <div class="card p-2" style="width: 18rem;">
+    <%= price_field(f, f_parent) %>
+
     <div class="form-group mb-2">
-      <%= f.label :price %>
-      <%= f.number_field :price, min: 1, step: 0.5, class: 'form-control' %>
+      <%= f.label :customer_id %>
+      <%= f.collection_select :customer_id, Customer.all, :id, :full_name, {}, {class: 'form-select'} %>
     </div>
 
     <div class="form-group mb-2">
       <%= f.label :quantity %>
       <%= f.number_field :quantity, min: 1, class: "form-control" %>
     </div>
-      <button type="button" data-action="nested-form#remove" class="btn btn-danger">Remove Selling Price</button>
-      <%= f.hidden_field :_destroy %>
+
+    <button type="button" data-action="nested-form#remove" class="btn btn-danger">Remove Selling Price</button>
+    <%= f.hidden_field :_destroy %>
   </div>
   <%= f_parent.submit 'Save', class: green_btn %>
 </div>

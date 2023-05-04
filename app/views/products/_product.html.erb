@@ -1,12 +1,12 @@
-<div class="d-inline-block">
-  <div class="card" id="<%= dom_id product %>" style="width: 15rem;">
+<div class="d-inline-block m-1">
+  <div class="<%= faulty_prod_card(product.faulty) %>" id="<%= dom_id product %>" style="width: 15rem;">
     <div class="card-body">
       <h5 class="card-title"><%= link_to product.name, product_path(product.id) %></h5>
     </div>
       <div class="card-body">
         <p class="card-text"><%= product.description %></p>
-        <% product.tag_list.each do |tag| %>
-          <span class="badge rounded-pill bg-info text-dark"><%= tag %></span>
+        <% product.categories.each do |category| %>
+          <span class="badge rounded-pill bg-info text-dark"><%= category.name %></span>
         <% end %>
       </div>
   </div>
