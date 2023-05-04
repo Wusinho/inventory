@@ -35,6 +35,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_175448) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "customers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "last_name"
+    t.string "phone", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "inventory_purchases", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "stock_quantity", null: false
     t.float "purchase_price", null: false
@@ -77,11 +85,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_175448) do
 
   create_table "selling_orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "inventory_purchase_id", null: false
+    t.uuid "customer_id", null: false
     t.float "price", null: false
     t.integer "quantity", null: false
     t.boolean "special_price", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_selling_orders_on_customer_id"
     t.index ["inventory_purchase_id"], name: "index_selling_orders_on_inventory_purchase_id"
   end
 
@@ -89,5 +99,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_175448) do
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
   add_foreign_key "products", "providers"
+  add_foreign_key "selling_orders", "customers"
   add_foreign_key "selling_orders", "inventory_purchases"
 end

@@ -73,6 +73,9 @@ if Rails.env.development?
                     address: Faker::Address.full_address,
                     contact: Faker::Name.name,
                     )
+    Customer.create(name: Faker::Name.first_name ,
+                    last_name: Faker::Name.last_name,
+                    phone: Faker::PhoneNumber.cell_phone)
   end
   Provider.all.each do |provider|
     [1,2].sample.times do
@@ -95,12 +98,6 @@ if Rails.env.development?
                                    purchase_price: price,
                                    stock_quantity: [4,5].sample,
                                    selling_price: price * 1.2)
-      lock = [true, false].sample
-      if lock
-        SellingOrder.create(price: i.selling_price, quantity: i.stock_quantity, inventory_purchase_id: i.id )
-      else
-        2.times { SellingOrder.create(price: i.selling_price, quantity: [1,2].sample, inventory_purchase_id: i.id) }
-      end
     }
   end
 
