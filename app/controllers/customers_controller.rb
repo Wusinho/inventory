@@ -2,8 +2,9 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:update, :edit, :show]
 
   def index
-    @customers = Customer.all
     @customer = Customer.new
+    @customers_unpaid_orders = Customer.pending_unpaid_orders
+    @customers = Customer.paid_orders
   end
 
   def show

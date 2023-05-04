@@ -3,4 +3,9 @@
   <div>
     <%= render @customers %>
   </div>
+  <div class="card">
+    <% @customers_unpaid_orders.each do |customer| %>
+      <%= render 'customers/customer', customer: customer %>
+    <% end %>
+  </div>
 </div>
