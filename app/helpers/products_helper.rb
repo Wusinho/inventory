@@ -20,7 +20,7 @@ module ProductsHelper
 
     content_tag :div, class: 'mb-3' do
       concat f.label :faulty, class: 'mx-3'
-      concat f.check_box :faulty, { checked: product.faulty }, true, false
+      concat f.check_box :faulty, { checked: product.faulty }
     end
   end
 
