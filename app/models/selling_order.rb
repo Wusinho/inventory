@@ -1,17 +1,11 @@
 class SellingOrder < ApplicationRecord
   belongs_to :inventory_purchase
   belongs_to :customer
+  has_one :product, through: :inventory_purchase
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :quantity, presence: true, numericality: { greater_than: 0 }
-  validate :stock_quantity
   after_create :reduce_existences
   before_create :round_nums
-
-  def stock_quantity
-    return unless self.quantity > self.inventory_purchase.stock_quantity
-
-    errors.add(:quantity, 'You cannot sell more than what you have')
-  end
 
   def reduce_existences
     inventory_purchase.decrement!(:stock_quantity, self.quantity)

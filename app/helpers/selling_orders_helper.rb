@@ -12,14 +12,4 @@ module SellingOrdersHelper
 
   end
 
-
-  def render_selling_order(selling_order)
-    if selling_order.paid
-      render 'selling_orders/selling_order_card', selling_order: selling_order
-    else
-      render 'selling_orders/simple_form', selling_order: selling_order
-    end
-  end
-
-
 end

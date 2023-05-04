@@ -16,4 +16,8 @@ class Product < ApplicationRecord
     Category.all
   end
 
+  def out_of_stock?
+    inventory_purchases.where(sold_out: false).blank?
+  end
+
 end

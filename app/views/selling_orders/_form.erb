@@ -7,9 +7,9 @@
       <%= f.collection_select :customer_id, Customer.all, :id, :full_name, {}, {class: 'form-select'} %>
     </div>
 
-    <div class="form-group mb-2">
+    <div class="mb-2">
       <%= f.label :quantity %>
-      <%= f.number_field :quantity, min: 1, class: "form-control" %>
+      <%= f.select :quantity, (1..f_parent.object.stock_quantity).to_a, {}, class: 'form-select' %>
     </div>
 
     <button type="button" data-action="nested-form#remove" class="btn btn-danger">Remove Selling Price</button>
