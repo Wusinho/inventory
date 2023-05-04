@@ -1,0 +1,21 @@
+<div class="d-inline-block m-1" >
+
+<%= form_with model: customer, id: "product_form" do |f| %>
+  <div class="mb-3">
+    <%= f.label :name, class: form_label %>
+    <%= f.text_field :name, class: form_control %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :last_name, class: form_label %>
+    <%= f.text_field :last_name, class: form_control %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :phone, class: form_label %>
+    <%= f.text_field :phone, class: form_control %>
+  </div>
+
+  <%= f.submit class: blue_btn %>
+<% end %>
+</div>

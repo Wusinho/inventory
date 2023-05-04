@@ -1,0 +1,20 @@
+<div class="card d-inline-block p-2">
+  <%= form_with model: selling_order do |f| %>
+
+    <div class="form-group mb-2">
+      <%= selling_order.inventory_purchase.product.name %>
+    </div>
+
+    <div class="form-group mb-2">
+      <%= selling_order.quantity %>
+    </div>
+
+    <div class="form-group mb-2">
+      <%= format_date(selling_order.created_at) %>
+    </div>
+
+    <%= f.hidden_field :paid, value: true %>
+
+    <%= f.submit 'Pay', class: green_btn %>
+  <% end %>
+</div>

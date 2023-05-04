@@ -1,6 +1,6 @@
 class InventoryPurchasesController < ApplicationController
   before_action :authenticate_admin!
-  # before_action :set_inventory_purchases, only: [:edit, :update]
+  before_action :set_inventory_purchases, only: [:edit, :update]
 
   def edit;end
 

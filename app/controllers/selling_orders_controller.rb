@@ -1,13 +1,13 @@
 class SellingOrdersController < ApplicationController
   before_action :set_selling_order, only: [:update]
   def update
-    if @selling_order.update(paid: params[:paid])
-      render json: {
-        paid: true
-      }
-    else
+    p '*'*100
+    if @selling_order.update(selling_order_params)
+
+      else
 
     end
+    p '*'*100
   end
 
   private
@@ -17,7 +17,7 @@ class SellingOrdersController < ApplicationController
   end
 
   def selling_order_params
-    params.permit(:paid)
+    params.require(:selling_order).permit(:paid)
   end
 
 end
