@@ -24,10 +24,10 @@ module ProductsHelper
     end
   end
 
-  def faulty_prod_card(faulty)
+  def faulty_prod_card(product)
     css = 'card'
-    css += ' border-danger' if faulty
-    css
+    css += ' border-danger border-3' if product.faulty
+    css += product.out_of_stock? ? ' bg-warning' : ' bg-primary'
   end
 
 
