@@ -1,11 +1,13 @@
 <div class="d-flex">
 <%= render 'form', customer: @customer %>
   <div>
-    <%= render @customers %>
-  </div>
-  <div class="card">
-    <% @customers_unpaid_orders.each do |customer| %>
-      <%= render 'customers/customer', customer: customer %>
-    <% end %>
+    <div>
+      <% @customers_unpaid_orders.each do |customer| %>
+        <%= render 'customers/pending_customer_order', customer: customer %>
+      <% end %>
+    </div>
+    <div>
+      <%= render @customers %>
+    </div>
   </div>
 </div>
