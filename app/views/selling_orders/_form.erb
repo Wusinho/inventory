@@ -4,7 +4,7 @@
 
     <div class="form-group mb-2">
       <%= f.label :customer_id %>
-      <%= f.collection_select :customer_id, Customer.all, :id, :name, {}, {class: 'form-select'} %>
+      <%= f.collection_select :customer_id, Customer.all, :id, :full_name, {}, {class: 'form-select'} %>
     </div>
 
     <div class="form-group mb-2">
