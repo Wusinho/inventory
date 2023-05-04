@@ -1,13 +1,14 @@
 class SellingOrdersController < ApplicationController
   before_action :set_selling_order, only: [:update]
   def update
-    p '*'*100
     if @selling_order.update(selling_order_params)
-
-      else
-
+      streams = []
+      streams << turbo_stream.remove("selling_order_#{@selling_order.id}")
+      streams << turbo_stream.append('paid_selling_orders', partial: 'selling_orders/selling_order', locals: { selling_order: @selling_order })
+      render turbo_stream: streams
+    else
+      turbo_error_message(@selling_order)
     end
-    p '*'*100
   end
 
   private
