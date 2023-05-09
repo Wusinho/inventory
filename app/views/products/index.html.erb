@@ -1,11 +1,13 @@
 <div class="products_container">
-  <div class="row">
-    <div class="col-3">
-      <%= render 'products/form', product: @product %>
-    </div>
+
+  <%= link_to 'Toggle Form', '', data: {
+    controller: 'product-form',
+    action: 'product-form#toggle' } %>
+  <div>
+    <%= render 'products/form', product: @product %>
+  </div>
     <div id="products" class="col-9">
       <%= render @products %>
-    </div>
   </div>
 </div>
 
