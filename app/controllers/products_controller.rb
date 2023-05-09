@@ -1,11 +1,14 @@
 class ProductsController < ApplicationController
   before_action :authenticate_admin!
+  before_action :selected_params, only: [:index]
   before_action :set_product, only: [:edit, :update, :show, :new]
+
 
   def index
     @product = Product.new
     @product.inventory_purchases.build
-    @products = Product.all
+    @products = Product.filter(@selected_params)
+
   end
 
   def new
