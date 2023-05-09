@@ -5,10 +5,8 @@
   <div>
     <%= render 'products/form', product: @product %>
   </div>
-  <div>
-    <div class="filter__container">
+  <div class="my-4">
       <%= render 'filters', category_list: @products.products_cat %>
-    </div>
   </div>
   <div id="products">
     <%= render @products %>
