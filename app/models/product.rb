@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   has_many :categories, through: :product_categories
   accepts_nested_attributes_for :inventory_purchases, allow_destroy: true
   accepts_nested_attributes_for :product_categories, allow_destroy: true
+  validates_presence_of :name
 
   def tag_list_empty
     return unless tag_list.blank?

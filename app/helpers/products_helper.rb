@@ -30,5 +30,16 @@ module ProductsHelper
     css += product.out_of_stock? ? ' bg-warning' : ' bg-primary'
   end
 
+  def product_form(product)
+    product.persisted? ? '': 'd-none'
+  end
+
+
+  def back_link(product)
+    return if product.persisted?
+
+    link_to 'Back', '', data: { controller: 'product-form',
+                                action: '[rp'}
+  end
 
 end
