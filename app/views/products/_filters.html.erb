@@ -7,9 +7,9 @@
                    id: 'validationTagsThreshold', data: { controller: 'tag-select', allow_clear: true, suggestions_threshold: 0 }
                  } %>
 
+    <div class="btn-group btn-group-toggle">
+      <%= link_to "Date", { sort_by_name: "created_at" }, class: green_btn %>
+      <%= link_to "Name", { sort_by_name: "name" }, class: green_btn %>
+    </div>
   </div>
 <% end %>
-<div class="my-3">
-    <%= link_to "Name", { sort_by_name: "name" }, class: green_btn %>
-    <%= link_to "Date", { sort_by_name: "created_at" }, class: green_btn %>
-</div>
