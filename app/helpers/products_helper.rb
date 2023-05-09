@@ -30,5 +30,9 @@ module ProductsHelper
     css += product.out_of_stock? ? ' bg-warning' : ' bg-primary'
   end
 
+  def product_form(product)
+    product.persisted? ? '': 'd-none'
+  end
+
 
 end
