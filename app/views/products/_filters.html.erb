@@ -1,0 +1,18 @@
+<%= form_tag(products_path, method: :get, class: 'search__bar row g-3') do %>
+  <%= select_tag :categories, options_from_collection_for_select(category_list, :first, :last),
+                 { include_blank: 'Select a category', class: 'form-select', multiple: true,
+                   id: 'validationTagsThreshold', data: { controller: 'tag-select', allow_clear: true, suggestions_threshold: 0 }
+                 } %>
+
+  <div class="col-auto">
+    <%= submit_tag("Search", class: blue_btn, method: :get) %>
+  </div>
+<% end %>
+
+<div class="card-body" >
+  <h5 class="card-title">Order by:</h5>
+  <div class="btn-group">
+    <%= link_to "Name", { sort_by_name: "name" }, class: green_btn %>
+    <%= link_to "Date", { sort_by_name: "created_at" }, class: green_btn %>
+  </div>
+</div>

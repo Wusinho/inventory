@@ -10,6 +10,7 @@ class Product < ApplicationRecord
   scope :filter_sort_by_name, ->(value) { order("#{value} ASC") }
   scope :filter_search, ->(value) { where( "name ILIKE :search OR description ILIKE :search", search: "%#{value.downcase}%") }
   scope :filter_categories, ->(value) { joins(:categories).where(categories: { id: value }).distinct }
+  scope :products_cat, -> { Category.joins(:products).distinct.pluck(:id, :name)  }
 
   def tag_list_empty
     return unless tag_list.blank?

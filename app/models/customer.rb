@@ -4,6 +4,10 @@ class Customer < ApplicationRecord
     last_name ? "#{name} #{last_name}" : first_name
   end
 
+  def total_debt
+    selling_orders.where(paid: false).map { |order| order.price * order.quantity}.reduce(&:+) || 0
+  end
+
   def self.pending_unpaid_orders
     joins(:selling_orders)
       .where.not(selling_orders: { paid: true })
