@@ -1,15 +1,11 @@
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid px-4">
-    <div>
-      <%= link_to 'Home', root_path, class: "navbar-brand" %>
-    </div>
     <% if admin_signed_in? %>
       <div class="d-flex">
-        <%= link_to 'Providers', providers_path, class: "navbar-brand" %>
-        <%= link_to 'Categories', categories_path, class: "navbar-brand" %>
-        <%= link_to 'Products', products_path, class: "navbar-brand" %>
-        <%= link_to 'Customers', customers_path, class: "navbar-brand" %>
-
+        <%= link_to 'Providers', providers_path, class: "navbar-brand#{' active' if current_page?(providers_path)}" %>
+        <%= link_to 'Categories', categories_path, class: "navbar-brand#{' active' if current_page?(categories_path)}" %>
+        <%= link_to 'Products', products_path, class: "navbar-brand#{' active' if current_page?(products_path)}" %>
+        <%= link_to 'Customers', customers_path, class: "navbar-brand#{' active' if current_page?(customers_path)}" %>
       </div>
       <div class="d-flex">
         <%= button_to "Sign Out", destroy_admin_session_path, method: :delete, class: red_btn %>
