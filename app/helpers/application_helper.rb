@@ -47,4 +47,10 @@ module ApplicationHelper
     date.strftime('%d/%m/%Y')
   end
 
+  def active_nav?(providers_path)
+    class_name = current_page?(providers_path) ? ' active' : ''
+    "navbar-brand#{class_name}"
+
+  end
+
 end
