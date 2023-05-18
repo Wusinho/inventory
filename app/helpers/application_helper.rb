@@ -59,7 +59,7 @@ module ApplicationHelper
 
   def model_template(new_instance, model_query, filter = false)
     klass_name = new_instance.class.name.downcase
-    id = klass_name.downcase.pluralize
+    id = klass_name.pluralize
 
     content_tag(:div, class: "#{klass_name}_container") do
       concat(content_tag(:div, class: 'form', data: { controller: 'form' }) do
