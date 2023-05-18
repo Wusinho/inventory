@@ -1,18 +1,1 @@
-<div class="d-flex">
-  <div data-controller="form">
-    <%= button_to 'Add New Customer', '', data: {
-      action: 'click->form#toggle_btn',
-      form_target: 'btn'}, class: green_btn %>
-    <%= render 'customers/form', customer: @customer %>
-  </div>
-  <div>
-    <div class="customers_unpaid_orders">
-      <% @customers_unpaid_orders.each do |customer| %>
-        <%= render 'customers/pending_customer_order', customer: customer %>
-      <% end %>
-    </div>
-    <div id="customers">
-      <%= render @customers %>
-    </div>
-  </div>
-</div>
+<%= model_template(@customer, @customers) %>

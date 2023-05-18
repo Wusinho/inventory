@@ -1,15 +1,1 @@
-<div class="products_container">
-  <div data-controller="form">
-    <%= button_to 'Add New Product', '', data: {
-      action: 'click->form#toggle_btn',
-      form_target: 'btn' }, class: green_btn %>
-    <%= render 'products/form', product: @product %>
-  </div>
-  <div id='filters' class="my-4">
-      <%= render 'filters', category_list: @products.products_cat %>
-  </div>
-  <div id="products">
-    <%= render @products %>
-  </div>
-</div>
-
+<%= model_template(@product, @products, true) %>
