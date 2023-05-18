@@ -8,12 +8,8 @@ module Filterable
       return results.order(created_at: :asc) if filtering_params.blank?
 
       value = filtering_params.values.first
-      p '*'*100
-      p value
       key = filtering_params.keys.first
-      p key
-      p '*'*100
-      results.public_send("filter_#{key}", value) if value.present?
+      value.blank? ? results.public_send("filter_#{key}") : results.public_send("filter_#{key}", value)
     end
   end
 end

@@ -3,7 +3,8 @@ class Customer < ApplicationRecord
   has_many :selling_orders
   scope :products_cat, -> { Customer.pluck(:id, :name)  }
   scope :filter_sort_by_name, ->(value) { order("#{value} ASC") }
-  scope :filter_search, ->(value) { where( "name ILIKE :search OR description ILIKE :search", search: "%#{value.downcase}%") }
+  scope :filter_search, ->(value) { where( "name ILIKE :search", search: "%#{value.downcase}%") }
+  scope :filter_users, ->(value) { where(id: value) }
 
   def full_name
     last_name ? "#{name} #{last_name}" : first_name

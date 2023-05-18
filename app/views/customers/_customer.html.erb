@@ -2,5 +2,8 @@
     <div class="card-body">
       <p class="card-text"><%= link_to customer.name, customer_path(customer.id) %></p>
       <p class="card-text"><%= customer.phone %></p>
+      <% customer.unpaid_products.each do |product_name| %>
+        <span class="badge bg-warning text-dark"><%= product_name %></span>
+      <% end %>
     </div>
   </div>
