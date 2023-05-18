@@ -1,10 +1,11 @@
 class CustomersController < ApplicationController
+  before_action :authenticate_admin!
+  before_action :selected_params, only: [:index]
   before_action :set_customer, only: [:update, :edit, :show]
 
   def index
     @customer = Customer.new
-    @customers_unpaid_orders = Customer.pending_unpaid_orders
-    @customers = Customer.paid_orders
+    @customers = Customer.filter(@selected_params)
   end
 
   def show

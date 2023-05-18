@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::NotNullViolation, with: :handle_not_null_violation
 
   def selected_params
-    @selected_params = params.slice(:sort_by_name, :categories)
+    @selected_params = params.slice(:sort_by_name, :categories, :paid_orders, :unpaid_orders)
   end
 
   def turbo_error_message(instance)
