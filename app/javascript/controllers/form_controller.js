@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ['dropdownContent', 'btn']
   static values = { open: Boolean }
   connect() {
-    this.toggle(this.openValue)
+    // this.toggle(this.openValue)
   }
 
   toggle(value){
@@ -17,11 +17,17 @@ export default class extends Controller {
   }
 
   openDropdown() {
-    this.dropdownContentTarget.hidden = !this.openValue
+    try {
+      this.dropdownContentTarget.classList.remove('d-none')
+    }
+    catch {
+    }
   }
 
   closeDropdown() {
-    this.dropdownContentTarget.hidden = !this.openValue
+    try{
+      this.dropdownContentTarget.classList.add('d-none')
+    }catch {}
   }
 
   toggle_btn(e){

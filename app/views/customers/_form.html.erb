@@ -2,7 +2,7 @@
   <%= form_with model: customer,
                 id:'customer_form', data: {
   form_target: 'dropdownContent',
-} do |f| %>
+}, class: invisible do |f| %>
   <div class="mb-3">
     <%= f.label :name, class: form_label %>
     <%= f.text_field :name, class: form_control %>

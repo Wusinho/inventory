@@ -53,8 +53,12 @@ module ApplicationHelper
 
   end
 
+  def invisible
+    'd-none'
+  end
+
   def model_template(new_instance, model_query, filter = false)
-    klass_name = new_instance.class.name
+    klass_name = new_instance.class.name.downcase
     id = klass_name.downcase.pluralize
 
     content_tag(:div, class: "#{klass_name}_container") do
