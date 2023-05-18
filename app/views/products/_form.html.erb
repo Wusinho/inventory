@@ -1,8 +1,7 @@
 <%= form_with(
-      model: product, class: product_form(product), id: 'product_form',
+      model: product, id: 'product_form',
       data: {
-        controller: 'product-form',
-        product_form_target: 'form',
+        form_target: 'dropdownContent',
 }) do |f| %>
   <div class="mb-3">
     <%= f.label :name, class: form_label %>
