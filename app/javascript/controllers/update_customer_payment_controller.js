@@ -5,7 +5,6 @@ export default class extends Controller {
   connect() {
   }
   click(event){
-    event.preventDefault()
     const sellingOrder = event.currentTarget
     const id = sellingOrder.dataset.id
     const csrtToken = document.querySelector('meta[name="csrf-token"]').content

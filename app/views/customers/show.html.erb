@@ -1,4 +1,7 @@
 <%= @customer.name %>
+<div>
+  <%= render 'customers/customer_total_debt', customer: @customer %>
+</div>
 <div id="unpaid_selling_orders">
   <% @unpaid_selling_orders.each do |selling_order| %>
     <%= render 'selling_orders/simple_form', selling_order: selling_order %>

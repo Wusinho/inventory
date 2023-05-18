@@ -1,7 +1,1 @@
-<div class="categories_container">
-  <%= render 'form', category: @category %>
-
-  <div id="categories" >
-    <%= render @categories %>
-  </div>
-</div>
+<%= model_template(@category, @categories) %>

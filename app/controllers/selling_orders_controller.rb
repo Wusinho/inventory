@@ -3,6 +3,7 @@ class SellingOrdersController < ApplicationController
   def update
     if @selling_order.update(selling_order_params)
       streams = []
+      streams << turbo_stream.replace('customer_total_debt', partial: 'customers/customer_total_debt', locals: { customer: @selling_order.customer})
       streams << turbo_stream.remove("selling_order_#{@selling_order.id}")
       streams << turbo_stream.append('paid_selling_orders', partial: 'selling_orders/selling_order', locals: { selling_order: @selling_order })
       render turbo_stream: streams

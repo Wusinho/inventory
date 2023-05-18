@@ -1,12 +1,1 @@
-<div class="products_container">
-  <%= link_to 'Add New Product', '', data: {
-    controller: 'product-form',
-    action: 'product-form#toggle' }, class: green_btn %>
-  <div>
-    <%= render 'products/form', product: @product %>
-  </div>
-    <div id="products">
-      <%= render @products %>
-  </div>
-</div>
-
+<%= model_template(@product, @products, true) %>

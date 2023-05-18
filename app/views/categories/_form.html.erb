@@ -1,4 +1,7 @@
-<%= form_with model: category, id: "category_form" do |f| %>
+<%= form_with model: category, id: "category_form",
+              data: {
+                form_target: 'dropdownContent'
+              }, class: invisible do |f| %>
   <div class="mb-3">
     <%= f.label :name, class: form_label %>
     <%= f.text_field :name, class: form_control %>
