@@ -62,8 +62,8 @@ module ApplicationHelper
     id = klass_name.pluralize
 
     content_tag(:div, class: "#{klass_name}_container") do
-      concat(content_tag(:div, class: 'form', data: { controller: 'form' }) do
-        concat(button_to("Add new #{klass_name}", '', data: { action: 'click->form#toggle_btn', form_target: 'btn' }, class: green_btn))
+      concat(content_tag(:div, class: 'form mb-3', data: { controller: 'form' }) do
+        concat(button_to("Add new #{klass_name}", '', data: { action: 'click->form#toggle_btn', form_target: 'btn' }, class: green_btn + ' mb-3' ))
           concat(render("#{id}/form", "#{id.singularize}": new_instance))
       end)
 
