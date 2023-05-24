@@ -1,5 +1,10 @@
+$lighten_percentage: 20%;
+$darken_percentage: 15%;
 $color_primario: #E7A5A9;
-$color_primario_baja: #e5c6c7;
-$color-contrast: #12322F;
-$color-contrast_baja: #2a756e;
+$color_contrast: #1a4945;
+$color_grey: #f1f1f1;
+
+$color_primario_baja: lighten($color_primario, $lighten_percentage);
+$color_contrast_baja: lighten($color_contrast, $lighten_percentage);
+$color_grey_alta: darken($color_grey, $darken_percentage);
 $transition_time: 5s;

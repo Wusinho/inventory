@@ -17,44 +17,45 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
 
-.log_in__form h2 {
-  font-weight: bold;
-}
-
-.log_in__form > div {
-  width: 18rem;
-}
-
-.log_in__form > div footer {
-  text-align: right;
-}
-
-.log_in__form input:not(:last-child) {
-  width: 100%;
-  outline-color: $color_primario;
-  background-color: #f1f1f1;
-  border: 1px solid #e1e1e1;
-  border-radius: 5px;
-  padding: 15px;
-  transition: outline-color 1s;
-  &:focus {
-    outline-color: $color_primario_baja;
+  h2 {
+    color: $color_contrast;
+    font-weight: bold;
   }
- }
 
-.log_in__form input:last-child {
-  min-width: 30%;
-  border-radius: 10px;
-  padding: 10px 15px;
-  color: white;
-  background-color: $color-contrast_baja;
-  border: 1px solid $color-contrast;
-  transition: background-color 0.5s, border-color 0.5s;
+  > div {
+    width: 18rem;
+    footer {
+      text-align: right;
+    }
+  }
 
-  &:hover {
-    background-color: $color-contrast;
-    border: 1px solid $color-contrast_baja;
+  input:not(:last-child) {
+    color: $color_contrast;
+    width: 100%;
+    outline-color: $color_primario;
+    background-color: $color_grey;
+    border: 1px solid $color_grey_alta;
+    border-radius: 5px;
+    padding: 15px;
+    transition: outline-color 1s;
+    &:focus {
+      outline-color: $color_primario_baja;
+    }
+  }
+
+  input:last-child {
+    min-width: 30%;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: white;
+    background-color: $color_contrast_baja;
+    border: 1px solid $color_contrast;
+    transition: background-color 0.5s, border-color 0.5s;
+
+    &:hover {
+      background-color: $color_contrast;
+      border: 1px solid $color_contrast_baja;
+    }
   }
 }
