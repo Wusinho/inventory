@@ -23,6 +23,14 @@
   font-weight: bold;
 }
 
+.log_in__form > div {
+  width: 18rem;
+}
+
+.log_in__form > div footer {
+  text-align: right;
+}
+
 .log_in__form input:not(:last-child) {
   width: 100%;
   outline-color: $color_primario;
