@@ -1,0 +1,52 @@
+@import "colors";
+
+.login__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.log_in__form {
+  min-width: 30%;
+  border: 1px solid $color_primario_baja;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.log_in__form h2 {
+  font-weight: bold;
+}
+
+.log_in__form input:not(:last-child) {
+  width: 100%;
+  outline-color: $color_primario;
+  background-color: #f1f1f1;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  padding: 15px;
+  transition: outline-color 1s;
+  &:focus {
+    outline-color: $color_primario_baja;
+  }
+ }
+
+.log_in__form input:last-child {
+  min-width: 30%;
+  border-radius: 10px;
+  padding: 10px 15px;
+  color: white;
+  background-color: $color-contrast_baja;
+  border: 1px solid $color-contrast;
+  transition: background-color 0.5s, border-color 0.5s;
+
+  &:hover {
+    background-color: $color-contrast;
+    border: 1px solid $color-contrast_baja;
+  }
+}
