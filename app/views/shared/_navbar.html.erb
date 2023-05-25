@@ -1,27 +1,27 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">3B's</a>
+    <span class="navbar-brand mb-0 h1">3B's</span>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-<%= link_to 'Proveedores', providers_path, class: active_nav?(providers_path) %>
-        </li>
-        <li class="nav-item">
-<%= link_to 'Categorias', categories_path, class: active_nav?(categories_path) %>
-        </li>
-        <li class="nav-item">
-<%= link_to 'Productos', products_path, class: active_nav?(products_path) %>
-        </li>
-        <li class="nav-item">
-<%= link_to 'Clientes', customers_path, class: active_nav?(customers_path) %>
-        </li>
-        <li class="nav-item">
-<%= button_to "Desconectarse", destroy_admin_session_path, method: :delete, class: red_btn %>
-        </li>
-      </ul>
+      <div class="d-flex space-between">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to 'Proveedores', providers_path, class: active_nav?(providers_path) %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Categorias', categories_path, class: active_nav?(categories_path) %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Productos', products_path, class: active_nav?(products_path) %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Clientes', customers_path, class: active_nav?(customers_path) %>
+          </li>
+        </ul>
+        <%= button_to "Desconectarse", destroy_admin_session_path, method: :delete, class: red_btn %>
+      </div>
     </div>
   </div>
 </nav>

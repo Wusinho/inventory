@@ -15,6 +15,7 @@
  */
 @import "bootstrap";
 @import "colors";
+@import "font-awesome";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 
@@ -49,7 +50,7 @@
 }
 
 .navbar .navbar-brand.active {
-  color: red;
+  color: $color_grey;
 }
 
 html, body {
