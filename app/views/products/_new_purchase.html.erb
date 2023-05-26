@@ -1,4 +1,4 @@
-<div id="new_purchase">
+<div id="new_purchase" class="mt-3">
   <%= turbo_frame_tag 'new_inventory_purchase' do %>
     <%= link_to 'Agregar Compra', new_product_path({id: product.id}), class: pink_btn %>
   <% end %>

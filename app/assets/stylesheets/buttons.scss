@@ -28,3 +28,15 @@
   border-top-right-radius: 0;
   background-color: $color_grey;
 }
+
+.grey_btn {
+  background-color: $color_grey_alta;
+  color: white;
+}
+
+.grey_link {
+  color: $color_grey_alta;
+  &:hover {
+    color: $color_grey;
+  }
+}

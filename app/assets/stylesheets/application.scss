@@ -70,15 +70,6 @@ body {
 
 .model__display{
   margin-top: 20px;
-  gap: 20px;
-  display: grid;
-  place-items: center;
-}
-
-
-@media (min-width: 601px) {
-  .model__display {
-    display: flex;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  flex-wrap: wrap;
 }

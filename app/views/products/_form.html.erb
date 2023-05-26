@@ -24,7 +24,8 @@
 
   <%#= nested_inventory_purchases(product, f) %>
   <%= faulty_checkbox(f, product) %>
-  <%= f.submit class: blue_btn %>
+  <%= f.submit 'Guardar', class: blue_btn %>
+  <%= link_to 'Cancelar', product_path(product.id), class: 'text-decoration-none' if product.persisted? %>
 <% end %>
 
 

@@ -2,12 +2,15 @@
    <div class="card" id="<%= dom_id provider %>" style="width: 18rem;">
       <%= turbo_frame_tag "prov_edit_#{provider.id}" do %>
          <div class="card-body">
-            <h5 class="card-title"><%= provider.name %></h5>
+            <h5 class="card-title"><%= provider.name %>
+              <%= link_to edit_provider_path(provider.id), class: 'grey_link' do %>
+                <i class="fa-solid fa-pen-to-square"></i>
+              <% end %>
+            </h5>
             <h6 class="card-subtitle mb-2 text-muted"><%= provider.contact %></h6>
             <p class="card-text"><%= provider.phone %></p>
             <p class="card-text"><%= provider.address %></p>
             <p class="card-text"><%= provider.bank_number %></p>
-            <%= link_to 'edit', edit_provider_path(provider.id), class: 'card-link' %>
          </div>
       <% end %>
    </div>

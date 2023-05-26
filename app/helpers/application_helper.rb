@@ -16,7 +16,7 @@ module ApplicationHelper
   end
 
   def blue_btn
-    'btns btn-primary'
+    'btns grey_btn'
   end
 
   def search_btn
@@ -58,7 +58,8 @@ module ApplicationHelper
   end
 
   def invisible(provider)
-    'd-none' unless provider.persisted?
+    css = 'mb-2'
+    css += ' d-none' unless provider.persisted?
   end
 
   def model_template(new_instance, model_query, filter = false)
