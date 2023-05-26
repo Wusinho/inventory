@@ -66,7 +66,19 @@ body {
 
 .model_container {
   padding: 10px;
+  div:last-child {
+    display: grid;
+    place-items: center;
+  }
 }
 
 
 
+@media (min-width: 601px) {
+  .model_container {
+    div:last-child {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}

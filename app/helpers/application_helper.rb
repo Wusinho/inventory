@@ -75,7 +75,7 @@ module ApplicationHelper
         concat(render('filters', category_list: model_query.products_cat))
       end) if filter.present?
 
-      concat(content_tag(:div, id: id) do
+      concat(content_tag(:div, id: id, class: 'model__display') do
         concat(render(model_query))
       end)
     end
