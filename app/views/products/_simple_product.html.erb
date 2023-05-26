@@ -1,10 +1,12 @@
-<div class="card" id="<%= dom_id product %>" style="width: 18rem;">
-  <div class="card-body">
+<div id="<%= dom_id product %>" >
+  <div class="card-body p-0">
     <%= turbo_frame_tag "edit_product_#{product.id}" do %>
       <div class="card-body">
-        <h5 class="card-title"><%= product.name %></h5>
-        <p class="card-text"><%= product.description %></p>
-        <%= link_to 'edit', edit_product_path(product.id), class: 'card-link' %>
+        <h5 class="card-title"><%= product.name %>
+        <%= link_to edit_product_path(product.id), class: 'card-link' do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          </h5>
+        <% end %>
       </div>
     <% end %>
   </div>
