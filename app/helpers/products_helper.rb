@@ -34,12 +34,4 @@ module ProductsHelper
     product.persisted? ? '': 'd-none'
   end
 
-
-  def back_link(product)
-    return if product.persisted?
-
-    link_to 'Back', '', data: { controller: 'product-form',
-                                action: '[rp'}
-  end
-
 end

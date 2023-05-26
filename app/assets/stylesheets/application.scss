@@ -16,6 +16,7 @@
 @import "bootstrap";
 @import "colors";
 @import "font-awesome";
+@import "buttons";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 
@@ -50,13 +51,12 @@
 }
 
 .navbar .navbar-brand.active {
-  color: $color_grey;
+  color: $color_primario_baja;
 }
 
 html, body {
   height: 100%;
   margin: 0;
-  background-color: $color_primario !important;
 }
 
 body {
@@ -64,21 +64,9 @@ body {
 }
 
 
-//.green_btn {
-//  background-color: green;
-//  color: white;
-//  padding: 5px 10px;
-//  text-decoration: none;
-//  border: none;
-//  border-radius: 4px;
-//  margin-right: 5px;
-//  cursor: pointer;
-//}
-//
-//.green_btn:target {
-//  background-color: gray;
-//  pointer-events: none;
-//}
+.model_container {
+  padding: 10px;
+}
 
 
 

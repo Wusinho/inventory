@@ -20,7 +20,7 @@ module ApplicationHelper
   end
 
   def green_btn
-    'btn btn-success'
+    'btn green_btn'
   end
 
   def red_btn
@@ -61,7 +61,7 @@ module ApplicationHelper
     klass_name = new_instance.class.name.downcase
     id = klass_name.pluralize
 
-    content_tag(:div, class: "#{klass_name}_container") do
+    content_tag(:div, class: "#{klass_name}_container model_container") do
       concat(content_tag(:div, class: 'form mb-3', data: { controller: 'form' }) do
         concat(button_to("Add new #{klass_name}", '', data: { action: 'click->form#toggle_btn', form_target: 'btn' }, class: green_btn + ' mb-3' ))
           concat(render("#{id}/form", "#{id.singularize}": new_instance))
