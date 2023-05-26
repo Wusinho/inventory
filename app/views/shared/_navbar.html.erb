@@ -1,14 +1,12 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <div class="d-flex">
-      <div class="nav-item navbar-brand">
-        3B's
-      </div>
+    <div class="d-flex align-items-center">
       <div class="nav-item mobile_log_out">
         <%= button_to destroy_admin_session_path, method: :delete, class: red_btn do %>
           <i class="fa-solid fa-right-from-bracket"></i>
         <% end %>
       </div>
+      <%= show_filter(controller_name) %>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fa-solid fa-bars"></i>
@@ -22,7 +20,7 @@
           <%= link_to 'Categorias', categories_path, class: active_nav?(categories_path) %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Productos', products_path, class: active_nav?(root_path) %>
+          <%= link_to 'Productos', products_path, class: active_nav?(products_path) %>
         </li>
         <li class="nav-item">
           <%= link_to 'Clientes', customers_path, class: active_nav?(customers_path) %>

@@ -66,12 +66,12 @@ module ApplicationHelper
     id = klass_name.pluralize
 
     content_tag(:div, class: "#{klass_name}_container model_container") do
-      concat(content_tag(:div, class: 'form mb-3', data: { controller: 'form' }) do
+      concat(content_tag(:div, class: 'form', data: { controller: 'form' }) do
         concat(button_to("Add new #{klass_name}", '', data: { action: 'click->form#toggle_btn', form_target: 'btn' }, class: pink_btn ))
           concat(render("#{id}/form", "#{id.singularize}": new_instance))
       end)
 
-      concat(content_tag(:div, id: 'filters', class: 'my-4') do
+      concat(content_tag(:div, id: 'filters', class: 'my-2') do
         concat(render('filters', category_list: model_query.products_cat))
       end) if filter.present?
 
@@ -79,5 +79,16 @@ module ApplicationHelper
         concat(render(model_query))
       end)
     end
+  end
+
+  def show_filter(controller_name)
+    return unless %w[products customers].include?(controller_name)
+
+    if controller_name == 'products'
+      render 'shared/products_filter'
+    else
+      render 'shared/customers_filter'
+    end
+
   end
 end
