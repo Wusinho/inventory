@@ -9,11 +9,14 @@ export default class extends Controller {
 
   openDropdown(form) {
       form.classList.remove('d-none')
+    console.log(this.btnTarget.innerText)
     this.btnTarget.innerText = this.add_new(this.btnTarget.innerText)
   }
 
   closeDropdown(form) {
       form.classList.add('d-none')
+    console.log(this.btnTarget.innerText)
+
     this.btnTarget.innerText = this.hide_btn(this.btnTarget.innerText)
   }
 
@@ -27,11 +30,11 @@ export default class extends Controller {
   }
 
   add_new(str) {
-    return str.replace('Add new', 'Hide');
+    return str.replace('Agregar', 'Esconder');
   }
 
   hide_btn(str){
-    return str.replace('Hide ', 'Add new ');
+    return str.replace('Esconder ', 'Agregar ');
   }
 }
 
