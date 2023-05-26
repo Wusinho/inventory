@@ -1,5 +1,4 @@
-<div class="d-inline-block">
-   <div class="card" id="<%= dom_id provider %>" style="width: 18rem;">
+   <div class="card" id="<%= dom_id provider %>" >
       <%= turbo_frame_tag "prov_edit_#{provider.id}" do %>
          <div class="card-body">
             <h5 class="card-title"><%= provider.name %>
@@ -14,4 +13,3 @@
          </div>
       <% end %>
    </div>
-</div>

@@ -58,8 +58,9 @@ module ApplicationHelper
   end
 
   def invisible(provider)
-    css = 'mb-2'
+    css = 'p-2'
     css += ' d-none' unless provider.persisted?
+    css
   end
 
   def model_template(new_instance, model_query, filter = false)

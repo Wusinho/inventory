@@ -3,7 +3,7 @@
     <%= turbo_frame_tag "edit_product_#{product.id}" do %>
       <div class="card-body">
         <h5 class="card-title"><%= product.name %>
-        <%= link_to edit_product_path(product.id), class: 'card-link' do %>
+        <%= link_to edit_product_path(product.id), class: 'grey_link' do %>
             <i class="fa-solid fa-pen-to-square"></i>
           </h5>
         <% end %>
