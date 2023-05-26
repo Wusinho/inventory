@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-2" >
+<div class="d-flex">
+  <div >
     <div class="d-inline-block mb-2">
       <div class="<%= stock_sold_out?(inventory_purchase.sold_out) %>" id="<%= dom_id inventory_purchase %>" >
         <%= turbo_frame_tag "inventory_purchase_edit_#{inventory_purchase.id}" do %>
@@ -17,7 +17,7 @@
       </div>
     </div>
   </div>
-  <div class="col-10 overflow-auto">
+  <div>
     <%= render 'products/form_selling_orders', inventory_purchase: inventory_purchase %>
   </div>
 </div>
