@@ -1,7 +1,7 @@
 <%= form_with model: inventory_purchase, html: { class: 'mx-2' }, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
   <div>
     <% if inventory_purchase.stock_left? %>
-      <button type="button" data-action="nested-form#add" class="btn btn-primary">Pre Sale</button>
+      <button type="button" data-action="nested-form#add" class="btn btn-primary">Orden</button>
     <% end %>
   </div>
   <div>
