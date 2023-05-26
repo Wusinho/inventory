@@ -57,8 +57,8 @@ module ApplicationHelper
 
   end
 
-  def invisible
-    'd-none'
+  def invisible(provider)
+    'd-none' unless provider.persisted?
   end
 
   def model_template(new_instance, model_query, filter = false)

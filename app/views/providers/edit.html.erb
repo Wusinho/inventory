@@ -1,4 +1,4 @@
 <%= turbo_frame_tag "prov_edit_#{@provider.id}" do %>
-  <%= render 'form', provider: @provider %>
+  <%= render 'providers/form', provider: @provider %>
   <%= link_to 'back', providers_path %>
 <% end %>
