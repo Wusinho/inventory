@@ -21,7 +21,7 @@ export default class extends Controller {
     e.preventDefault()
 
   const form = this.dropdownContentTarget
-  form.classList.length > 0 ?
+  form.classList.contains('d-none') ?
       this.openDropdown(form) :
       this.closeDropdown(form)
   }
