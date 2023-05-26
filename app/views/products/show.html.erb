@@ -1,5 +1,7 @@
-<%= render 'simple_product', product: @product %>
-<%= render 'products/new_purchase', product: @product %>
-<div class="mt-4" id="inventory_purchases">
-  <%= render @inventory_purchases %>
+<div class="p-2">
+  <%= render 'simple_product', product: @product %>
+  <%= render 'products/new_purchase', product: @product %>
+  <div class="mt-4" id="inventory_purchases">
+    <%= render @inventory_purchases %>
+  </div>
 </div>

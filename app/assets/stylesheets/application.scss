@@ -63,22 +63,22 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-
 .model_container {
-  padding: 10px;
-  div:last-child {
-    display: grid;
-    place-items: center;
-  }
+  margin: 20px 0;
+  padding: 0 10px;
+}
+
+.model__display{
+  margin-top: 20px;
+  gap: 20px;
+  display: grid;
+  place-items: center;
 }
 
 
-
 @media (min-width: 601px) {
-  .model_container {
-    div:last-child {
-      display: flex;
-      flex-wrap: wrap;
-    }
+  .model__display {
+    display: flex;
+    flex-wrap: wrap;
   }
 }
