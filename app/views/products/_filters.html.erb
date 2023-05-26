@@ -1,16 +1,15 @@
-<%= form_tag(products_path, method: :get) do %>
+<%= form_tag(products_path, method: :get, class: 'd-flex flex-wrap') do %>
   <div class="d-flex">
-  <%= submit_tag("Search", class: blue_btn, method: :get) %>
+    <%= submit_tag("Search", class: search_btn, method: :get) %>
 
     <%= select_tag :categories, options_from_collection_for_select(category_list, :first, :last),
                  { include_blank: 'Select a category', class: 'cat__select', multiple: true,
                    id: 'validationTagsThreshold', data: { controller: 'tag-select', allow_clear: true, suggestions_threshold: 0 }
                  } %>
-
-    <div class="btn-group btn-group-toggle">
-      <%= link_to "Date", { sort_by_name: "created_at" }, class: green_btn %>
-      <%= link_to "Name", { sort_by_name: "name" }, class: green_btn %>
-    </div>
-
   </div>
 <% end %>
+
+<div class="btn-group btn-group-toggle">
+  <%= link_to "Date", { sort_by_name: "created_at" }, class: pink_btn %>
+  <%= link_to "Name", { sort_by_name: "name" }, class: pink_btn %>
+</div>

@@ -16,15 +16,19 @@ module ApplicationHelper
   end
 
   def blue_btn
-    'btn btn-primary'
+    'btns btn-primary'
   end
 
-  def green_btn
-    'btn green_btn'
+  def search_btn
+    'btns search_btn'
+  end
+
+  def pink_btn
+    'btns pink_btn'
   end
 
   def red_btn
-    'btn btn-danger'
+    'btns btn-danger'
   end
 
   def f_label
@@ -63,7 +67,7 @@ module ApplicationHelper
 
     content_tag(:div, class: "#{klass_name}_container model_container") do
       concat(content_tag(:div, class: 'form mb-3', data: { controller: 'form' }) do
-        concat(button_to("Add new #{klass_name}", '', data: { action: 'click->form#toggle_btn', form_target: 'btn' }, class: green_btn + ' mb-3' ))
+        concat(button_to("Add new #{klass_name}", '', data: { action: 'click->form#toggle_btn', form_target: 'btn' }, class: pink_btn ))
           concat(render("#{id}/form", "#{id.singularize}": new_instance))
       end)
 
