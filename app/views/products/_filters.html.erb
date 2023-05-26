@@ -1,6 +1,6 @@
 <%= form_tag(products_path, method: :get, class: 'd-flex flex-wrap') do %>
   <div class="d-flex bg-transparent">
-    <%= submit_tag("Search", class: search_btn, method: :get) %>
+    <%= submit_tag("Buscar", class: search_btn, method: :get) %>
 
     <%= select_tag :categories, options_from_collection_for_select(category_list, :first, :last),
                  { include_blank: 'Select a category', class: 'cat__select', multiple: true,

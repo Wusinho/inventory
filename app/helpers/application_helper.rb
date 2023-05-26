@@ -69,7 +69,7 @@ module ApplicationHelper
 
     content_tag(:div, class: "#{klass_name}_container model_container") do
       concat(content_tag(:div, class: 'form', data: { controller: 'form' }) do
-        concat(button_to("Add new #{klass_name}", '', data: { action: 'click->form#toggle_btn', form_target: 'btn' }, class: pink_btn ))
+        concat(button_to("Agregar #{klass_name}", '', data: { action: 'click->form#toggle_btn', form_target: 'btn' }, class: pink_btn ))
           concat(render("#{id}/form", "#{id.singularize}": new_instance))
       end)
 
