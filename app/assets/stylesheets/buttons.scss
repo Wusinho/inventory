@@ -26,7 +26,13 @@
 .search_btn {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
-  background-color: $color_grey;
+  background-color: $color_contrast;
+  color: white;
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: $color_contrast_baja;
+    color: black;
+  }
 }
 
 .grey_btn {

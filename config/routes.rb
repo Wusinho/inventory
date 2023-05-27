@@ -20,17 +20,3 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "products#index"
 end
-
-
-# <%= form_for(resource, as: resource_name, url: session_path(resource_name),
-#              html: { class: 'log_in__form p-4' }) do |f| %>
-#     <h2 class="m-0">3B's</h2>
-#     <small class="mb-4">Algo para comprar</small>
-#   <%= image_tag('muestra.png', class: 'mb-4') %>
-#
-#   <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: :email, class: 'mb-4' %>
-#
-#     <%= f.password_field :password, autocomplete: "current-password", placeholder: :password, class: 'mb-4' %>
-#
-#     <%= f.submit "Log in", class: 'mb-2' %>
-# <% end %>
