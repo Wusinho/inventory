@@ -14,10 +14,16 @@
  *= require_self
  */
 @import "bootstrap";
+@import "colors";
+@import "font-awesome";
+@import "buttons";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-.super__container {
-  margin-top: 40px;
-}
+
+//.super__container {
+//  margin-top: 40px;
+//  height: 100%;
+//}
  .form-control-focus {
    color: #212529;
    background-color: #fff;
@@ -45,5 +51,26 @@
 }
 
 .navbar .navbar-brand.active {
-  color: red;
+  color: $color_primario_baja;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.model_container {
+  margin: 20px 0;
+  padding: 0 10px;
+}
+
+.model__display{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }

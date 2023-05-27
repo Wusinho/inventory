@@ -1,5 +1,5 @@
 <div class="nested-form-wrapper form-inline" data-new-record="<%= f.object.new_record? %>">
-  <div class="card p-2" style="width: 18rem;">
+  <div class="card p-2" >
     <%= price_field(f, f_parent) %>
 
     <div class="form-group mb-2">
@@ -12,8 +12,10 @@
       <%= f.select :quantity, (1..f_parent.object.stock_quantity).to_a, {}, class: 'form-select' %>
     </div>
 
-    <button type="button" data-action="nested-form#remove" class="btn btn-danger">Remove Selling Price</button>
+    <div class="d-flex justify-content-between">
+    <button type="button" data-action="nested-form#remove" class="btn btn-danger">Cancelar</button>
     <%= f.hidden_field :_destroy %>
+    <%= f_parent.submit 'Save', class: pink_btn %>
+    </div>
   </div>
-  <%= f_parent.submit 'Save', class: green_btn %>
 </div>

@@ -1,30 +1,36 @@
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid px-4">
-    <% if admin_signed_in? %>
-      <div class="d-flex">
-        <%= link_to 'Providers', providers_path, class: active_nav?(providers_path) %>
-        <%= link_to 'Categories', categories_path, class: active_nav?(categories_path) %>
-        <%= link_to 'Products', products_path, class: active_nav?(products_path) %>
-        <%= link_to 'Customers', customers_path, class: active_nav?(customers_path) %>
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center">
+      <div class="nav-item mobile_log_out">
+        <%= button_to destroy_admin_session_path, method: :delete, class: red_btn do %>
+          <i class="fa-solid fa-right-from-bracket"></i>
+        <% end %>
       </div>
-      <div class="d-flex">
-        <%= button_to "Sign Out", destroy_admin_session_path, method: :delete, class: red_btn %>
-      </div>
-    <%else %>
-      <div class="d-flex nav__container--session justify-content-between">
-
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Sign In
-          </button>
-          <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
-            <%= render 'devise/sessions/new_session' %>
-          </ul>
-        </div>
-
-        <%= link_to 'Registration', new_admin_registration_path, class: blue_btn %>
-      </div>
-    <% end %>
-
+      <%= show_filter(controller_name) %>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item">
+          <%= link_to 'Proveedores', providers_path, class: active_nav?(providers_path) %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Categorias', categories_path, class: active_nav?(categories_path) %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Productos', products_path, class: active_nav?(products_path) %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Clientes', customers_path, class: active_nav?(customers_path) %>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-item desktop_log_out">
+      <%= button_to destroy_admin_session_path, method: :delete, class: red_btn do %>
+        <i class="fa-solid fa-right-from-bracket"></i>
+      <% end %>
+    </div>
   </div>
 </nav>

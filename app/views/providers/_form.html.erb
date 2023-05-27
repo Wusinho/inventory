@@ -1,7 +1,7 @@
 <%= form_with model: provider, id: "provider_form",
               data: {
                 form_target: 'dropdownContent',
-              }, class: invisible do |f| %>
+              }, class: invisible(provider) do |f| %>
   <div class="mb-3">
     <%= f.label :name, class: form_label %>
     <%= f.text_field :name, class:form_control %>
@@ -27,5 +27,8 @@
     <%= f.text_field :phone, class:form_control %>
   </div>
 
-  <%= f.submit class: blue_btn %>
+  <div>
+    <%= f.submit 'Guardar', class: blue_btn %>
+    <%= link_to 'back', providers_path, class: 'text-decoration-none' %>
+  </div>
 <% end %>

@@ -27,19 +27,12 @@ module ProductsHelper
   def faulty_prod_card(product)
     css = 'card'
     css += ' border-danger border-3' if product.faulty
-    css += product.out_of_stock? ? ' bg-warning' : ' bg-primary'
+    css += ' border-warning' unless product.out_of_stock?
+    css
   end
 
   def product_form(product)
     product.persisted? ? '': 'd-none'
-  end
-
-
-  def back_link(product)
-    return if product.persisted?
-
-    link_to 'Back', '', data: { controller: 'product-form',
-                                action: '[rp'}
   end
 
 end

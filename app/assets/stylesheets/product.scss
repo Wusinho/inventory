@@ -2,10 +2,21 @@
   border: 2px solid red;
 }
 
-.filter__container {
-  margin-top: 10px;
-}
 
 .cat__select{
-  width: 300px;
+  width: 0 !important;
+}
+
+#validationTagsThreshold{
+  width: 0 !important;
+}
+
+.form-placeholder-shown div {
+  width: 200px;
+}
+
+@media (min-width: 601px) {
+  .form-placeholder-shown div {
+    width: 900px;
+  }
 }

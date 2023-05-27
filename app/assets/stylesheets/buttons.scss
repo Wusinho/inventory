@@ -1,0 +1,53 @@
+@import "colors";
+
+.btns {
+  border: none;
+  border-radius: 25px;
+  padding: 10px 30px;
+  text-decoration: none;
+  color: black;
+}
+
+.pink_btn {
+  background: $color_primario_baja;
+  transition: background-color 0.5s;
+  &:hover {
+    background: $color_primario;
+    color: white;
+  }
+}
+
+#filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.search_btn {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  background-color: $color_contrast;
+  color: white;
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: $color_contrast_baja;
+    color: black;
+  }
+}
+
+.grey_btn {
+  background-color: $color_grey_alta;
+  color: white;
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: $color_grey;
+    color: black;
+  }
+}
+
+.grey_link {
+  color: $color_grey_alta;
+  &:hover {
+    color: $color_grey;
+  }
+}
