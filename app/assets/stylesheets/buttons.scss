@@ -32,6 +32,11 @@
 .grey_btn {
   background-color: $color_grey_alta;
   color: white;
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: $color_grey;
+    color: black;
+  }
 }
 
 .grey_link {

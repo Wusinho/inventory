@@ -27,7 +27,8 @@ module ProductsHelper
   def faulty_prod_card(product)
     css = 'card'
     css += ' border-danger border-3' if product.faulty
-    css += product.out_of_stock? ? ' border-warning' : ' border-primary'
+    css += ' border-warning' unless product.out_of_stock?
+    css
   end
 
   def product_form(product)
