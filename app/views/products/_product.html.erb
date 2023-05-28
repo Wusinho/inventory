@@ -5,6 +5,11 @@
     </div>
       <div class="card-body">
         <p class="card-text"><%= product.description %></p>
+        <% if product.image_data %>
+          <div class="image-wrapper">
+            <%= cl_image_tag(product.image_data.filename, width: 400, height: 400, crop: :fill, class: 'img-fluid') %>
+          </div>
+        <% end %>
         <% product.categories.each do |category| %>
           <span class="badge rounded-pill bg-info text-dark"><%= category.name %></span>
         <% end %>

@@ -1,5 +1,6 @@
 <%= form_with(
       model: product, id: 'product_form',
+      multipart: true,
       data: {
         form_target: 'dropdownContent',
 }, class: invisible(product)) do |f| %>
@@ -21,6 +22,11 @@
   <div class="mb-3">
     <%= f.label :selecciona_proveedor %>
     <%= f.select :provider_id, options_for_select(current_admin.providers_select, selected: product.provider_id), { include_blank: false }, { class: 'form-select' } %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :image_data %>
+    <%= f.file_field :image_data, class: form_control %>
   </div>
 
   <%#= nested_inventory_purchases(product, f) %>

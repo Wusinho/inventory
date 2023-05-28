@@ -50,6 +50,7 @@
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, rbenv: 3.2.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.4.2, rbenv: 3.2.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v3.39.0, rbenv: 3.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="carrierwave (v2.2.3, rbenv: 3.2.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cloudinary (v1.25.0, rbenv: 3.2.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.2.2, rbenv: 3.2.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, rbenv: 3.2.0) [gem]" level="application" />
@@ -129,6 +130,7 @@
     <orderEntry type="library" scope="PROVIDED" name="shoulda-matchers (v5.3.0, rbenv: 3.2.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v4.2.0, rbenv: 3.2.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.4.2, rbenv: 3.2.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ssrf_filter (v1.1.1, rbenv: 3.2.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stimulus-rails (v1.2.1, rbenv: 3.2.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.2.1, rbenv: 3.2.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tilt (v2.1.0, rbenv: 3.2.0) [gem]" level="application" />

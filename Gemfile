@@ -84,5 +84,5 @@ gem "font-awesome-sass", "~> 6.3.0"
 gem 'acts-as-taggable-on', '~> 9.0'
 gem 'faraday', '~> 2.7', '>= 2.7.5'
 
-gem 'image_processing', '~> 1.12', '>= 1.12.2'
 gem 'cloudinary', '~> 1.25'
+gem 'carrierwave', '~> 2.2', '>= 2.2.3'
