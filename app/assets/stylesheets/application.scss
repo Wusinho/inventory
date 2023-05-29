@@ -20,10 +20,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 
-//.super__container {
-//  margin-top: 40px;
-//  height: 100%;
-//}
  .form-control-focus {
    color: #212529;
    background-color: #fff;
@@ -68,9 +64,46 @@ body {
   padding: 0 10px;
 }
 
+.product_container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  #products {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.customer_container {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: center;
+   #customers {
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     justify-content: center;
+   }
+ }
+
+
 .model__display{
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
+
+.card {
+  width: 10rem;
+}
+
+//@media (min-width: 601px) {
+//  .card {
+//    width: 18rem;
+//  }
+//}
