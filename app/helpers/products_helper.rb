@@ -36,10 +36,10 @@ module ProductsHelper
   end
 
   def render_image(product)
-    if product.image_data
+    if product.image_data.present?
       cl_image_tag(product.image_data.filename, width: 400, height: 400, crop: :fill, class: 'img-fluid')
     else
-      cl_image_tag('', width: 400, height: 400, crop: :fill, class: 'img-fluid')
+      image_tag('no_image.jpg',class: 'img-fluid')
     end
   end
 
