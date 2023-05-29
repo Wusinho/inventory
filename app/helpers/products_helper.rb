@@ -35,4 +35,12 @@ module ProductsHelper
     product.persisted? ? '': 'd-none'
   end
 
+  def render_image(product)
+    if product.image_data
+      cl_image_tag(product.image_data.filename, width: 400, height: 400, crop: :fill, class: 'img-fluid')
+    else
+      cl_image_tag('', width: 400, height: 400, crop: :fill, class: 'img-fluid')
+    end
+  end
+
 end

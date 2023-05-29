@@ -4,11 +4,10 @@
     </div>
       <div class="card-body">
         <p class="card-text"><%= product.description %></p>
-        <% if product.image_data.present? %>
-          <div class="image-wrapper">
-            <%= cl_image_tag(product.image_data.filename, width: 400, height: 400, crop: :fill, class: 'img-fluid') %>
-          </div>
-        <% end %>
+        <%= product_form(product) %>
+        <div class="image-wrapper">
+          <%= render_image(product) %>
+        </div>
         <% product.categories.each do |category| %>
           <span class="badge rounded-pill bg-info text-dark"><%= category.name %></span>
         <% end %>
