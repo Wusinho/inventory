@@ -63,6 +63,7 @@ product_categories = [
 product_categories.each { |cat_name| Category.create(name: cat_name)}
 
 if Rails.env.development?
+  Balance.create(starting_total: 1000)
   Admin.create(email: 'user_0@gmail.com',
                password: '123456',
                password_confirmation: '123456',
