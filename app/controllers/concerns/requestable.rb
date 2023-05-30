@@ -6,31 +6,18 @@ module Requestable
 
     if response.success?
       data = JSON.parse(response.body)
-      resp = data['query']['search'][1]['snippet']
-      sanitized = ActionController::Base.helpers.strip_tags(resp)
-      extract_from_left_angle_bracket(remove_until_first_period(sanitized)).split('.')
+      phrase_count = data['query']['search'].size
+
+      current_day = Date.today.yday
+
+      selected_phrase_index = current_day % phrase_count
+      selected_phrase = data['query']['search'][selected_phrase_index]['snippet']
+
+
+      ActionController::Base.helpers.strip_tags(selected_phrase)
     else
-      [['Siempre hay un manhana mejor'],['Anonimo']]
+      ['Siempre hay un mañana mejor, Anónimo']
     end
   end
-
-  private
-
-  def remove_until_first_period(input)
-    period_index = input.index('.')
-    return input unless period_index
-
-    input[(period_index + 1)..-1].strip
-  end
-
-  def extract_from_left_angle_bracket(input)
-    left_angle_bracket_index = input.index('«')
-    return nil unless left_angle_bracket_index
-
-    substring = input[(left_angle_bracket_index + 1)..-1]
-    substring.gsub!('»', '')
-    substring.strip
-  end
-
 
 end

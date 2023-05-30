@@ -23,9 +23,7 @@ class Admin::SessionsController < Devise::SessionsController
   protected
 
   def get_phrase
-    phrase = inspiration_phrase
-    @phrase = phrase[0]
-    @author = phrase[1]
+    @phrase = inspiration_phrase
   end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
