@@ -1,23 +1,38 @@
 
 module Requestable
   def inspiration_phrase
-    url = 'https://es.wikiquote.org/w/api.php?action=query&format=json&list=search&srsearch=inspiracion'
+    semana = Time.now.strftime("%a")
+
+    semana_hash = {
+      "Mon" => "lunes",
+      "Tue" => "martes",
+      "Wed" => "miércoles",
+      "Thu" => "jueves",
+      "Fri" => "viernes",
+      "Sat" => "sábado",
+      "Sun" => "domingo"
+    }
+
+    title = "{{Plantilla:Frase-#{semana_hash[semana]}}}"
+
+    url = "http://es.wikiquote.org/w/api.php?action=parse&text=#{CGI.escape(title)}&format=json&contentmodel=wikitext"
+
     response = Faraday.get(url)
 
-    if response.success?
+    if response.status == 301
+      redirected_url = response.headers["location"]
+      response = Faraday.get(redirected_url)
+
       data = JSON.parse(response.body)
-      phrase_count = data['query']['search'].size
 
-      current_day = Date.today.yday
+      phrase = data["parse"]["text"]["*"]
+      ActionController::Base.helpers.strip_tags(phrase)
 
-      selected_phrase_index = current_day % phrase_count
-      selected_phrase = data['query']['search'][selected_phrase_index]['snippet']
-
-
-      ActionController::Base.helpers.strip_tags(selected_phrase)
     else
-      ['Siempre hay un mañana mejor, Anónimo']
+      'Siempre hay un mañana mejor, Anónimo'
+
     end
   end
+
 
 end
