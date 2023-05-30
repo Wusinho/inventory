@@ -32,6 +32,19 @@ module InventoryPurchasesHelper
     ]
   end
 
+  def inventory_colors(inventory_purchase)
+    return unless inventory_purchase.colors.present?
+
+    sentence = inventory_purchase.colors.join(' y ')
+    content_tag(:p, "Colores: #{sentence}".html_safe, class: 'card-text')
+  end
+
+  def inventory_sizes(inventory_purchase)
+    return unless inventory_purchase.size
+
+    content_tag(:p, "Sizes: #{inventory_purchase.size}".html_safe, class: 'card-text')
+  end
+
   def colors_select(f)
     options = { multiple: true, class: 'form-select', id: 'validationTagsThreshold', data: { controller: 'tag-select', allow_clear: true, suggestions_threshold: 0 } }
     select = { include_blank: true }

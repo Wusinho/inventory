@@ -5,7 +5,7 @@ class InventoryPurchase < ApplicationRecord
   accepts_nested_attributes_for :selling_orders, reject_if: :all_blank, allow_destroy: true
   before_create :eliminate_blank_colors
   before_create :round_nums
-  enum size: [:s, :m, :l, :xl, :xll ]
+  enum size: [:S, :M, :L, :XL, :XLL ]
 
   def eliminate_blank_colors
     self.colors = self.colors.reject(&:empty?)

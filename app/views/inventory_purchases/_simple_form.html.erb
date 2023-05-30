@@ -21,7 +21,7 @@
 
     <div class="mb-3">
       <%= f.label :size, class: form_label %>
-      <%= select_tag :size, options_for_select([['Selecciona talla', '']] + InventoryPurchase.sizes.keys.map { |size| [size.upcase, size] }), class: form_control %>
+      <%= f.select :size, options_for_select([['Elige tamanho', nil]] + InventoryPurchase.sizes.keys.map { |size| [size.upcase, size] }), {}, class: form_control %>
     </div>
 
     <%= f.hidden_field :product_id, value: f.object.product_id %>

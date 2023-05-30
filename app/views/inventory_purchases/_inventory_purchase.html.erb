@@ -11,6 +11,8 @@
             <p class="card-text">Precio:
               <%= number_to_currency( inventory_purchase.selling_price, unit: "S/.", separator: ".", delimiter: ",")%>
             </p>
+            <%= inventory_sizes(inventory_purchase) %>
+            <%= inventory_colors(inventory_purchase) %>
             <p class="card-text">Cantidad: <%= inventory_purchase.stock_quantity %></p>
           </div>
         <% end %>
