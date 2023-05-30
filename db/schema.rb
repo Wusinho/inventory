@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_233348) do
   create_table "balances", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.float "starting_total", null: false
     t.float "sub_total", null: false
+    t.date "last_day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
