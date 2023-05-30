@@ -1,6 +1,7 @@
 class SellingOrder < ApplicationRecord
   belongs_to :inventory_purchase
   belongs_to :customer
+  belongs_to :balance
   has_one :product, through: :inventory_purchase
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :quantity, presence: true, numericality: { greater_than: 0 }

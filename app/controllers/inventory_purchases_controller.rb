@@ -40,6 +40,6 @@ class InventoryPurchasesController < ApplicationController
                                                :selling_price,
                                                :sold_out,
                                                colors: [],
-                                               selling_orders_attributes: [:id, :price, :quantity, :special_cost, :customer_id, :_destroy])
+                                               selling_orders_attributes: [:id, :price, :quantity, :special_cost, :customer_id, :balance_id, :_destroy])
   end
 end

@@ -12,6 +12,8 @@
       <%= f.select :quantity, (1..f_parent.object.stock_quantity).to_a, {}, class: 'form-select' %>
     </div>
 
+    <%= f.hidden_field :balance_id, value: f_parent.object.last_balance_id  %>
+
     <%= f.hidden_field :_destroy %>
     <button type="button" data-action="nested-form#remove" class="btn btn-danger mb-1">Cancelar</button>
     <%= f_parent.submit 'Save', class: pink_btn %>

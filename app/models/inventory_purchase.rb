@@ -20,4 +20,8 @@ class InventoryPurchase < ApplicationRecord
     self.selling_price = self.selling_price.round(2)
   end
 
+  def last_balance_id
+    Balance.last.id
+  end
+
 end
