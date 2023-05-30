@@ -115,6 +115,10 @@ body {
 .card {
   width: 9rem;
   border-radius: 20px;
+  margin: 0;
+  .card-body {
+    padding: 8px;
+  }
 }
 
 .selling_order_container {
