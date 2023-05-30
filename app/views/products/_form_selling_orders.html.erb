@@ -1,8 +1,6 @@
 <%= form_with model: inventory_purchase, html: { class: 'mx-2' }, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
   <div>
-    <% if inventory_purchase.stock_left? %>
-      <button type="button" data-action="nested-form#add" class="btn btn-primary">Orden</button>
-    <% end %>
+    <%= order_button_if_stock_left(inventory_purchase) %>
   </div>
   <div>
     <template data-nested-form-target="template">
@@ -10,9 +8,11 @@
         <%= render "selling_orders/form", f: selling_fields, f_parent: f %>
       <% end %>
     </template>
-    <%= f.fields_for :selling_orders do |selling_fields| %>
-      <%= render "selling_orders/card", f: selling_fields %>
-    <% end %>
+    <div class="selling_order_container">
+      <%= f.fields_for :selling_orders do |selling_fields| %>
+        <%= render "selling_orders/card", f: selling_fields %>
+      <% end %>
+    </div>
     <div data-nested-form-target="target"></div>
   </div>
 <% end %>

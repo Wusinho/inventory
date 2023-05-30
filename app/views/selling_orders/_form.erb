@@ -12,10 +12,8 @@
       <%= f.select :quantity, (1..f_parent.object.stock_quantity).to_a, {}, class: 'form-select' %>
     </div>
 
-    <div class="d-flex justify-content-between">
-    <button type="button" data-action="nested-form#remove" class="btn btn-danger">Cancelar</button>
     <%= f.hidden_field :_destroy %>
+    <button type="button" data-action="nested-form#remove" class="btn btn-danger mb-1">Cancelar</button>
     <%= f_parent.submit 'Save', class: pink_btn %>
-    </div>
   </div>
 </div>

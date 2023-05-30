@@ -84,7 +84,7 @@ module ApplicationHelper
   end
 
   def show_filter(controller_name)
-    return unless %w[products customers].include?(controller_name)
+    return unless %w[products customers].include?(params[:controller]) && params[:action] == 'index'
 
     if controller_name == 'products'
       render 'shared/products_filter'

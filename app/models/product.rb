@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   include Filterable
+  mount_uploader :image_data, ImageUploader
   belongs_to :provider
   has_many :inventory_purchases, -> { order(sold_out: :asc, created_at: :asc) }, dependent: :delete_all
   has_many :product_categories

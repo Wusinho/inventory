@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 ruby "3.2.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -81,3 +83,6 @@ gem 'bootstrap', '~> 5.1.3'
 gem "font-awesome-sass", "~> 6.3.0"
 gem 'acts-as-taggable-on', '~> 9.0'
 gem 'faraday', '~> 2.7', '>= 2.7.5'
+
+gem 'cloudinary', '~> 1.25'
+gem 'carrierwave', '~> 2.2', '>= 2.2.3'

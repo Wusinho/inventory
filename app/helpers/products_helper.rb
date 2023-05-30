@@ -27,12 +27,20 @@ module ProductsHelper
   def faulty_prod_card(product)
     css = 'card'
     css += ' border-danger border-3' if product.faulty
-    css += ' border-warning' unless product.out_of_stock?
+    css += ' with_stock' unless product.out_of_stock?
     css
   end
 
   def product_form(product)
     product.persisted? ? '': 'd-none'
+  end
+
+  def render_image(product)
+    if product.image_data.present?
+      cl_image_tag(product.image_data.filename, width: 400, height: 400, crop: :fill, class: 'img-fluid')
+    else
+      image_tag('no_image.jpg',class: 'img-fluid')
+    end
   end
 
 end
