@@ -120,12 +120,11 @@ body {
 .selling_order_container {
   display: flex;
   flex-wrap: wrap;
-}
-
-#inventory_purchases {
   .user_order {
     display: inline-block;
     padding: 5px;
+    width: 5rem;
+    margin: 3px;
   }
 }
 

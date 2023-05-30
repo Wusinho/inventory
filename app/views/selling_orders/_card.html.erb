@@ -1,8 +1,8 @@
 <div id="<%= dom_id f.object %>" class='nested-form-wrapper my-1 ' data-new-record="<%= f.object.new_record? %>" >
-  <div class="user_order" >
-    <div class="p-0">
-      <p class=""><%= f.object.customer.name %></p>
-      <p class="">cant: <%= f.object.quantity %></p>
+  <div class="<%= payment_status(f) %>" >
+    <div class="card-body p-1">
+      <p class="m-0"><%= link_to f.object.customer.name, customer_path(f.object.customer.id) %>
+      <p class="m-0">cant: <%= f.object.quantity %></p>
     </div>
   </div>
 </div>
