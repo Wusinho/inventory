@@ -78,6 +78,9 @@ body {
     .card {
       border: 1px solid $color_primario_baja;
     }
+    .card-title a {
+      color: $color_title;
+    }
     .card-text {
       display: none;
     }
