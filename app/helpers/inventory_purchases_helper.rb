@@ -17,5 +17,29 @@ module InventoryPurchasesHelper
     end
   end
 
+  def color_options
+    [
+      %w[Rojo rojo],
+      %w[Azul azul],
+      %w[Verde verde],
+      %w[Amarillo amarillo],
+      %w[Naranja naranja],
+      %w[Morado morado],
+      %w[Celeste celeste],
+      %w[Rosado rosado],
+      %w[Fucsia fucsia],
+      %w[Turquesa turquesa],
+    ]
+  end
+
+  def colors_select(f)
+    options = { multiple: true, class: 'form-select', id: 'validationTagsThreshold', data: { controller: 'tag-select', allow_clear: true, suggestions_threshold: 0 } }
+    select = { include_blank: true }
+
+    f.collection_select(:colors, color_options, :last, :first, select, options)
+  end
+
+
+
 
 end
