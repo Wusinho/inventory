@@ -51,8 +51,4 @@ module InventoryPurchasesHelper
 
     f.collection_select(:colors, color_options, :last, :first, select, options)
   end
-
-
-
-
 end
