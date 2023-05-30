@@ -78,7 +78,7 @@ body {
     .card {
       border: 1px solid $color_primario_baja;
     }
-    .card-title a {
+    .card-title {
       color: $color_title;
     }
     .card-text {
@@ -160,6 +160,7 @@ body {
   #products, #providers {
     .card-text {
       display: block !important;
+      color: black;
     }
     .card {
       width: 16rem;
