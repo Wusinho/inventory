@@ -53,6 +53,7 @@
 html, body {
   height: 100%;
   margin: 0;
+  background-color: $color_grey;
 }
 
 body {
@@ -74,11 +75,16 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    .card {
+      border: 1px solid $color_primario_baja;
+    }
     .card-text {
       display: none;
     }
     span {
-      background-color: $color_contrast;
+      background-color: #F1EEFF;
+      color: $color_grey_alta;
+      margin: 5px;
     }
   }
 }
@@ -104,8 +110,8 @@ body {
 }
 
 .card__container {
-  border: 1px solid $color_grey;
   border-radius: 20px;
+  background-color: white;
 }
 
 .image-wrapper img {

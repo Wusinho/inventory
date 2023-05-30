@@ -5,7 +5,6 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: $color_primario;
   padding: 0;
   margin: 0;
 }
@@ -14,7 +13,7 @@
   min-width: 30%;
   border: 1px solid $color_primario_baja;
   border-radius: 15px;
-  background-color: white;
+  background-color: $color_primario_baja;
   box-shadow: $box_shadow;
   display: flex;
   flex-direction: column;
