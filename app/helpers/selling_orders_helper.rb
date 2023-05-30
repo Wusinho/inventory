@@ -9,7 +9,13 @@ module SellingOrdersHelper
     css = 'card'
     css += ' border-danger' unless f.object.paid
     css
-
   end
+
+    def order_button_if_stock_left(inventory_purchase)
+      return unless inventory_purchase.stock_left?
+
+      content_tag(:button, "Orden", class: "btn btn-primary", "data-action": "nested-form#add", type: "button")
+    end
+
 
 end

@@ -9,9 +9,9 @@
       <div class="image-wrapper">
         <%= render_image(product) %>
       </div>
-      <div class="card-body p-1">
+      <div class="card-body p-1 mt-2">
         <% product.categories.each do |category| %>
-          <span class="badge rounded-pill bg-info text-dark"><%= category.name %></span>
+          <span class="badge rounded-pill text-white"><%= category.name %></span>
         <% end %>
       </div>
     </div>

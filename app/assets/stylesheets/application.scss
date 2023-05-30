@@ -77,6 +77,9 @@ body {
     .card-text {
       display: none;
     }
+    span {
+      background-color: $color_contrast;
+    }
   }
 }
 
@@ -103,14 +106,31 @@ body {
 .card__container {
   border: 1px solid $color_grey;
   border-radius: 20px;
-  .card {
-    background-color: yellow;
-  }
+}
+
+.image-wrapper img {
+  border-radius: 20px;
 }
 
 .card {
   width: 9rem;
   border-radius: 20px;
+}
+
+.selling_order_container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#inventory_purchases {
+  .user_order {
+    display: inline-block;
+    padding: 5px;
+  }
+}
+
+.with_stock {
+  background-color: $color_primario_baja;
 }
 
 @media (min-width: 601px) {
