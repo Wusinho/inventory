@@ -1,9 +1,10 @@
 <div class="card__container p-2">
-  <div class="card m-1" >
+  <%= link_to customer_path(customer.id), class: 'text-decoration-none' do %>
+    <div class="card m-1" >
       <div class="card-body">
         <p class="card-title">
           <strong>
-          <%= link_to customer.name, customer_path(customer.id), class: 'text-decoration-none' %>
+          <%= customer.name %>
           </strong>
         </p>
         <p class="card-text"><%= customer.phone %></p>
@@ -12,4 +13,5 @@
         <% end %>
       </div>
     </div>
+  <% end %>
 </div>

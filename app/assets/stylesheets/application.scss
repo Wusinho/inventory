@@ -105,8 +105,11 @@ body {
      .card {
        border: 1px solid $color_primario_baja;
      }
-     .card-title a {
+     .card-title {
        color: $color_title;
+     }
+     .card-text {
+       color: black;
      }
      span {
        background-color: $color_light_purple;
