@@ -100,13 +100,22 @@ body {
   gap: 20px;
 }
 
+.card__container {
+  border: 1px solid $color_grey;
+  border-radius: 20px;
+  .card {
+    background-color: yellow;
+  }
+}
+
 .card {
-  width: 10rem;
+  width: 9rem;
+  border-radius: 20px;
 }
 
 @media (min-width: 601px) {
   .card {
-    width: 18rem;
+    width: 16rem;
   }
   #products {
     .card-text {
