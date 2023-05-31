@@ -1,8 +1,8 @@
 class Balance < ApplicationRecord
   has_many :selling_orders
   has_many :spends
-  before_save :fill_sub_total
-  before_save :fill_last_date
+  before_create :fill_sub_total
+  before_create :fill_last_date
 
   def fill_sub_total
     self.sub_total = self.starting_total

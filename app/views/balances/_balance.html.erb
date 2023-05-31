@@ -1,4 +1,4 @@
-<div class="card__container p-2">
+<div class="card__container p-2" id="<%= dom_id balance %>">
     <div class="card m-1" >
       <div class="card-body">
         <p class="card-title">
@@ -6,9 +6,9 @@
             <%= balance.starting_total %>
           </strong>
         </p>
-        <div id='spends'>
+        <div id='balance_spends'>
           <% balance.spends.each do |spend| %>
-            <p><%= spend.payments %></p>
+            <%= render 'spends/spend', spend: spend %>
           <% end %>
         </div>
         <p class="card-text"><%= balance.sub_total %></p>
