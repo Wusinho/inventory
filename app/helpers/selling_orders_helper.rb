@@ -22,7 +22,7 @@ module SellingOrdersHelper
     return unless inventory_purchase.size
 
     content_tag(:div, class: "form-group mb-2") do
-      content_tag(:div, inventory_purchase.size)
+      content_tag(:div, "talla: #{inventory_purchase.size}")
     end
 
   end
@@ -31,7 +31,7 @@ module SellingOrdersHelper
     return if inventory_purchase.colors.empty?
 
     content_tag(:div, class: "form-group mb-2") do
-      content_tag(:p, inventory_purchase.colors.to_sentence)
+      content_tag(:p, "colores: #{inventory_purchase.colors.to_sentence}")
     end
 
   end
