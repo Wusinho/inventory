@@ -4,6 +4,7 @@ class Balance < ApplicationRecord
   before_create :fill_sub_total
   before_create :fill_last_date
   scope :last_created, -> { order(created_at: :desc).last }
+  scope :list, -> { order(created_at: :desc) }
 
 
   def fill_sub_total
