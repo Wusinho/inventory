@@ -1,0 +1,14 @@
+<div>
+  <%= form_with model: spend,
+                id:'spend_form', data: {
+      form_target: 'dropdownContent',
+    }, class: invisible(spend) do |f| %>
+
+    <div class="mb-3">
+      <%= f.label :payments, class: form_label %>
+      <%= f.number_field :payments, min: 0, step: 0.5, class: form_control %>
+    </div>
+
+    <%= f.submit class: blue_btn %>
+  <% end %>
+</div>

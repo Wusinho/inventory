@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :expense do
+  factory :spend do
     balance { nil }
   end
 end

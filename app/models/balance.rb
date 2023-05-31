@@ -1,6 +1,6 @@
 class Balance < ApplicationRecord
   has_many :selling_orders
-  has_many :expenses
+  has_many :spends
   before_save :fill_sub_total
   before_save :fill_last_date
 

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :selling_orders, only: [:update]
   resources :customers
   resources :balances
+  resources :spends
   resources :inventory_purchases
   resources :providers
   resources :products

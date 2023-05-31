@@ -1,3 +1,17 @@
-<div>
-  <%= balance.inspect %>
+<div class="card__container p-2">
+    <div class="card m-1" >
+      <div class="card-body">
+        <p class="card-title">
+          <strong>
+            <%= balance.starting_total %>
+          </strong>
+        </p>
+        <div id='spends'>
+          <% balance.spends.each do |spend| %>
+            <p><%= spend.payments %></p>
+          <% end %>
+        </div>
+        <p class="card-text"><%= balance.sub_total %></p>
+      </div>
+    </div>
 </div>
