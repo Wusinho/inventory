@@ -13,6 +13,9 @@
       <%= format_date(selling_order.created_at) %>
     </div>
 
+    <%= display_sizes(selling_order.inventory_purchase) %>
+    <%= display_colors(selling_order.inventory_purchase) %>
+
     <%= f.hidden_field :paid, value: true %>
 
     <%= f.submit 'Pagar', class: pink_btn %>
