@@ -12,4 +12,8 @@ class Balance < ApplicationRecord
     self.last_day = Date.today.end_of_month
   end
 
+  def created_month
+    created_at.strftime("%b %d")
+  end
+
 end
