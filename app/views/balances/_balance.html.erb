@@ -11,9 +11,7 @@
             <%= render 'spends/spend', spend: spend %>
           <% end %>
           <% balance.selling_orders.where(paid: true).each do |selling_order| %>
-            <div>
-              + <%= selling_order.debt_payed %>
-            </div>
+            <%= render 'balances/selling_order', selling_order: selling_order %>
           <% end %>
         </div>
         <p class="card-text"><%= balance.sub_total %></p>

@@ -13,6 +13,10 @@ class SellingOrder < ApplicationRecord
     (quantity * price).round(2)
   end
 
+  def update_date
+    updated_at.strftime("%b %d")
+  end
+
   def update_balance
     new_balance = balance.sub_total + (quantity * price).round(2)
     balance.update_attribute(:sub_total, new_balance )
