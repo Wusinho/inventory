@@ -3,6 +3,8 @@ class Balance < ApplicationRecord
   has_many :spends
   before_create :fill_sub_total
   before_create :fill_last_date
+  scope :last_created, -> { order(created_at: :desc).last }
+
 
   def fill_sub_total
     self.sub_total = self.starting_total

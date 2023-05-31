@@ -9,7 +9,7 @@ class InventoryPurchase < ApplicationRecord
   enum size: [:S, :M, :L, :XL, :XLL ]
 
   def create_spends
-    Spend.create(payments: (stock_quantity * purchase_price).round(2), details: "Compra: #{product.name}", balance_id: last_balance_id)
+    Spend.create(payments: (stock_quantity * purchase_price), details: "Compra: #{product.name}", balance: last_balance)
   end
 
   def eliminate_blank_colors
@@ -26,7 +26,7 @@ class InventoryPurchase < ApplicationRecord
   end
 
   def last_balance
-    Balance.last
+    Balance.last_created
   end
 
   def last_balance_id
