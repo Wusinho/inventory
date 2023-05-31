@@ -15,7 +15,7 @@ class SpendsController < ApplicationController
   private
 
   def spend_params
-    params.require(:spend).permit(:payments)
+    params.require(:spend).permit(:payments, :details)
 
   end
 

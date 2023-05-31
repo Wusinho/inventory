@@ -112,6 +112,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_233348) do
   create_table "spends", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "balance_id", null: false
     t.float "payments", null: false
+    t.string "details", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["balance_id"], name: "index_spends_on_balance_id"
