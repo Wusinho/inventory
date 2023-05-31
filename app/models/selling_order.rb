@@ -6,7 +6,17 @@ class SellingOrder < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :quantity, presence: true, numericality: { greater_than: 0 }
   after_create :reduce_existences
+  after_update_commit :update_balance
   before_create :round_nums
+
+  def debt_payed
+    (quantity * price).round(2)
+  end
+
+  def update_balance
+    new_balance = balance.sub_total + (quantity * price).round(2)
+    balance.update_attribute(:sub_total, new_balance )
+  end
 
   def reduce_existences
     inventory_purchase.decrement!(:stock_quantity, self.quantity)
