@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   def index
     @product = Product.new
     @product.inventory_purchases.build
-    @products = Product.filter(@selected_params)
+    @products = Product.filter(@selected_params).includes([:categories])
 
   end
 
@@ -57,7 +57,7 @@ class ProductsController < ApplicationController
   end
 
   def set_product
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:id])#&.includes([:customer])
   end
 
   def products_params

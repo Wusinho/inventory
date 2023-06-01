@@ -1,6 +1,9 @@
 class Balance < ApplicationRecord
   has_many :selling_orders
   has_many :spends
+  has_many :customers, through: :selling_orders
+  has_many :inventory_purchases, through: :selling_orders
+  has_many :products, through: :inventory_purchases
   before_create :fill_sub_total
   before_create :fill_last_date
   scope :last_created, -> { order(created_at: :desc).last }
@@ -17,6 +20,10 @@ class Balance < ApplicationRecord
 
   def created_month
     created_at.strftime("%b %d")
+  end
+
+  def selling_order_list
+    selling_orders.where(paid: true).includes([:product, :customer])
   end
 
 end
