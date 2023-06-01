@@ -6,7 +6,7 @@ class CreateSellingOrders < ActiveRecord::Migration[7.0]
       t.references :balance, null: false, foreign_key: true, type: :uuid
       t.float :price, null: false
       t.integer :quantity, null: false
-      t.boolean :special_price, default: false
+      t.boolean :discount, default: false
       t.boolean :paid, default: false
 
       t.timestamps

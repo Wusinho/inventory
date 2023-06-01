@@ -100,7 +100,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_233348) do
     t.uuid "balance_id", null: false
     t.float "price", null: false
     t.integer "quantity", null: false
-    t.boolean "special_price", default: false
+    t.boolean "discount", default: false
     t.boolean "paid", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
