@@ -8,11 +8,11 @@
         <%= render "selling_orders/form", f: selling_fields, f_parent: f %>
       <% end %>
     </template>
-    <div class="selling_order_container">
-      <%= f.fields_for :selling_orders do |selling_fields| %>
-        <%= render "selling_orders/card", f: selling_fields %>
-      <% end %>
-    </div>
     <div data-nested-form-target="target"></div>
   </div>
 <% end %>
+<div class="selling_order_container" id="<%= dom_id inventory_purchase %>">
+  <% inventory_purchase.selling_orders.includes([:customer]).each do |selling_order| %>
+    <%= render "selling_orders/card", selling_order: selling_order %>
+  <% end %>
+</div>
