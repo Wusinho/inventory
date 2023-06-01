@@ -6,6 +6,7 @@ class SellingOrder < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :quantity, presence: true, numericality: { greater_than: 0 }
   after_create :reduce_existences
+  before_update :check_last_balance
   after_update_commit :update_balance
   before_create :round_nums
 
@@ -17,7 +18,14 @@ class SellingOrder < ApplicationRecord
     updated_at.strftime("%b %d")
   end
 
+  def check_last_balance
+    if Balance.last_created_month_day > balance.created_month
+      self.balance = Balance.last_created
+    end
+  end
+
   def update_balance
+
     new_balance = balance.sub_total + (quantity * price).round(2)
     balance.update_attribute(:sub_total, new_balance )
   end

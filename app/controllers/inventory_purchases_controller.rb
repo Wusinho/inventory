@@ -18,7 +18,12 @@ class InventoryPurchasesController < ApplicationController
 
   def update
     if @inventory_purchase.update(inventory_purchases_params)
-      redirect_to product_path(@inventory_purchase.product_id)
+      streams = []
+      streams << turbo_stream.replace("inventory_purchase_#{@inventory_purchase.id}",
+                                    partial: 'inventory_purchases/inventory_purchase',
+                                    locals: {
+                                      inventory_purchase: @inventory_purchase})
+      render turbo_stream: streams
     else
       turbo_error_message(@inventory_purchase)
     end
@@ -43,7 +48,7 @@ class InventoryPurchasesController < ApplicationController
                                                selling_orders_attributes: [:id,
                                                                            :price,
                                                                            :quantity,
-                                                                           :special_cost,
+                                                                           :discount,
                                                                            :customer_id,
                                                                            :balance_id,
                                                                            :_destroy])

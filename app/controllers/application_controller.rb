@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::NotNullViolation, with: :handle_not_null_violation
 
   def current_balance
-    Balance.last_created
+    @current_balance ||= Balance.last_created
   end
 
   def selected_params

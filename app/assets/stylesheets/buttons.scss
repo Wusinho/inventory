@@ -1,19 +1,21 @@
 @import "colors";
 
 .btns {
-  border: none;
-  border-radius: 25px;
-  padding: 10px 30px;
-  text-decoration: none;
+  border: none !important;
+  border-radius: 25px !important;
+  padding: 10px 30px !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
   color: black;
+  font-weight: lighter !important;
 }
 
 .pink_btn {
-  background: $color_primario_baja;
-  transition: background-color 0.5s;
+  background: $color_primario_baja !important;
+  transition: background-color 0.5s !important;
   &:hover {
-    background: $color_primario;
-    color: white;
+    background: $color_primario !important;
+    color: white !important;
   }
 }
 
@@ -24,31 +26,32 @@
 }
 
 .search_btn {
-  border: 2px solid $color_grey_alta;
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-  background-color: white;
-  color: $color_grey_alta;
-  transition: background-color 0.5s;
+  border: 2px solid $color_grey_alta !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  background-color: white !important;
+  color: $color_grey_alta !important;
+  transition: background-color 0.5s !important;
+  background-image: none !important;
   &:hover {
-    background-color: $color_light_purple;
-    color: black;
+    background-color: $color_light_purple !important;
+    color: black !important;
   }
 }
 
 .grey_btn {
-  background-color: $color_grey_alta;
-  color: white;
-  transition: background-color 0.5s;
+  background-color: $color_grey_alta !important;
+  color: white !important;
+  transition: background-color 0.5s !important;
   &:hover {
-    background-color: $color_grey;
-    color: black;
+    background-color: $color_grey !important;
+    color: black !important;
   }
 }
 
 .grey_link {
-  color: $color_grey_alta;
+  color: $color_grey_alta !important;
   &:hover {
-    color: $color_grey;
+    color: $color_grey !important;
   }
 }

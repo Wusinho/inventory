@@ -171,7 +171,15 @@ body {
   }
 }
 
-#spends {
+#customers {
+  .card {
+    display: inline-block;
+    width: 100%;
+    max-width: 13rem;
+  }
+}
+
+  #spends{
   .card {
     width: 17rem;
   }

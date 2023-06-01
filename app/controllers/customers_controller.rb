@@ -9,8 +9,8 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @selling_orders = @customer.selling_orders.where(paid: true)
-    @unpaid_selling_orders = @customer.selling_orders.where(paid: false)
+    @selling_orders = @customer.paid_orders_list
+    @unpaid_selling_orders = @customer.unpaid_orders_list
   end
 
   def update

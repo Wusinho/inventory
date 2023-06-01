@@ -1,6 +1,6 @@
 <div class="card__container p-2">
   <%= link_to customer_path(customer.id), class: 'text-decoration-none' do %>
-    <div class="card m-1" >
+    <div class="card" >
       <div class="card-body">
         <p class="card-title">
           <strong>
@@ -8,9 +8,11 @@
           </strong>
         </p>
         <p class="card-text"><%= customer.phone %></p>
-        <% customer.unpaid_products.each do |product_name| %>
-          <span class="badge"><%= product_name %></span>
-        <% end %>
+        <div class="card-body p-1 mt-1 d-flex flex-wrap justify-content-center">
+          <% customer.unpaid_products.each do |product_name| %>
+            <span class="badge"><%= product_name %></span>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>

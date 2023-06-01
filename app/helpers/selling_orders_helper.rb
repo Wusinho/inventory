@@ -5,9 +5,9 @@ module SellingOrdersHelper
     button_to 'Paid', selling_order_path({id: selling_order.id, paid: true}), method: :put, class: pink_btn
   end
 
-  def payment_status(f)
+  def payment_status(selling_order)
     css = 'card user_order'
-    return css if f.object.paid
+    return css if selling_order.paid
 
     css.then { |text| text += ' with_stock'}
   end

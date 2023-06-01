@@ -61,6 +61,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem 'bullet', '~> 7.0', '>= 7.0.7'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -86,3 +87,4 @@ gem 'faraday', '~> 2.7', '>= 2.7.5'
 
 gem 'cloudinary', '~> 1.25'
 gem 'carrierwave', '~> 2.2', '>= 2.2.3'
+gem 'activeadmin', '~> 2.13', '>= 2.13.1'
