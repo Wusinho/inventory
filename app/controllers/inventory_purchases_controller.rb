@@ -18,10 +18,12 @@ class InventoryPurchasesController < ApplicationController
 
   def update
     if @inventory_purchase.update(inventory_purchases_params)
-      render turbo_stream: turbo_stream.prepend("selling_inventory_purchase_#{@inventory_purchase.id}",
-                                                partial: 'selling_orders/card',
-                                                locals: {
-                                                  selling_order: @inventory_purchase.last_selling_orders })
+      streams = []
+      streams << turbo_stream.replace("inventory_purchase_#{@inventory_purchase.id}",
+                                    partial: 'inventory_purchases/inventory_purchase',
+                                    locals: {
+                                      inventory_purchase: @inventory_purchase})
+      render turbo_stream: streams
     else
       turbo_error_message(@inventory_purchase)
     end

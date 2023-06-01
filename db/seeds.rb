@@ -63,10 +63,13 @@ product_categories = [
 product_categories.each { |cat_name| Category.create(name: cat_name)}
 
 if Rails.env.development?
+  password = '123456'
+  SuperAdmin.create!(email: 'admin@gmail.com', password: password, password_confirmation: password)
+
   Balance.create(starting_total: 1000)
   Admin.create(email: 'user_0@gmail.com',
-               password: '123456',
-               password_confirmation: '123456',
+               password: password,
+               password_confirmation: password,
                name: Faker::Name.first_name , last_name: Faker::Name.middle_name  )
   5.times do
     Provider.create(name: Faker::Company.name,
@@ -102,4 +105,4 @@ if Rails.env.development?
   #   }
   # end
 
-end
+  end

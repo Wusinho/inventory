@@ -1,23 +1,6 @@
-<div class="d-flex">
-  <div >
-    <div class="d-inline-block mb-2">
-      <div class="<%= stock_sold_out?(inventory_purchase.sold_out) %>" id="<%= dom_id inventory_purchase %>" >
-        <%= turbo_frame_tag "inventory_purchase_edit_#{inventory_purchase.id}" do %>
-          <div class="card-body">
-            <p class="card-text">Dia Compra: <%= format_date(inventory_purchase.created_at) %></p>
-            <p class="card-text">Costo:
-              <%= number_to_currency( inventory_purchase.purchase_price, unit: "S/.", separator: ".", delimiter: ",")%>
-              </p>
-            <p class="card-text">Precio:
-              <%= number_to_currency( inventory_purchase.selling_price, unit: "S/.", separator: ".", delimiter: ",")%>
-            </p>
-            <%= inventory_sizes(inventory_purchase) %>
-            <%= inventory_colors(inventory_purchase) %>
-            <p class="card-text">Cantidad: <%= inventory_purchase.stock_quantity %></p>
-          </div>
-        <% end %>
-      </div>
-    </div>
+<div class="d-flex" id="<%= dom_id inventory_purchase %>">
+  <div class="mb-2">
+    <%= render 'inventory_purchases/inventory_details', inventory_purchase: inventory_purchase %>
   </div>
   <div>
     <%= render 'products/form_selling_orders', inventory_purchase: inventory_purchase %>

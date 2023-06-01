@@ -87,3 +87,4 @@ gem 'faraday', '~> 2.7', '>= 2.7.5'
 
 gem 'cloudinary', '~> 1.25'
 gem 'carrierwave', '~> 2.2', '>= 2.2.3'
+gem 'activeadmin', '~> 2.13', '>= 2.13.1'

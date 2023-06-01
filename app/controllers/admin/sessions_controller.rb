@@ -28,15 +28,7 @@ class Admin::SessionsController < Devise::SessionsController
   end
 
   def create_balance
-    current_balance
-    # p '*'*100
-    # p current_balance.last_day.strftime("%Y-%b") == Date.current.strftime("%Y-%b")
-    # p current_balance.last_day.strftime("%Y-%b")
-    # p Date.parse.("2023-Jul")
-    # p '*'*100
-    # return if @current_balance.last_day.strftime("%Y-%b") == Date.current.strftime("%Y-%b")
-    # return if @current_balance.last_day.strftime("%Y-%b") == Date.parse("2023-Jul").strftime("%Y-%b")
-    return
+    return if current_balance.last_day.strftime("%Y-%b") == Date.current.strftime("%Y-%b")
 
     @current_balance = Balance.create(starting_total: current_balance.sub_total)
   end
