@@ -1,7 +1,7 @@
 databases:
   - name: bueno_bonito_barato
     databaseName: bueno_bonito_barato
-    user: Wusinho
+    user: bueno_bonito_barato
 
 services:
   - type: redis
