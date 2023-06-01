@@ -380,7 +380,7 @@ DEPENDENCIES
   cloudinary (~> 1.25)
   database_cleaner (~> 2.0, >= 2.0.1)
   debug
-  devise (~> 4.9, >= 4.9.2)
+  devise (~> 4.9)
   dotenv-rails
   factory_bot_rails (~> 6.2)
   faker (~> 3.0)
@@ -390,7 +390,7 @@ DEPENDENCIES
   jbuilder
   pg (~> 1.1)
   puma (~> 5.0)
-  rails (~> 7.0.4, >= 7.0.4.3)
+  rails (~> 7.0.4)
   redis (~> 4.0)
   rspec-rails (~> 6.0, >= 6.0.1)
   selenium-webdriver
