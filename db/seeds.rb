@@ -60,9 +60,14 @@ product_categories = [
   "suplementos",
   "aromaterapia"
 ]
-product_categories.each { |cat_name| Category.create(name: cat_name)}
+product_categories.each { |cat_name| Category.find_or_create_by(name: cat_name) }
+
 password = '123456'
-SuperAdmin.create!(email: 'admin@gmail.com', password: password, password_confirmation: password)
+SuperAdmin.find_or_create_by(email: 'admin@gmail.com') do |admin|
+  admin.password = password
+  admin.password_confirmation = password
+end
+
 if Rails.env.development?
 
   Balance.create(starting_total: 1000)
