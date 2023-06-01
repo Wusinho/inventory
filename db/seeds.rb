@@ -75,10 +75,9 @@ end
                name: 'nombre' , last_name: 'apellido'  )
 end
 
+Balance.create(starting_total: 1000)
+
 if Rails.env.development?
-
-  Balance.create(starting_total: 1000)
-
   5.times do
     Provider.create(name: Faker::Company.name,
                     phone: Faker::PhoneNumber.cell_phone,
