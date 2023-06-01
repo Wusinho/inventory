@@ -68,13 +68,17 @@ SuperAdmin.find_or_create_by(email: 'admin@gmail.com') do |admin|
   admin.password_confirmation = password
 end
 
-if Rails.env.development?
-
-  Balance.create(starting_total: 1000)
-  Admin.create(email: 'user_0@gmail.com',
+2.times do |i|
+  Admin.create(email: "user_#{i}@gmail.com",
                password: password,
                password_confirmation: password,
                name: Faker::Name.first_name , last_name: Faker::Name.middle_name  )
+end
+
+if Rails.env.development?
+
+  Balance.create(starting_total: 1000)
+
   5.times do
     Provider.create(name: Faker::Company.name,
                     phone: Faker::PhoneNumber.cell_phone,
