@@ -18,7 +18,10 @@ class InventoryPurchasesController < ApplicationController
 
   def update
     if @inventory_purchase.update(inventory_purchases_params)
-      redirect_to product_path(@inventory_purchase.product_id)
+      render turbo_stream: turbo_stream.prepend("selling_inventory_purchase_#{@inventory_purchase.id}",
+                                                partial: 'selling_orders/card',
+                                                locals: {
+                                                  selling_order: @inventory_purchase.last_selling_orders })
     else
       turbo_error_message(@inventory_purchase)
     end
@@ -43,7 +46,7 @@ class InventoryPurchasesController < ApplicationController
                                                selling_orders_attributes: [:id,
                                                                            :price,
                                                                            :quantity,
-                                                                           :special_cost,
+                                                                           :discount,
                                                                            :customer_id,
                                                                            :balance_id,
                                                                            :_destroy])

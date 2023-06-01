@@ -33,4 +33,8 @@ class InventoryPurchase < ApplicationRecord
     last_balance&.id
   end
 
+  def last_selling_orders
+    selling_orders.order(created_at: :desc).first
+  end
+
 end

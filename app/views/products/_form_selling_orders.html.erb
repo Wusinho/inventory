@@ -11,7 +11,7 @@
     <div data-nested-form-target="target"></div>
   </div>
 <% end %>
-<div class="selling_order_container" id="<%= dom_id inventory_purchase %>">
+<div class="selling_order_container" id="<%= dom_id inventory_purchase, "selling" %>">
   <% inventory_purchase.selling_orders.includes([:customer]).each do |selling_order| %>
     <%= render "selling_orders/card", selling_order: selling_order %>
   <% end %>
