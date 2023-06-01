@@ -36,5 +36,13 @@ class Customer < ApplicationRecord
     selling_orders.where(paid: false).joins(:product).distinct.pluck(:name)
   end
 
+  def paid_orders_list
+    selling_orders.where(paid: true).includes([:product, :customer])
+  end
+
+  def unpaid_orders_list
+    selling_orders.where(paid: false).includes([:inventory_purchase])
+  end
+
 
 end
