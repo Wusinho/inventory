@@ -53,6 +53,7 @@
 html, body {
   height: 100%;
   margin: 0;
+  background-color: $color_grey;
 }
 
 body {
@@ -74,11 +75,19 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    .card {
+      border: 1px solid $color_primario_baja;
+    }
+    .card-title {
+      color: $color_title;
+    }
     .card-text {
       display: none;
     }
     span {
-      background-color: $color_contrast;
+      background-color: $color_light_purple;
+      color: $color_grey_alta;
+      margin: 5px;
     }
   }
 }
@@ -93,6 +102,20 @@ body {
      flex-wrap: wrap;
      align-items: center;
      justify-content: center;
+     .card {
+       border: 1px solid $color_primario_baja;
+     }
+     .card-title {
+       color: $color_title;
+     }
+     .card-text {
+       color: black;
+     }
+     span {
+       background-color: $color_light_purple;
+       color: $color_grey_alta;
+       margin: 5px;
+     }
    }
  }
 
@@ -104,8 +127,8 @@ body {
 }
 
 .card__container {
-  border: 1px solid $color_grey;
   border-radius: 20px;
+  background-color: white;
 }
 
 .image-wrapper img {
@@ -137,12 +160,19 @@ body {
 }
 
 @media (min-width: 601px) {
-  .card {
-    width: 16rem;
-  }
-  #products {
+  #products, #providers {
     .card-text {
       display: block !important;
+      color: black;
     }
+    .card {
+      width: 17rem;
+    }
+  }
+}
+
+#spends {
+  .card {
+    width: 17rem;
   }
 }

@@ -24,13 +24,14 @@
 }
 
 .search_btn {
+  border: 2px solid $color_grey_alta;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
-  background-color: $color_contrast;
-  color: white;
+  background-color: white;
+  color: $color_grey_alta;
   transition: background-color 0.5s;
   &:hover {
-    background-color: $color_contrast_baja;
+    background-color: $color_light_purple;
     color: black;
   }
 }

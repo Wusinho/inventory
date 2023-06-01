@@ -4,6 +4,7 @@ class Admin::SessionsController < Devise::SessionsController
   include Requestable
   # before_action :configure_sign_in_params, only: [:create]
   before_action :get_phrase, only: [:new]
+  before_action :create_balance, only: [:new]
 
   # GET /resource/sign_in
   def new
@@ -23,12 +24,12 @@ class Admin::SessionsController < Devise::SessionsController
   protected
 
   def get_phrase
-    phrase = inspiration_phrase
-    @phrase = phrase[0]
-    @author = phrase[1]
+    @phrase = inspiration_phrase
   end
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
+
+  def create_balance
+    return if current_balance.created_at.strftime("%Y-%b") == Date.current.strftime("%Y-%b")
+
+    Balance.create(starting_total: current_balance.sub_total)
+  end
 end

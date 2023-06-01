@@ -1,19 +1,25 @@
 <div class="card__container p-2">
-  <div class="<%= faulty_prod_card(product) %> p-2" id="<%= dom_id product %>" >
-    <div class="card-body p-1">
-      <h5 class="card-title"><%= link_to product.name, product_path(product.id), class: "link-dark text-decoration-none" %></h5>
-    </div>
-    <div class="card-body p-1">
-      <p class="card-text"><%= product.description %></p>
-      <%= product_form(product) %>
-      <div class="image-wrapper">
-        <%= render_image(product) %>
+  <%= link_to product_path(product.id), class: 'text-decoration-none' do %>
+    <div class="<%= faulty_prod_card(product) %> p-2" id="<%= dom_id product %>" >
+      <div class="card-body p-1">
+        <h5 class="card-title">
+          <strong>
+            <%= product.name %>
+          </strong>
+        </h5>
       </div>
-      <div class="card-body p-1 mt-2">
+      <div class="card-body p-1">
+        <p class="card-text"><%= product.description %></p>
+        <%= product_form(product) %>
+        <div class="image-wrapper">
+          <%= render_image(product) %>
+        </div>
+      </div>
+      <div class="card-body p-1 mt-1 d-flex flex-wrap justify-content-center">
         <% product.categories.each do |category| %>
-          <span class="badge rounded-pill text-white"><%= category.name %></span>
+          <span class="badge p-2"><%= category.name %></span>
         <% end %>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>

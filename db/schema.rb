@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_27_214758) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_30_233348) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -27,6 +27,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_214758) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "balances", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.float "starting_total", null: false
+    t.float "sub_total", null: false
+    t.date "last_day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -49,6 +57,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_214758) do
     t.boolean "sold_out", default: false
     t.float "selling_price", null: false
     t.uuid "product_id", null: false
+    t.integer "size"
+    t.string "colors", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_inventory_purchases_on_product_id"
@@ -87,20 +97,33 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_214758) do
   create_table "selling_orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "inventory_purchase_id", null: false
     t.uuid "customer_id", null: false
+    t.uuid "balance_id", null: false
     t.float "price", null: false
     t.integer "quantity", null: false
-    t.boolean "special_price", default: false
+    t.boolean "discount", default: false
     t.boolean "paid", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["balance_id"], name: "index_selling_orders_on_balance_id"
     t.index ["customer_id"], name: "index_selling_orders_on_customer_id"
     t.index ["inventory_purchase_id"], name: "index_selling_orders_on_inventory_purchase_id"
+  end
+
+  create_table "spends", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "balance_id", null: false
+    t.float "payments", null: false
+    t.string "details", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["balance_id"], name: "index_spends_on_balance_id"
   end
 
   add_foreign_key "inventory_purchases", "products"
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
   add_foreign_key "products", "providers"
+  add_foreign_key "selling_orders", "balances"
   add_foreign_key "selling_orders", "customers"
   add_foreign_key "selling_orders", "inventory_purchases"
+  add_foreign_key "spends", "balances"
 end

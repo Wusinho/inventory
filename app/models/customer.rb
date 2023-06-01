@@ -11,8 +11,8 @@ class Customer < ApplicationRecord
   end
 
   def total_debt
-    num = selling_orders.where(paid: false).map { |order| order.price * order.quantity}.reduce(&:+) || 0
-    num.round(2)
+    debt = selling_orders.where(paid: false).map { |order| order.price * order.quantity}.reduce(&:+) || 0
+    debt.round(2)
   end
 
   def self.filter_unpaid_orders

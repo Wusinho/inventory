@@ -1,35 +1,37 @@
 
 module Requestable
   def inspiration_phrase
-    url = 'https://es.wikiquote.org/w/api.php?action=query&format=json&list=search&srsearch=inspiracion'
+    semana = Time.now.strftime("%a")
+
+    semana_hash = {
+      "Mon" => "lunes",
+      "Tue" => "martes",
+      "Wed" => "miércoles",
+      "Thu" => "jueves",
+      "Fri" => "viernes",
+      "Sat" => "sábado",
+      "Sun" => "domingo"
+    }
+
+    title = "{{Plantilla:Frase-#{semana_hash[semana]}}}"
+
+    url = "http://es.wikiquote.org/w/api.php?action=parse&text=#{CGI.escape(title)}&format=json&contentmodel=wikitext"
+
     response = Faraday.get(url)
 
-    if response.success?
+    if response.status == 301
+      redirected_url = response.headers["location"]
+      response = Faraday.get(redirected_url)
+
       data = JSON.parse(response.body)
-      resp = data['query']['search'][1]['snippet']
-      sanitized = ActionController::Base.helpers.strip_tags(resp)
-      extract_from_left_angle_bracket(remove_until_first_period(sanitized)).split('.')
+
+      phrase = data["parse"]["text"]["*"]
+      ActionController::Base.helpers.strip_tags(phrase)
+
     else
-      [['Siempre hay un manhana mejor'],['Anonimo']]
+      'Siempre hay un mañana mejor, Anónimo'
+
     end
-  end
-
-  private
-
-  def remove_until_first_period(input)
-    period_index = input.index('.')
-    return input unless period_index
-
-    input[(period_index + 1)..-1].strip
-  end
-
-  def extract_from_left_angle_bracket(input)
-    left_angle_bracket_index = input.index('«')
-    return nil unless left_angle_bracket_index
-
-    substring = input[(left_angle_bracket_index + 1)..-1]
-    substring.gsub!('»', '')
-    substring.strip
   end
 
 

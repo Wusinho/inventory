@@ -18,5 +18,22 @@ module SellingOrdersHelper
       content_tag(:button, "Orden", class: "btn btn-primary", "data-action": "nested-form#add", type: "button")
     end
 
+  def display_sizes(inventory_purchase)
+    return unless inventory_purchase.size
+
+    content_tag(:div, class: "form-group mb-2") do
+      content_tag(:div, "talla: #{inventory_purchase.size}")
+    end
+
+  end
+
+  def display_colors(inventory_purchase)
+    return if inventory_purchase.colors.empty?
+
+    content_tag(:div, class: "form-group mb-2") do
+      content_tag(:p, "colores: #{inventory_purchase.colors.to_sentence}")
+    end
+
+  end
 
 end

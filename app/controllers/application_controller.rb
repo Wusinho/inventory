@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   rescue_from ActiveRecord::NotNullViolation, with: :handle_not_null_violation
 
+  def current_balance
+    Balance.last_created
+  end
+
   def selected_params
     @selected_params = params.slice(:sort_by_name, :categories, :paid_orders, :unpaid_orders, :users)
   end

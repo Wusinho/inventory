@@ -5,10 +5,12 @@ $color_primario_baja: #fdd2d7;
 $color_contrast_baja: #52d9b3;
 
 //$color_contrast: #1a4945;
-$color_grey: #f1f1f1;
+$color_grey: #EAEEF6;
 $box_shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
 $color_primario: darken($color_primario_baja, $darken_percentage);
 $color_contrast: darken($color_contrast_baja, $darken_percentage);
-$color_grey_alta: darken($color_grey, $darken_percentage);
+$color_grey_alta: #6558D3;
+$color_light_purple: #F1EEFF;
+$color_title: #754D42;
 $transition_time: 5s;
