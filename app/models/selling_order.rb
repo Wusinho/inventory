@@ -18,6 +18,8 @@ class SellingOrder < ApplicationRecord
   end
 
   def update_balance
+    self.update_attribute(:balance, Balance.last_created) if update_date != balance.created_month
+
     new_balance = balance.sub_total + (quantity * price).round(2)
     balance.update_attribute(:sub_total, new_balance )
   end

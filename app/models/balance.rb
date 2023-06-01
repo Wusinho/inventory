@@ -6,7 +6,7 @@ class Balance < ApplicationRecord
   has_many :products, through: :inventory_purchases
   before_create :fill_sub_total
   before_create :fill_last_date
-  scope :last_created, -> { order(created_at: :desc).last }
+  scope :last_created, -> { order(created_at: :desc).first }
   scope :list, -> { order(created_at: :desc) }
 
 
