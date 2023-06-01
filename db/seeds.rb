@@ -72,7 +72,7 @@ end
   Admin.create(email: "user_#{i}@gmail.com",
                password: password,
                password_confirmation: password,
-               name: Faker::Name.first_name , last_name: Faker::Name.middle_name  )
+               name: nombre , last_name: apellido  )
 end
 
 if Rails.env.development?
