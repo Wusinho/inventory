@@ -22,6 +22,10 @@ class Balance < ApplicationRecord
     created_at.strftime("%b %d")
   end
 
+  def self.last_created_month_day
+    last_created&.created_at&.strftime("%b %d")
+  end
+
   def selling_order_list
     selling_orders.where(paid: true).includes([:product, :customer])
   end
