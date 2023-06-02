@@ -71,6 +71,12 @@ password = '123456'
                name: 'nombre' , last_name: 'apellido'  )
 end
 
+Admin.create(email: "admin@gmail.com",
+             password: password,
+             password_confirmation: password,
+             role: 1,
+             name: 'nombre' , last_name: 'apellido'  )
+
 Balance.create(starting_total: 1000)
 
 if Rails.env.development?

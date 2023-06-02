@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   resources :products
   resources :homepages, only: [:index]
   resources :categories
+  namespace :super_admin do
+    resources :balances
+    resources :admins
+  end
 
   # Defines the root path route ("/")
   root "products#index"
