@@ -1,15 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :super_admins, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-  resources :selling_orders, only: [:update]
-  resources :customers
-  resources :balances
-  resources :spends
-  resources :inventory_purchases
-  resources :providers
-  resources :products
-  resources :homepages, only: [:index]
-  resources :categories
   devise_for :admins,
              path: '',
              path_names: {
@@ -20,6 +9,17 @@ Rails.application.routes.draw do
                sessions: 'admin/sessions',
                registrations: 'admin/registrations'
              }
+  resources :selling_orders, only: [:update]
+  resources :customers
+  resources :balances
+  resources :spends
+  resources :inventory_purchases
+  resources :providers
+  resources :products
+  resources :homepages, only: [:index]
+  resources :categories
+  devise_for :super_admins, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
 
   # Defines the root path route ("/")
