@@ -63,10 +63,6 @@ product_categories = [
 product_categories.each { |cat_name| Category.find_or_create_by(name: cat_name) }
 
 password = '123456'
-SuperAdmin.find_or_create_by(email: 'admin@gmail.com') do |admin|
-  admin.password = password
-  admin.password_confirmation = password
-end
 
 2.times do |i|
   Admin.create(email: "user_#{i}@gmail.com",

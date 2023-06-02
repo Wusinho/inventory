@@ -18,9 +18,6 @@ Rails.application.routes.draw do
   resources :products
   resources :homepages, only: [:index]
   resources :categories
-  devise_for :super_admins, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-
 
   # Defines the root path route ("/")
   root "products#index"
