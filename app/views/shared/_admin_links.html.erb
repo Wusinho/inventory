@@ -1,0 +1,17 @@
+<ul class="navbar-nav align-items-center">
+  <li class="nav-item">
+    <%= link_to 'Proveedores', providers_path, class: active_nav?(providers_path) %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Categorias', categories_path, class: active_nav?(categories_path) %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Productos', products_path, class: active_nav?(products_path) %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Clientes', customers_path, class: active_nav?(customers_path) %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Balances', balances_path, class: active_nav?(balances_path) %>
+  </li>
+</ul>

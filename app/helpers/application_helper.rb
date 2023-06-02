@@ -94,4 +94,13 @@ module ApplicationHelper
     end
 
   end
+
+  def admins_nav_links(admin)
+    if admin.role == 'super_admin'
+      render 'shared/super_admin_link'
+    else
+      render 'shared/admin_links'
+    end
+  end
+
 end
