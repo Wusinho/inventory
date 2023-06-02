@@ -80,7 +80,7 @@ group :test do
   gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
 end
 
-gem 'devise', '~> 4.9'
+gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'bootstrap', '~> 5.1.3'
 gem "font-awesome-sass", "~> 6.3.0"
 gem 'acts-as-taggable-on', '~> 9.0'
