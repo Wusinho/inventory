@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :inventory_purchases
   resources :providers
   resources :products
+  resources :homepages, only: [:index]
   resources :categories
   devise_for :admins,
              path: '',

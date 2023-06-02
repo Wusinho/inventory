@@ -380,7 +380,7 @@ DEPENDENCIES
   cloudinary (~> 1.25)
   database_cleaner (~> 2.0, >= 2.0.1)
   debug
-  devise (~> 4.9)
+  devise (~> 4.9, >= 4.9.2)
   dotenv-rails
   factory_bot_rails (~> 6.2)
   faker (~> 3.0)
