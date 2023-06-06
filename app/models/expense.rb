@@ -1,4 +1,4 @@
-class Spend < ApplicationRecord
+class Expense < ApplicationRecord
   belongs_to :balance
   validates_presence_of :details, :payments
   before_save :round_payments

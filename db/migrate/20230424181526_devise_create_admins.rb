@@ -34,6 +34,7 @@ class DeviseCreateAdmins < ActiveRecord::Migration[7.0]
 
       t.string :name, null: false
       t.string :last_name, null: false
+      t.integer :role, default: 0
       t.timestamps null: false
     end
 
