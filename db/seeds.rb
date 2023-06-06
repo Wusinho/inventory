@@ -61,25 +61,24 @@ product_categories = [
   "aromaterapia"
 ]
 product_categories.each { |cat_name| Category.find_or_create_by(name: cat_name) }
-
-password = '123456'
-
-2.times do |i|
-  Admin.create(email: "user_#{i}@gmail.com",
-               password: password,
-               password_confirmation: password,
-               name: 'nombre' , last_name: 'apellido'  )
-end
-
-Admin.create(email: "admin@gmail.com",
-             password: password,
-             password_confirmation: password,
-             role: 1,
-             name: 'nombre' , last_name: 'apellido'  )
-
 Balance.create(starting_total: 1000)
 
 if Rails.env.development?
+  password = '123456'
+
+  2.times do |i|
+    Admin.create(email: "user_#{i}@gmail.com",
+                 password: password,
+                 password_confirmation: password,
+                 name: 'nombre' , last_name: 'apellido'  )
+  end
+
+  Admin.create(email: "admin@gmail.com",
+               password: password,
+               password_confirmation: password,
+               role: 1,
+               name: 'nombre' , last_name: 'apellido'  )
+
   5.times do
     Provider.create(name: Faker::Company.name,
                     phone: Faker::PhoneNumber.cell_phone,
