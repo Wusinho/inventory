@@ -1,0 +1,20 @@
+  <%= form_with model: balance, class: 'p-2' do |f| %>
+
+    <div class="mb-3">
+      <%= f.label :starting_total, class: form_label %>
+      <%= f.number_field :starting_total, class: form_control %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :sub_total, class: form_label %>
+      <%= f.number_field :sub_total, class: form_control %>
+    </div>
+
+
+    <div class="mb-3">
+      <%= f.label :last_day, class: form_label %>
+      <%= f.date_field :last_day, class: form_control %>
+    </div>
+
+    <%= f.submit 'Save', class: blue_btn %>
+  <% end %>

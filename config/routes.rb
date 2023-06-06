@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :admins
   end
 
-  # Defines the root path route ("/")
-  root "products#index"
+  authenticated :admin, ->(admin) { admin.super_admin? } do
+    root "super_admin/balances#index"
+  end
+  root "products#index", as: :admin_root
 end

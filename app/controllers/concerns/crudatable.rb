@@ -2,7 +2,7 @@ module Crudatable
   extend ActiveSupport::Concern
 
   included do
-    before_action :set_resource, only: [:show, :edit]
+    before_action :set_resource, only: [:show, :edit, :update]
 
     def index
       @resources = resource_class.all
@@ -10,8 +10,6 @@ module Crudatable
     end
 
     def show;end
-
-    def edit;end
 
     def new
       @resource = resource_class.new
@@ -27,11 +25,9 @@ module Crudatable
     end
 
     def edit
-      @resource = resource_class.find(params[:id])
     end
 
     def update
-      @resource = resource_class.find(params[:id])
       if @resource.update(resource_params)
         redirect_to send("admin_#{resource_name}_path"), notice: "#{resource_name.capitalize} was successfully updated."
       else
