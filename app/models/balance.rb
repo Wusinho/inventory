@@ -1,4 +1,5 @@
 class Balance < ApplicationRecord
+  include Editable
   has_many :selling_orders
   has_many :expenses
   has_many :customers, through: :selling_orders

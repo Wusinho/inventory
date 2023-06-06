@@ -4,6 +4,7 @@ module Crudatable
   included do
     def index
       @resources = resource_class.all
+      @model = resource_class.to_s.downcase
     end
 
     def new
