@@ -8,7 +8,10 @@ class Admin::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   def new
-    super
+    self.resource = resource_class.new(sign_in_params)
+    store_location_for(resource, params[:redirect_to])
+
+    respond_with(resource, serialize_options(resource))
   end
 
   # POST /resource/sign_in
@@ -24,7 +27,6 @@ class Admin::SessionsController < Devise::SessionsController
   protected
 
   def get_phrase
-    @phrase = inspiration_phrase
   end
 
   def create_balance

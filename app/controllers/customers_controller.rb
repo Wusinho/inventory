@@ -23,12 +23,12 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     if @customer.save
-      streams = []
-      streams << turbo_stream.replace('customer_form', partial: 'customers/form', locals: { customer: Customer.new })
-      streams << turbo_stream.prepend('customers', partial: 'customers/customer', locals: { customer: @customer })
-      render turbo_stream: streams
+        streams = []
+        streams << turbo_stream.replace('customer_form', partial: 'customers/form', locals: { customer: Customer.new })
+        streams << turbo_stream.prepend('customers', partial: 'customers/customer', locals: { customer: @customer })
+        render turbo_stream: streams
       else
-
+        turbo_error_message(@product)
     end
 
   end

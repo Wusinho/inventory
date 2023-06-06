@@ -2,9 +2,14 @@ module Crudatable
   extend ActiveSupport::Concern
 
   included do
+    before_action :set_resource, only: [:show, :edit, :update, :destroy]
+
     def index
       @resources = resource_class.all
+      @model = resource_class.to_s.downcase
     end
+
+    def show;end
 
     def new
       @resource = resource_class.new
@@ -13,35 +18,32 @@ module Crudatable
     def create
       @resource = resource_class.new(resource_params)
       if @resource.save
-        redirect_to send("admin_#{resource_name}_path"), notice: "#{resource_name.capitalize} was successfully created."
+        redirect_to root_path
       else
-        render :new
+        turbo_error_message(@resource)
       end
     end
 
     def edit
-      @resource = resource_class.find(params[:id])
     end
 
     def update
-      @resource = resource_class.find(params[:id])
       if @resource.update(resource_params)
-        redirect_to send("admin_#{resource_name}_path"), notice: "#{resource_name.capitalize} was successfully updated."
+        redirect_to root_path
       else
-        render :edit
+        turbo_error_message(@resource)
       end
     end
 
     def destroy
-      @resource = resource_class.find(params[:id])
       @resource.destroy
-      redirect_to send("admin_#{resource_name}_path"), notice: "#{resource_name.capitalize} was successfully destroyed."
+      redirect_to root_path
     end
 
     private
 
-    def resource_params
-      params.require(resource_name.to_sym).permit(:name, :description, :price)
+    def set_resource
+      @resource = resource_class.find(params[:id])
     end
 
     def resource_class

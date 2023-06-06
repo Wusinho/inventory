@@ -12,7 +12,7 @@
       <i class="fa-solid fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <%= admins_nav_links(admin) %>
+    <%= admins_nav_links(current_admin) %>
     </div>
     <div class="nav-item desktop_log_out">
       <%= button_to destroy_admin_session_path, method: :delete, class: red_btn do %>

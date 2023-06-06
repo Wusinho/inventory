@@ -5,10 +5,10 @@ class InventoryPurchase < ApplicationRecord
   accepts_nested_attributes_for :selling_orders, reject_if: :all_blank, allow_destroy: true
   before_create :eliminate_blank_colors
   before_create :round_nums
-  after_create_commit :create_spends
+  after_create_commit :create_expense
   enum size: [:S, :M, :L, :XL, :XLL ]
 
-  def create_spends
+  def create_expense
     Expense.create(payments: (stock_quantity * purchase_price), details: "Compra: #{product.name}", balance: last_balance)
   end
 
