@@ -3,4 +3,9 @@
   <td><%= balance.starting_total %></td>
   <td><%= balance.sub_total %></td>
   <td><%= balance.last_day %></td>
+  <td>
+    <%= link_to super_admin_balance_path(balance.id), class: 'grey_link' do %>
+      <i class="fa-solid fa-pen-to-square"></i>
+    <% end %>
+  </td>
 </tr>

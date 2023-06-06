@@ -2,10 +2,16 @@ module Crudatable
   extend ActiveSupport::Concern
 
   included do
+    before_action :set_resource, only: [:show, :edit]
+
     def index
       @resources = resource_class.all
       @model = resource_class.to_s.downcase
     end
+
+    def show;end
+
+    def edit;end
 
     def new
       @resource = resource_class.new
@@ -40,6 +46,10 @@ module Crudatable
     end
 
     private
+
+    def set_resource
+      @resource = resource_class.find(params[:id])
+    end
 
     def resource_params
       params.require(resource_name.to_sym).permit(:name, :description, :price)

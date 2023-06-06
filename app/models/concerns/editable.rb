@@ -4,11 +4,12 @@ module Editable
 
   class_methods do
     def sa_column_names(default_times = [])
-      if default_times.blank?
-        column_names - %w[created_at updated_at]
-      else
-        column_names - default_times
-      end
+      col_names = if default_times.blank?
+                    column_names - %w[created_at updated_at]
+                  else
+                    column_names - default_times
+                  end
+      col_names << 'edit'
     end
   end
 
