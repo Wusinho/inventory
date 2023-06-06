@@ -31,7 +31,6 @@ module Crudatable
       if @resource.update(resource_params)
         redirect_to root_path
       else
-        debugger
         turbo_error_message(@resource)
       end
     end
