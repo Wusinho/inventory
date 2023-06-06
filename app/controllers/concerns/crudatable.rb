@@ -2,7 +2,7 @@ module Crudatable
   extend ActiveSupport::Concern
 
   included do
-    before_action :set_resource, only: [:show, :edit, :update]
+    before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
     def index
       @resources = resource_class.all
@@ -37,9 +37,8 @@ module Crudatable
     end
 
     def destroy
-      @resource = resource_class.find(params[:id])
       @resource.destroy
-      redirect_to send("admin_#{resource_name}_path"), notice: "#{resource_name.capitalize} was successfully destroyed."
+      redirect_to root_path
     end
 
     private
