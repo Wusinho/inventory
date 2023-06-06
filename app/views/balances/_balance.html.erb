@@ -9,7 +9,7 @@
         </p>
         <div id='balance_spends'>
           <% balance.spends.each do |spend| %>
-            <%= render 'spends/spend', spend: spend %>
+            <%= render 'expenses/spend', expense: spend %>
           <% end %>
           <% balance.selling_order_list.each do |selling_order| %>
             <%= render 'balances/selling_order', selling_order: selling_order %>

@@ -1,6 +1,6 @@
 class Balance < ApplicationRecord
   has_many :selling_orders
-  has_many :spends
+  has_many :expenses
   has_many :customers, through: :selling_orders
   has_many :inventory_purchases, through: :selling_orders
   has_many :products, through: :inventory_purchases

@@ -3,6 +3,6 @@ class BalancesController < ApplicationController
 
   def index
     @balances = Balance.list.includes([:spends])
-    @spend = Spend.new
+    @expense = Expense.new
   end
 end
