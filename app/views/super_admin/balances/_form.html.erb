@@ -1,4 +1,4 @@
-  <%= form_with model: balance, class: 'p-2' do |f| %>
+  <%= form_with model: balance, url:super_admin_balance_path(balance.id), class: 'p-2' do |f| %>
 
     <div class="mb-3">
       <%= f.label :starting_total, class: form_label %>

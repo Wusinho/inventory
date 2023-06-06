@@ -18,9 +18,9 @@ module Crudatable
     def create
       @resource = resource_class.new(resource_params)
       if @resource.save
-        redirect_to send("admin_#{resource_name}_path"), notice: "#{resource_name.capitalize} was successfully created."
+        redirect_to root_path
       else
-        render :new
+        turbo_error_message(@resource)
       end
     end
 
@@ -29,9 +29,10 @@ module Crudatable
 
     def update
       if @resource.update(resource_params)
-        redirect_to send("admin_#{resource_name}_path"), notice: "#{resource_name.capitalize} was successfully updated."
+        redirect_to root_path
       else
-        render :edit
+        debugger
+        turbo_error_message(@resource)
       end
     end
 
@@ -45,10 +46,6 @@ module Crudatable
 
     def set_resource
       @resource = resource_class.find(params[:id])
-    end
-
-    def resource_params
-      params.require(resource_name.to_sym).permit(:name, :description, :price)
     end
 
     def resource_class
