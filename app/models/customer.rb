@@ -5,6 +5,8 @@ class Customer < ApplicationRecord
   scope :filter_sort_by_name, ->(value) { order("#{value} ASC") }
   scope :filter_search, ->(value) { where( "name ILIKE :search", search: "%#{value.downcase}%") }
   scope :filter_users, ->(value) { where(id: value) }
+  validates_presence_of :name, :phone
+  validates_uniqueness_of :phone
 
   def full_name
     last_name ? "#{name} #{last_name}" : first_name

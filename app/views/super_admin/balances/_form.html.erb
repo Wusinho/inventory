@@ -2,12 +2,12 @@
 
     <div class="mb-3">
       <%= f.label :starting_total, class: form_label %>
-      <%= f.number_field :starting_total, class: form_control %>
+      <%= f.number_field :starting_total, min: 0, step: 0.01, class: form_control %>
     </div>
 
     <div class="mb-3">
       <%= f.label :sub_total, class: form_label %>
-      <%= f.number_field :sub_total, class: form_control %>
+      <%= f.number_field :sub_total, min: 0, step: 0.01, class: form_control %>
     </div>
 
 
