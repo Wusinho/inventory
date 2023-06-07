@@ -27,6 +27,7 @@ class Admin::SessionsController < Devise::SessionsController
   protected
 
   def get_phrase
+    @phrase = inspiration_phrase
   end
 
   def create_balance
