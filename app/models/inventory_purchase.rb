@@ -2,6 +2,8 @@ class InventoryPurchase < ApplicationRecord
   belongs_to :product
   has_many :selling_orders
   validates_presence_of :stock_quantity, :purchase_price, :selling_price
+  validates :purchase_price, numericality: { greater_than: 1 }
+  validates :selling_price, numericality: { greater_than: 1 }
   accepts_nested_attributes_for :selling_orders, reject_if: :all_blank, allow_destroy: true
   before_create :eliminate_blank_colors
   before_create :round_nums
