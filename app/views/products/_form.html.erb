@@ -1,21 +1,39 @@
-<%= form_with model: product, id: "product_form" do |f| %>
+<%= form_with(
+      model: product, id: 'product_form',
+      multipart: true,
+      data: {
+        form_target: 'dropdownContent',
+}, class: invisible(product)) do |f| %>
   <div class="mb-3">
-    <%= f.label :name, class: form_label %>
+    <%= f.label :nombre, class: form_label %>
     <%= f.text_field :name, class: form_control %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :description, class: form_label %>
+    <%= f.label :descripcion, class: form_label %>
     <%= f.text_area :description, class: form_control %>
   </div>
+
   <div class="mb-3">
-    <%= f.label :select_category %>
-    <%= f.collection_select(:tag_list, Category.all, :name, :name, { include_blank: true }, { multiple: true, class: 'form-select', id: 'validationTagsThreshold', data: { controller: 'tag-select', allow_clear: true, suggestions_threshold: 0 } }) %>
+    <%= f.label :selecciona_categoria %>
+    <%= product_categories_select(product, f) %>
   </div>
 
- <div class="mb-3">
-   <%= f.select :provider_id, options_for_select(current_admin.providers_select, selected: product.provider_id), { include_blank: false }, { class: 'form-select' } %>
- </div>
-  <%= nested_inventory_purchases(product, f) %>
-  <%= f.submit class: blue_btn %>
+  <div class="mb-3">
+    <%= f.label :selecciona_proveedor %>
+    <%= f.select :provider_id, options_for_select(current_admin.providers_select, selected: product.provider_id), { include_blank: false }, { class: 'form-select' } %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :image_data %>
+    <%= f.file_field :image_data, class: form_control %>
+  </div>
+
+  <%#= nested_inventory_purchases(product, f) %>
+  <%= faulty_checkbox(f, product) %>
+  <%= f.submit 'Guardar', class: blue_btn %>
+  <%= link_to 'Cancelar', product_path(product.id), class: 'text-decoration-none' if product.persisted? %>
 <% end %>
+
+
+

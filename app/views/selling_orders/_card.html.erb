@@ -1,0 +1,8 @@
+<div id="<%= dom_id selling_order %>"  >
+  <div class="<%= payment_status(selling_order) %>" >
+    <div class="card-body p-1">
+      <p class="m-0"><%= link_to selling_order.customer.name, customer_path(selling_order.customer.id), class: 'text-decoration-none' %>
+      <p class="m-0">cant: <%= selling_order.quantity %></p>
+    </div>
+  </div>
+</div>

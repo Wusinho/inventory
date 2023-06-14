@@ -1,0 +1,9 @@
+<div class="px-4 filter">
+  <button class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Filtro
+  </button>
+  <ul class="dropdown-menu">
+    <%= link_to "Fecha", { sort_by_name: "created_at" }, class: "dropdown-item" %>
+    <%= link_to "Nombre", { sort_by_name: "name" }, class: "dropdown-item"%>
+  </ul>
+</div>

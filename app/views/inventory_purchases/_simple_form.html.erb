@@ -1,0 +1,33 @@
+<div id="inventory__purchase__container" >
+  <%= form_with model: inventory_purchase  do |f| %>
+    <div class="mb-3">
+      <%= f.label :precio_compra, class: form_label %>
+      <%= f.number_field :purchase_price, min: 0, step: 0.01, class: form_control %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :stock, class: form_label %>
+      <%= f.number_field :stock_quantity, min: 1, class: form_control %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :precio_venta, class: form_label %>
+      <%= f.number_field :selling_price, min: 1, step: 0.01, class: form_control %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :colores %>
+      <%= colors_select(f) %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :tallas, class: form_label %>
+      <%= f.select :size, options_for_select([['Elige tamanho', nil]] + InventoryPurchase.sizes.keys.map { |size| [size.upcase, size] }), {}, class: form_control %>
+    </div>
+
+    <%= f.hidden_field :product_id, value: f.object.product_id %>
+    <div class="mb-3">
+      <%= f.submit 'Nueva Compra', class: pink_btn %>
+      <%= link_to 'Cancel', product_path(inventory_purchase.product_id), class: 'text-decoration-none' %>
+    </div>
+  <% end %>
+</div>

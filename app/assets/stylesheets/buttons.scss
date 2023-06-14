@@ -1,0 +1,57 @@
+@import "colors";
+
+.btns {
+  border: none !important;
+  border-radius: 25px !important;
+  padding: 10px 30px !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+  color: black;
+  font-weight: lighter !important;
+}
+
+.pink_btn {
+  background: $color_primario_baja !important;
+  transition: background-color 0.5s !important;
+  &:hover {
+    background: $color_primario !important;
+    color: white !important;
+  }
+}
+
+#filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.search_btn {
+  border: 2px solid $color_grey_alta !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  background-color: white !important;
+  color: $color_grey_alta !important;
+  transition: background-color 0.5s !important;
+  background-image: none !important;
+  &:hover {
+    background-color: $color_light_purple !important;
+    color: black !important;
+  }
+}
+
+.grey_btn {
+  background-color: $color_grey_alta !important;
+  color: white !important;
+  transition: background-color 0.5s !important;
+  &:hover {
+    background-color: $color_grey !important;
+    color: black !important;
+  }
+}
+
+.grey_link {
+  color: $color_grey_alta !important;
+  &:hover {
+    color: $color_grey !important;
+  }
+}

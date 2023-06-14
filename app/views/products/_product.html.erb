@@ -1,13 +1,25 @@
-<div class="d-inline-block">
-  <div class="card" id="<%= dom_id product %>" style="width: 15rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= link_to product.name, product_path(product.id) %></h5>
-    </div>
-      <div class="card-body">
+<div class="card__container p-2">
+  <%= link_to product_path(product.id), class: 'text-decoration-none' do %>
+    <div class="<%= faulty_prod_card(product) %> p-2" id="<%= dom_id product %>" >
+      <div class="card-body p-1">
+        <h5 class="card-title">
+          <strong>
+            <%= product.name %>
+          </strong>
+        </h5>
+      </div>
+      <div class="card-body p-1">
         <p class="card-text"><%= product.description %></p>
-        <% product.tag_list.each do |tag| %>
-          <span class="badge rounded-pill bg-info text-dark"><%= tag %></span>
+        <%= product_form(product) %>
+        <div class="image-wrapper">
+          <%= render_image(product) %>
+        </div>
+      </div>
+      <div class="card-body p-1 mt-1 d-flex flex-wrap justify-content-center">
+        <% product.categories.each do |category| %>
+          <span class="badge p-2"><%= category.name %></span>
         <% end %>
       </div>
-  </div>
+    </div>
+  <% end %>
 </div>

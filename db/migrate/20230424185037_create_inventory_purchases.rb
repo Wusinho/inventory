@@ -6,6 +6,8 @@ class CreateInventoryPurchases < ActiveRecord::Migration[7.0]
       t.boolean :sold_out, default: false
       t.float :selling_price, null: false
       t.references :product, null: false, foreign_key: true, type: :uuid
+      t.integer :size
+      t.string :colors, array: true, default: []
 
       t.timestamps
     end

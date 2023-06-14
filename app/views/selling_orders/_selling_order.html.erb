@@ -1,0 +1,16 @@
+<div class="card d-inline-block p-2">
+  <div class="form-group mb-2">
+    <%= selling_order.inventory_purchase.product.name %>
+  </div>
+
+  <div class="form-group mb-2">
+    cantidad: <%= selling_order.quantity %>
+  </div>
+  <div class="form-group mb-2">
+    precio: <%= selling_order.inventory_purchase.selling_price %>
+  </div>
+
+  <div class="form-group mb-2">
+    <%= format_date(selling_order.created_at) %>
+  </div>
+</div>

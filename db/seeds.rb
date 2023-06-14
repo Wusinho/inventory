@@ -60,37 +60,57 @@ product_categories = [
   "suplementos",
   "aromaterapia"
 ]
-product_categories.each { |cat_name| Category.create(name: cat_name)}
+product_categories.each { |cat_name| Category.find_or_create_by(name: cat_name) }
+Balance.create(starting_total: 1000)
 
 if Rails.env.development?
-  Admin.create(email: 'user_0@gmail.com',
-               password: '123456',
-               password_confirmation: '123456',
-               name: Faker::Name.first_name , last_name: Faker::Name.middle_name  )
+  password = '123456'
+
+  2.times do |i|
+    Admin.create(email: "user_#{i}@gmail.com",
+                 password: password,
+                 password_confirmation: password,
+                 name: 'nombre' , last_name: 'apellido'  )
+  end
+
+  Admin.create(email: "admin@gmail.com",
+               password: password,
+               password_confirmation: password,
+               role: 1,
+               name: 'nombre' , last_name: 'apellido'  )
+
   5.times do
     Provider.create(name: Faker::Company.name,
                     phone: Faker::PhoneNumber.cell_phone,
                     address: Faker::Address.full_address,
                     contact: Faker::Name.name,
                     )
+    Customer.create(name: Faker::Name.first_name ,
+                    last_name: Faker::Name.last_name,
+                    phone: Faker::PhoneNumber.cell_phone)
   end
   Provider.all.each do |provider|
-    2.times do
-      random_sample = [1,2,3].sample
-      product =Product.create(name: Faker::Commerce.product_name,
+    [1,2].sample.times do
+      cat_ids = Category.all.sample([1,2,3].sample)
+
+      product = Product.create(name: Faker::Commerce.product_name,
                               provider_id: provider.id,
                               description: Faker::Lorem.paragraph,
-                              tag_list: product_categories.sample(random_sample)
                               )
-      price = Faker::Commerce.price
-      InventoryPurchase.create(product_id: product.id,
-                               purchase_price: price,
-                               stock_quantity: [2,4,5].sample,
-                               selling_price: price + 5)
+
+      cat_ids.each { |cat| ProductCategory.create(product_id: product.id, category_id: cat.id ) }
+
     end
   end
 
+  # Product.all.each do |product|
+  #   [4,6,8].sample.times {
+  #     price = Faker::Commerce.price
+  #     i = InventoryPurchase.create(product_id: product.id,
+  #                                  purchase_price: price,
+  #                                  stock_quantity: [4,5].sample,
+  #                                  selling_price: price * 1.2)
+  #   }
+  # end
 
-
-
-end
+  end

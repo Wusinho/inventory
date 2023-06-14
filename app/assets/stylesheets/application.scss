@@ -14,10 +14,12 @@
  *= require_self
  */
 @import "bootstrap";
+@import "colors";
+@import "font-awesome";
+@import "buttons";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-.super__container {
-  margin-top: 40px;
-}
+
  .form-control-focus {
    color: #212529;
    background-color: #fff;
@@ -34,4 +36,151 @@
 .was-validated :invalid + .form-control-focus {
   border-color: #dc3545;
   box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+.card {
+  transition: box-shadow 0.5s ease;
+}
+
+.card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.navbar .navbar-brand.active {
+  color: $color_primario_baja;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: $color_grey;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.model_container {
+  margin: 20px 0;
+  padding: 0 10px;
+}
+
+.product_container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  #products {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    .card {
+      border: 1px solid $color_primario_baja;
+    }
+    .card-title {
+      color: $color_title;
+    }
+    .card-text {
+      display: none;
+    }
+    span {
+      background-color: $color_light_purple;
+      color: $color_grey_alta;
+      margin: 5px;
+    }
+  }
+}
+
+.customer_container {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: center;
+   #customers {
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     justify-content: center;
+     .card {
+       border: 1px solid $color_primario_baja;
+     }
+     .card-title {
+       color: $color_title;
+     }
+     .card-text {
+       color: black;
+     }
+     span {
+       background-color: $color_light_purple;
+       color: $color_grey_alta;
+       margin: 5px;
+     }
+   }
+ }
+
+.model__display{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card__container {
+  border-radius: 20px;
+  background-color: white;
+}
+
+.image-wrapper img {
+  border-radius: 20px;
+}
+
+.card {
+  width: 9rem;
+  border-radius: 20px;
+  margin: 0;
+  .card-body {
+    padding: 8px;
+  }
+}
+
+.selling_order_container {
+  display: flex;
+  flex-wrap: wrap;
+  .user_order {
+    display: inline-block;
+    padding: 5px;
+    width: 6rem;
+    margin: 3px;
+  }
+}
+
+.with_stock {
+  background-color: $color_primario_baja;
+}
+
+@media (min-width: 601px) {
+  #products, #providers {
+    .card-text {
+      display: block !important;
+      color: black;
+    }
+    .card {
+      width: 17rem;
+    }
+  }
+}
+
+#customers {
+  .card {
+    display: inline-block;
+    width: 100%;
+    max-width: 13rem;
+  }
+}
+
+  #expenses{
+  .card {
+    width: 17rem;
+  }
 }

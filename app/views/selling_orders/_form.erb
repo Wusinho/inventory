@@ -1,0 +1,29 @@
+<div id="selling_order" class="nested-form-wrapper form-inline" data-new-record="<%= f.object.new_record? %>" data-controller="special-price">
+  <div class="card p-2" >
+    <div class="mb-2">
+      <%= f.label :descuento %>
+      <%= f.check_box :discount, checked: f.object.discount, data: {
+        action: 'click->special-price#toggle'
+      } %>
+    </div>
+    <%= price_field(f, f_parent) %>
+
+    <div class="form-group mb-2">
+      <%= f.label :customer_id %>
+      <%= f.collection_select :customer_id, Customer.all, :id, :full_name, {}, {class: 'form-select'} %>
+    </div>
+
+    <div class="mb-2">
+      <%= f.label :quantity %>
+      <%= f.select :quantity, (1..f_parent.object.stock_quantity).to_a, {}, class: 'form-select' %>
+    </div>
+
+
+
+    <%= f.hidden_field :balance_id, value: f_parent.object.last_balance_id  %>
+
+    <%= f.hidden_field :_destroy %>
+    <button type="button" data-action="nested-form#remove" class="btn btn-danger mb-1">Cancelar</button>
+    <%= f_parent.submit 'Save', class: pink_btn %>
+  </div>
+</div>

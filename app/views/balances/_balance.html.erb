@@ -1,0 +1,21 @@
+<div class="card__container p-2" id="<%= dom_id balance %>">
+    <div class="card m-1" >
+      <div class="card-body">
+        <p class="card-title">
+          <strong>
+            <%= balance.starting_total %> -
+            <%= balance.created_month %>
+          </strong>
+        </p>
+        <div id='balance_expenses'>
+          <% balance.expenses.each do |expense| %>
+            <%= render 'expenses/expense', expense: expense %>
+          <% end %>
+          <% balance.selling_order_list.each do |selling_order| %>
+            <%= render 'balances/selling_order', selling_order: selling_order %>
+          <% end %>
+        </div>
+        <p class="card-text"><%= balance.sub_total %></p>
+      </div>
+    </div>
+</div>

@@ -1,4 +1,21 @@
-.products_container {
-  display: flex;
-  gap: 20px;
+.dont-buy {
+  border: 2px solid red;
+}
+
+.cat__select{
+  width: 0 !important;
+}
+
+#validationTagsThreshold{
+  width: 0 !important;
+}
+
+.form-placeholder-shown div {
+  width: 200px;
+}
+
+@media (min-width: 601px) {
+  .form-placeholder-shown div {
+    width: 900px;
+  }
 }
