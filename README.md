@@ -1,6 +1,6 @@
 # Inventory Project
 
-# Objectives
+## Objectives
 
 This project is for a inventory
 
@@ -12,7 +12,7 @@ This project is for a inventory
 - Keep track if the user paid or not
 - Keep track of the balance
 
-# Description of the Project
+## Description of the Project
 
 For the development of the project, the following tools were used:
 
