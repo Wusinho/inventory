@@ -1,8 +1,6 @@
 # Inventory Project
 
-# Objectives
-
-This project is for a inventory
+## Objectives
 
 - Register a Provider
 - Register a Product sold by the Provider
@@ -12,7 +10,7 @@ This project is for a inventory
 - Keep track if the user paid or not
 - Keep track of the balance
 
-# Description of the Project
+## Description of the Project
 
 For the development of the project, the following tools were used:
 
