@@ -1,5 +1,8 @@
 # Inventory Project
 
+## Summary
+Streamline Provider entity management with CRUD operations. Simplify Product entity management, focusing on items sold by Providers. Efficiently handle inventory Purchases through CRUD operations. Streamline Customer entity management. Enable seamless Customer Order Registration and tracking.
+
 ## Objectives
 
 This project is for a inventory
