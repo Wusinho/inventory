@@ -5,15 +5,13 @@ Streamline Provider entity management with CRUD operations. Simplify Product ent
 
 ## Objectives
 
-This project is for a inventory
-
-- Register a Provider
-- Register a Product sold by the Provider
-- Register the inventory Purchases
-- Register a Customer
-- Register the Customer Order
-- Keep track if the user paid or not
-- Keep track of the balance
+- Implement CRUD operations for Provider entities
+- Implement CRUD operations for Product entities sold by Providers
+- Manage CRUD operations for inventory Purchases
+- Manage CRUD operations for Customer entities
+- Enable Customer Order Registration
+- Implement a payment tracking system to monitor payment status
+- Maintain accurate balance tracking for financial transactions
 
 ## Description of the Project
 
